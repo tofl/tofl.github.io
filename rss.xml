@@ -19,20 +19,538 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Tue, 24 Mar 2020 22:30:43 +0100</lastBuildDate>
+        <lastBuildDate>Tue, 24 Mar 2020 22:39:29 +0100</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
         
             <item>
-                <title>Test</title>
-                <link>https://example.com/test/</link>
-                <guid isPermaLink="true">https://example.com/test/</guid>
+                <title>Add the locale at the root of the URL in VueJS (i18n)</title>
+                <link>https://example.com/add-the-locale-at-the-root-of-the-url-in-vuejs-i18n/</link>
+                <guid isPermaLink="true">https://example.com/add-the-locale-at-the-root-of-the-url-in-vuejs-i18n/</guid>
                 <pubDate>Tue, 24 Mar 2020 22:05:01 +0100</pubDate>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
-                    <description><![CDATA[<p>Test</p>
+                    <description><![CDATA[<p>How to add the locale (&ldquo;en&rdquo;, &ldquo;fr&rdquo;, &hellip;) at the root of the URL in VueJS? There are several ways of doing it, so let’s review them.</p>
+<p>We will try to achieve something like that :</p>
+<blockquote>
+<p>mysite.com/en/user/john</p>
+</blockquote>
+<p>Please note that we will be using Vue Router &amp; Vue-I18n for internationalization. You can still read this article if you don’t use these Vue plugins. It won’t stop you from getting the big picture and implementing these solutions in your app, but I strongly advise you to use these plugins anyway.</p>
+<h2 id="project-setup">Project setup</h2>
+<h3 id="vue-i18n">Vue-I18n</h3>
+<p>First, install Vue-I18n. We&rsquo;ll use npm :</p>
+<pre><code>npm install vue-i18n
+</code></pre><p>Then create a <code>translations</code> directory inside <code>src</code>. The newly created folder will have an <code>index.js</code> file containing Vue-I18n&rsquo;s configuration. We will set the plugin so it lets the browser decide what the default language should be :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// translations/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">VueI18n</span> <span class="nx">from</span> <span class="s1">&#39;vue-i18n&#39;</span><span class="p">;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VueI18n</span><span class="p">)</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">welcome</span><span class="o">:</span> <span class="s1">&#39;Welcome !&#39;</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="nx">fr</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">welcome</span><span class="o">:</span> <span class="s1">&#39;Bienvenue !&#39;</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+<span class="p">}</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">authorisedLanguages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">]</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">locale</span> <span class="o">=</span> <span class="nx">authorisedLanguages</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">)</span> <span class="o">?</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span> <span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="k">new</span> <span class="nx">VueI18n</span><span class="p">(</span><span class="p">{</span>
+  <span class="nx">locale</span><span class="p">,</span>
+  <span class="nx">fallbackLocale</span><span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="c1">// By default, the page is translated into english
+</span><span class="c1"></span>  <span class="nx">messages</span><span class="p">,</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="vue-router">Vue Router</h3>
+<p>For the moment this is pretty straightforward. Install the router with npm :</p>
+<pre><code>npm install vue-router
+</code></pre><p>Create a folder called <code>router</code> and inside of it an <code>index.js</code> file containing the following configuration :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// router/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">VueRouter</span> <span class="nx">from</span> <span class="s1">&#39;vue-router&#39;</span><span class="p">;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VueRouter</span><span class="p">)</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">(</span><span class="p">{</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+  <span class="nx">routes</span><span class="p">,</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">router</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="link-it-all-together">Link it all together</h3>
+<p>Now, inside <code>main.js</code>, you need to have your app configured that way :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// main.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App.vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">router</span> <span class="nx">from</span> <span class="s1">&#39;./router&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">i18n</span> <span class="nx">from</span> <span class="s1">&#39;./translations&#39;</span><span class="p">;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">(</span><span class="p">{</span>
+  <span class="nx">i18n</span><span class="p">,</span> <span class="c1">// ES6 for i18n: i18n,
+</span><span class="c1"></span>  <span class="nx">router</span><span class="p">,</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="nx">h</span> <span class="p">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">)</span><span class="p">,</span>
+<span class="p">}</span><span class="p">)</span><span class="p">.</span><span class="nx">$mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span><span class="p">;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="adding-the-locale-in-the-url">Adding the locale in the URL</h2>
+<p>Go back to the router&rsquo;s configuration file. We want to tell the router to redirect the users to <em>/:lang</em> (where <code>:lang</code> can be &ldquo;fr&rdquo; or &ldquo;en&rdquo; in our example) whenever they try to access / (the base route).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// router.index.js
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">redirect</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;lang&#39;</span> <span class="p">}</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:lang&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;lang&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+<span class="p">]</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>For the moment, the <code>Home</code> component will just contain some simple text provided with the translation:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Home.vue </span><span class="c">--&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;home&#34;</span><span class="p"></span><span class="p">&gt;</span>
+  	 <span class="p">&lt;</span><span class="nt">h1</span><span class="p"></span><span class="p">&gt;</span>{{ $t(&#39;welcome&#39;) }}<span class="p">&lt;</span><span class="p">/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The Home component will be displayed but the URL won&rsquo;t be changed. That&rsquo;s because the router doesn&rsquo;t know what to do with the <code>lang</code> parameter. So we&rsquo;ll make use of the <a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#per-route-guard"><code>beforeEnter</code> navigation guard</a> to tell it what value to give that parameter:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// router/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="nx">i18n</span> <span class="nx">from</span> <span class="s1">&#39;../translations&#39;</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:lang&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;lang&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span><span class="p">,</span>
+    <span class="nx">beforeEnter</span><span class="o">:</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">locale</span> <span class="o">=</span> <span class="nx">to</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">lang</span><span class="p">;</span> <span class="c1">// Retrieve the current locale set in the URL
+</span><span class="c1"></span>
+      <span class="c1">// Check if the locale the user is trying to access is authorised.
+</span><span class="c1"></span>      <span class="c1">// In a larger application that supports lots of languages, you may want to store
+</span><span class="c1"></span>      <span class="c1">// all the locales in a separate array
+</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">]</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">locale</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">i18n</span><span class="p">.</span><span class="nx">locale</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span>
+
+		<span class="c1">// Changing the language from the URl (either manually or with a link) is possible this way
+</span><span class="c1"></span>      <span class="nx">i18n</span><span class="p">.</span><span class="nx">locale</span> <span class="o">=</span> <span class="nx">locale</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now whenever the user wants to access the base of the site, he&rsquo;ll be redirected to /:lang where :lang is the default language. Also, if you add some translatable text in your User component, the text will be translated even if you switch the locale in the URL to fr. Try it !</p>
+<h3 id="using-nested-routes">Using nested routes</h3>
+<p>But that&rsquo;s not enough. We want our app to be more than just a single page that translates &ldquo;Welcome&rdquo; into french. There are many ways to structure an app. So let&rsquo;s see how we would configure our router in a real world application.</p>
+<p>In this first case, let&rsquo;s pretend our app uses <a href="https://router.vuejs.org/guide/essentials/nested-routes.html">nested routes</a>, like that:</p>
+<pre><code>/profile                              /posts
++------------------+                  +-----------------+
+| Home             |                  | Home            |
+| +--------------+ |                  | +-------------+ |
+| | Profile      | |  +------------&gt;  | | Posts       | |
+| |              | |                  | |             | |
+| +--------------+ |                  | +-------------+ |
++------------------+                  +-----------------+
+</code></pre><p>The idea is that <code>Home</code> will contain other components, like a menu that will be shared with <code>Profile</code> and <code>Posts</code>. Of course those last two components can also contain their own nested routes.</p>
+<p>So, how do we do this? By providing our <code>lang</code> route with <a href="https://router.vuejs.org/guide/essentials/nested-routes.html">children</a>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// router/index.js
+</span><span class="c1"></span>
+<span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:lang&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;lang&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span><span class="p">,</span>
+    <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">User</span> <span class="p">}</span><span class="p">,</span> <span class="c1">// This route will be accessible through /en/user or /fr/user
+</span><span class="c1"></span>      <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Posts</span> <span class="p">}</span><span class="p">,</span>
+    <span class="p">]</span><span class="p">,</span>
+    <span class="nx">beforeEnter</span><span class="o">:</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="p">...</span>
+    <span class="p">}</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Do not forget to add a router-view tag in the Home component&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Home.vue </span><span class="c">--&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;home&#34;</span><span class="p"></span><span class="p">&gt;</span>
+  	 <span class="p">&lt;</span><span class="nt">h1</span><span class="p"></span><span class="p">&gt;</span>{{ $t(&#39;welcome&#39;) }}<span class="p">&lt;</span><span class="p">/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-view</span> <span class="p">/</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>&hellip;and to add, of course, the two new components:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> User.vue </span><span class="c">--&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;user&#34;</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p"></span><span class="p">&gt;</span>{{ $t(&#39;user&#39;) }}<span class="p">&lt;</span><span class="p">/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Posts.vue </span><span class="c">--&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;posts&#34;</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p"></span><span class="p">&gt;</span>{{ $t(&#39;posts&#39;) }}<span class="p">&lt;</span><span class="p">/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s add the translation :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// translations/index.js
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">welcome</span><span class="o">:</span> <span class="s1">&#39;Welcome !&#39;</span><span class="p">,</span>
+    <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;User profile&#39;</span><span class="p">,</span>
+    <span class="nx">posts</span><span class="o">:</span> <span class="s1">&#39;Last posts&#39;</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="nx">fr</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">welcome</span><span class="o">:</span> <span class="s1">&#39;Bienvenue !&#39;</span><span class="p">,</span>
+    <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;Profil d\&#39;utilisateur&#39;</span><span class="p">,</span>
+    <span class="nx">posts</span><span class="o">:</span> <span class="s1">&#39;Derniers messages&#39;</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The app now works !</p>
+<h3 id="so-what-about-sites-that-do-not-use-nested-routes-">So what about sites that do not use nested routes ?</h3>
+<p>In the very simple app we&rsquo;ve just created, the user and the posts pages are both children of the Homepage. In lots of cases, we may want to make our pages more distinct, like this for example :</p>
+<pre><code>/                                     /posts
++------------------+                  +-----------------+
+| Home             |                  | Posts           |
+|                  |                  |                 |
+|                  |  +------------&gt;  |                 |
+|                  |                  |                 |
+|                  |                  |                 |
++------------------+                  +-----------------+
+
+                                      /user
+                                      +-----------------+
+                                      | User            |
+                                      |                 |
+                      +------------&gt;  |                 |
+                                      |                 |
+                                      |                 |
+                                      +-----------------+
+
+</code></pre><p>It&rsquo;s actually quite simple. We&rsquo;ll have to remove the children array, and set up all the routes as siblings. Also, we&rsquo;ll use the <code>beforeEach()</code> safeguard, and it will be applied to the <code>router</code> variable.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;lang&#39;</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:lang&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;lang&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:lang/user&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">User</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:lang/posts&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;posts&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Posts</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+<span class="p">]</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">(</span><span class="p">{</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+  <span class="nx">routes</span><span class="p">,</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">beforeEach</span><span class="p">(</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">locale</span> <span class="o">=</span> <span class="nx">to</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">lang</span><span class="p">;</span> <span class="c1">// Retrieve the current locale set in the URL
+</span><span class="c1"></span>
+  <span class="c1">// Check if the locale the user is trying to access is authorised.
+</span><span class="c1"></span>  <span class="c1">// In a larger application that supports lots of languages, you may want to store
+</span><span class="c1"></span>  <span class="c1">// all the locales in a separate array
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">]</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">locale</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">i18n</span><span class="p">.</span><span class="nx">locale</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Changing the language from the URl (either manually or with a link) is possible this way
+</span><span class="c1"></span>  <span class="nx">i18n</span><span class="p">.</span><span class="nx">locale</span> <span class="o">=</span> <span class="nx">locale</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">router</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can have access to the source code from the <a href="https://github.com/tofl/Vue-Translations">Github repository</a>.</p>
 ]]></description>
                 
                 
