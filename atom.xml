@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title type="text">tofl</title>
+    <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
+    <updated>2020-03-24T22:30:43+01:00</updated>
+    <id>https://example.com/</id>
+    <link rel="alternate" type="text/html" href="https://example.com/" />
+    <link rel="self" type="application/atom+xml" href="https://example.com/atom.xml" />
+    <author>
+            <name>tofl</name>
+            <uri>https://example.com/</uri>
+            </author>
+    <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
+    <generator uri="https://gohugo.io/" version="0.64.1">Hugo</generator>
+        <entry>
+            <title type="text">Test</title>
+            <link rel="alternate" type="text/html" href="https://example.com/test/" />
+            <id>https://example.com/test/</id>
+            <updated>2020-03-24T22:20:47+01:00</updated>
+            <published>2020-03-24T22:05:01+01:00</published>
+            <author>
+                    <name>tofl</name>
+                    <uri>https://example.com/</uri>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[Test]]></summary>
+            
+                <content type="html"><![CDATA[<p>Test</p>
+]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
+</feed>

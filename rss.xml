@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>tofl</title>
+        <link>https://example.com/</link>
+        <description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description>
+        <generator>Hugo 0.64.1 https://gohugo.io/</generator>
+        
+            <language>en</language>
+        
+        
+        
+        
+            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+        
+        <lastBuildDate>Tue, 24 Mar 2020 22:30:43 +0100</lastBuildDate>
+        
+            <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
+        
+        
+            <item>
+                <title>Test</title>
+                <link>https://example.com/test/</link>
+                <guid isPermaLink="true">https://example.com/test/</guid>
+                <pubDate>Tue, 24 Mar 2020 22:05:01 +0100</pubDate>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description><![CDATA[<p>Test</p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
+        
+    </channel>
+</rss>
