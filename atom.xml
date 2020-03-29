@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">tofl</title>
     <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
-    <updated>2020-03-24T23:05:54+01:00</updated>
+    <updated>2020-03-29T04:00:17+02:00</updated>
     <id>https://example.com/</id>
     <link rel="alternate" type="text/html" href="https://example.com/" />
     <link rel="self" type="application/atom+xml" href="https://example.com/atom.xml" />
@@ -15,10 +15,75 @@
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
     <generator uri="https://gohugo.io/" version="0.64.1">Hugo</generator>
         <entry>
+            <title type="text">How to watch for changes in Vuex ?</title>
+            <link rel="alternate" type="text/html" href="https://example.com/how-to-watch-for-changes-in-vuex/" />
+            <id>https://example.com/how-to-watch-for-changes-in-vuex/</id>
+            <updated>2020-03-29T04:00:08+02:00</updated>
+            <published>2020-03-29T03:58:59+02:00</published>
+            <author>
+                    <name>tofl</name>
+                    <uri>https://example.com/</uri>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[When using the Vuex in VueJS, it can be useful to watch for changes in the store. To do so, you can make use of watch method, like so :
+1 2 3 4 5 6  this.$store.watch( state =&gt; state.parameters, () =&gt; { console.]]></summary>
+            
+                <content type="html"><![CDATA[<p>When using the Vuex in VueJS, it can be useful to watch for changes in the store. To do so, you can make use of <code>watch</code> method, like so :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span>
+      <span class="nx">state</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">parameters</span><span class="p">,</span>
+      <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;The parameters have changed!&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">,</span>
+<span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This will watch the <code>parameters</code> state key. Whenever it changes, the function from line 3 will be executed.</p>
+<p>Note that you can also watch other things than directly the state, like getters for example :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span>
+      <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">userData</span><span class="p">,</span>
+      <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;The user data have changed&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">,</span>
+<span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can put the watchers in the <code>beforeCreate</code> lifecycle hook for example.</p>
+]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">Add the locale at the root of the URL in VueJS (i18n)</title>
             <link rel="alternate" type="text/html" href="https://example.com/add-locale-root-url-vuejs-i18n/" />
             <id>https://example.com/add-locale-root-url-vuejs-i18n/</id>
-            <updated>2020-03-24T23:04:59+01:00</updated>
+            <updated>2020-03-29T03:57:31+02:00</updated>
             <published>2020-03-24T22:05:01+01:00</published>
             <author>
                     <name>tofl</name>
@@ -548,6 +613,79 @@ We will try to achieve something like that :
 </code></pre></td></tr></table>
 </div>
 </div><p>You can have access to the source code from the <a href="https://github.com/tofl/Vue-Translations">Github repository</a>.</p>
+]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://example.com/tags/vuejs/" term="vuejs" label="vuejs" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">How to watch for changes in Vuex ?</title>
+            <link rel="alternate" type="text/html" href="https://example.com/add-locale-root-url-vuejs-i18n/" />
+            <id>https://example.com/add-locale-root-url-vuejs-i18n/</id>
+            <updated>2020-03-29T03:58:19+02:00</updated>
+            <published>2020-03-24T22:05:01+01:00</published>
+            <author>
+                    <name>tofl</name>
+                    <uri>https://example.com/</uri>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[When using the Vuex in VueJS, it can be useful to watch for changes in the store. To do so, you can make use of watch method, like so :
+1 2 3 4 5 6  this.$store.watch( state =&gt; state.parameters, () =&gt; { console.]]></summary>
+            
+                <content type="html"><![CDATA[<p>When using the Vuex in VueJS, it can be useful to watch for changes in the store. To do so, you can make use of <code>watch</code> method, like so :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span>
+      <span class="nx">state</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">parameters</span><span class="p">,</span>
+      <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;The parameters have changed!&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">,</span>
+<span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This will watch the <code>parameters</code> state key. Whenever it changes, the function from line 3 will be executed.</p>
+<p>Note that you can also watch other things than directly the state, like getters for example :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span>
+      <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">userData</span><span class="p">,</span>
+      <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;The user data have changed&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">,</span>
+<span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can put the watchers in the <code>beforeCreate</code> lifecycle hook for example.</p>
 ]]></content>
             
             
