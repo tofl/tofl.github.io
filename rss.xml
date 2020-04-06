@@ -19,10 +19,171 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Mon, 06 Apr 2020 16:48:37 +0200</lastBuildDate>
+        <lastBuildDate>Mon, 06 Apr 2020 16:52:55 +0200</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
+        
+            <item>
+                <title>Highcharts Highstock Vuejs</title>
+                <link>https://example.com/highcharts-highstock-vuejs-tutorial/</link>
+                <guid isPermaLink="true">https://example.com/highcharts-highstock-vuejs-tutorial/</guid>
+                <pubDate>Mon, 06 Apr 2020 16:51:13 +0200</pubDate>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description><![CDATA[<p><strong>Prerequisite</strong>: before reading this tutorial, you need to know how <a href="">to install, set up and use Highcharts in a VueJS project</a>.</p>
+<h3 id="using-a-stock-chart-when-highcharts-is-registered-locally">Using a stock chart when Highcharts is registered locally</h3>
+<p>If Highcharts is registered locally in the component you want to dislay a chart in, then you&rsquo;ll have to import the necessary modules at the beginning of your component&rsquo;s <code>&lt;script&gt;</code> part:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Chart</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;highcharts-vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Highcharts</span> <span class="nx">from</span> <span class="s1">&#39;highcharts&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">stockInit</span> <span class="nx">from</span> <span class="s1">&#39;highcharts/modules/stock&#39;</span><span class="p">;</span>
+
+<span class="nx">stockInit</span><span class="p">(</span><span class="nx">Highcharts</span><span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="using-a-stock-chart-when-highcharts-is-registered-globally">Using a stock chart when Highcharts is registered globally</h3>
+<p>If Highcharts is registered gloablly, then for the moment you <code>main.js</code> file should look like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">HighchartsVue</span> <span class="nx">from</span> <span class="s1">&#39;highcharts-vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Highcharts</span> <span class="nx">from</span> <span class="s1">&#39;highcharts&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">exportingInit</span> <span class="nx">from</span> <span class="s1">&#39;highcharts/modules/exporting&#39;</span><span class="p">;</span>
+
+<span class="nx">exportingInit</span><span class="p">(</span><span class="nx">Highcharts</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">HighchartsVue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">tagName</span><span class="o">:</span> <span class="s1">&#39;chart&#39;</span> <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>To use HighStock, we&rsquo;ll have to import the <code>stockInit</code> function, a Highcharts module. Afterwards, <code>main.js</code> should look like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">HighchartsVue</span> <span class="nx">from</span> <span class="s1">&#39;highcharts-vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Highcharts</span> <span class="nx">from</span> <span class="s1">&#39;highcharts&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">exportingInit</span> <span class="nx">from</span> <span class="s1">&#39;highcharts/modules/exporting&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">stockInit</span> <span class="nx">from</span> <span class="s1">&#39;highcharts/modules/stock&#39;</span><span class="p">;</span> <span class="c1">// Import stockInit to use HighStock
+</span><span class="c1"></span>
+<span class="nx">stockInit</span><span class="p">(</span><span class="nx">Highcharts</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">exportingInit</span><span class="p">(</span><span class="nx">Highcharts</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">HighchartsVue</span><span class="p">,</span> <span class="p">{</span><span class="nx">tagName</span><span class="o">:</span> <span class="s1">&#39;chart&#39;</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="create-a-new-stock-chart">Create a new stock chart</h3>
+<p>To tell Highcharts that we want to display a stock chart, we need to define the <code>constructor-type</code> when calling the chart component in the template:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">chart</span> <span class="na">:constructor-type</span><span class="o">=</span><span class="s">&#34;&#39;stockChart&#39;&#34;</span> <span class="na">:options</span><span class="o">=</span><span class="s">&#34;chartOptions&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">chart</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s define <code>chartOptions</code>.</p>
+<p><code>chartOptions</code> will simply be an object defined in the <code>data</code> function of our component. For the sake of this example, we&rsquo;ll just create a candlestick chart, <a href="https://www.highcharts.com/stock/demo">but there are other possibilities</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chartOptions</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">series</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
+		<span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;candlestick&#39;</span><span class="p">,</span>
+		<span class="nx">data</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">]</span><span class="p">,</span>
+<span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now of course we need some financial data. We&rsquo;ll get the JSON data from a Highcharts demo <a href="https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/new-intraday.json">at this address</a>.</p>
+<p>To make the HTTP request, just install axios in your project:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install axios
+</code></pre></td></tr></table>
+</div>
+</div><p>Then import axios in the component:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>We&rsquo;ll load the data in the <code>created</code> lifecycle hook, like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">created</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/new-intraday.json&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">chartOptions</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">chartOptions</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">;</span>
+	<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>If you have a look at the data returned from the HTTP request, you&rsquo;ll see it is in this order: <code>[date, open, high, low, close]</code>.</p>
+<p>Now load your project in a web browser, and you should see something that looks like this:</p>
+<p><img src="/Users/tomflitterman/Desktop/articles/images/highstock-1.png" alt="highstock example vuejs"></p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/vuejs/">vuejs</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>How to Use Highcharts With Vue</title>
