@@ -3,32 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://example.com/how-to-use-highcharts-vue-js/</loc>
+    <lastmod>2020-04-06T16:48:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/</loc>
+    <lastmod>2020-04-06T16:48:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2020-04-06T16:48:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2020-04-06T16:48:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/vuejs/</loc>
+    <lastmod>2020-04-06T16:48:24+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/how-to-watch-for-changes-in-vuex/</loc>
     <lastmod>2020-03-29T04:00:08+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
-    <lastmod>2020-03-29T04:00:08+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2020-03-29T04:00:08+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/add-locale-root-url-vuejs-i18n/</loc>
-    <lastmod>2020-03-29T03:57:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/</loc>
-    <lastmod>2020-03-29T03:57:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/vuejs/</loc>
     <lastmod>2020-03-29T03:57:31+02:00</lastmod>
   </url>
   

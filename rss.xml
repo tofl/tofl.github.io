@@ -19,10 +19,285 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Sun, 29 Mar 2020 04:01:44 +0200</lastBuildDate>
+        <lastBuildDate>Mon, 06 Apr 2020 16:48:37 +0200</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
+        
+            <item>
+                <title>How to Use Highcharts With Vue</title>
+                <link>https://example.com/how-to-use-highcharts-vue-js/</link>
+                <guid isPermaLink="true">https://example.com/how-to-use-highcharts-vue-js/</guid>
+                <pubDate>Mon, 06 Apr 2020 16:46:00 +0200</pubDate>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description><![CDATA[<p>In this article, we&rsquo;ll see how to install Highcharts for a Vue JS app, and how to use it. Please note that it only serves as an introduction, but if it is successful, I&rsquo;ll gladly write a tutorial that goes deeper in the configuration of Highcharts.</p>
+<p>Highcharts is a very powerful Javascript library that allows us to easily create beautiful &amp; complex charts of all types.</p>
+<h3 id="getting-started">Getting started</h3>
+<p>We&rsquo;ll create a dummy project with Vue CLI for the purpose of this tutorial, using ESLint with Airbnb&rsquo;s configuration.</p>
+<h3 id="install-the-dependencies">Install the dependencies</h3>
+<p><a href="https://www.highcharts.com/">Highcharts</a> has a wrapper called <a href="https://github.com/highcharts/highcharts-vue">highcharts-vue</a>. You can install it using npm:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">npm install highcharts-vue 
+</code></pre></td></tr></table>
+</div>
+</div><p>It seems that the wrapper only offers an API to use Highcharts, but not Highcharts itself. So you&rsquo;ll also have to install it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">npm install highcharts
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="importing-highcharts-locally-in-a-component">Importing Highcharts locally in a component</h3>
+<p>You can use Highcharts in your components individually. It&rsquo;s very easy, just import it the component. For the sake of this example, we&rsquo;ll also define a dataset as in the official repo :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Chart</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;highcharts-vue&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;app&#39;</span><span class="p">,</span>
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">highcharts</span><span class="o">:</span> <span class="nx">Chart</span><span class="p">,</span>
+  <span class="p">}</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">chartOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">series</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
+          <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span><span class="p">,</span>
+        <span class="p">}</span><span class="p">]</span><span class="p">,</span>
+      <span class="p">}</span><span class="p">,</span>
+    <span class="p">}</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Then in the template:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p"></span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">highcharts</span> <span class="na">:options</span><span class="o">=</span><span class="s">&#34;chartOptions&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">highcharts</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You should now have a chart that looks like this:</p>
+<p><img src="/Users/tomflitterman/Desktop/articles/images/highcharts-1.png" alt="basic chart"></p>
+<h3 id="registering-globally">Registering globally</h3>
+<p>To import Highcharts globaly, you&rsquo;ll have to add the following lines to main.js. Add the following lines :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">HighchartsVue</span> <span class="nx">from</span> <span class="s1">&#39;highcharts-vue&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Highcharts</span> <span class="nx">from</span> <span class="s1">&#39;highcharts&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">exportingInit</span> <span class="nx">from</span> <span class="s1">&#39;highcharts/modules/exporting&#39;</span><span class="p">;</span>
+
+<span class="nx">exportingInit</span><span class="p">(</span><span class="nx">Highcharts</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">HighchartsVue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">tagName</span><span class="o">:</span> <span class="s1">&#39;chart&#39;</span> <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In the last line, you tell Vue to use <code>HighchartsVue</code> that is imported just before, and it will be used in the templates under the name <code>chart</code>. The, in the template of any component, you&rsquo;ll just have to add the <code>&lt;chart&gt;</code> tag. No need to import any package or library from that component.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">chart</span> <span class="na">:options</span><span class="o">=</span><span class="s">&#34;chartOptions&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">chart</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="configuring-the-chart">Configuring the chart</h3>
+<p>There are lots of possible options to pass to the charts. This is just a preview, but please see Highcharts&rsquo; docs for more information. You can (and should) also have a look at <a href="https://www.highcharts.com/demo">the examples</a>.</p>
+<p>The options will be contained in an object that will then be passed to the <code>:options</code> parameter like that: <code>&lt;highcharts :options=&quot;chartOptions&quot;&gt;&lt;/highcharts&gt;</code>.</p>
+<h4 id="defining-the-data">Defining the data</h4>
+<p>Say we want a chart that dislays the average monthly temperatures in France. We also want to define a name for this data. We&rsquo;ll do it this way:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chartOptions</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+		<span class="p">{</span>
+			<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span>
+			<span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">43</span><span class="p">]</span><span class="p">,</span>
+		<span class="p">}</span><span class="p">,</span>
+	<span class="p">]</span><span class="p">,</span>
+<span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>series</code> is an array, and you can add as many as you wish:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+		<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span>
+		<span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">43</span><span class="p">]</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+	<span class="p">{</span>
+		<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Germany&#39;</span><span class="p">,</span>
+		<span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+<span class="p">]</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="name-the-chart">Name the chart</h4>
+<p>You can also add a title and a subtitle to the chart:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chartOptions</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Average monthly temperature&#39;</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+	<span class="nx">subtitle</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Values are in °F&#39;</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+	<span class="p">...</span>
+<span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="defining-the-axis">Defining the axis</h4>
+<p>You can define the axis to give more meaning to your charts. Either rename the values, or simply give your axis a title like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chartOptions</span><span class="o">:</span> <span class="p">{</span>
+	<span class="p">...</span>
+	<span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+		<span class="p">}</span><span class="p">,</span>
+		<span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;June&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span> <span class="s1">&#39;October&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+	<span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Temperature (°F)&#39;</span><span class="p">,</span>
+		<span class="p">}</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+	<span class="p">...</span>
+<span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="chart-type">Chart type</h4>
+<p>Finally you can set the chart type with the <code>type</code> key. The default value is <code>line</code>. Let&rsquo;s change it for example to <code>bar</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chartOptions</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+	<span class="p">}</span><span class="p">,</span>
+	<span class="p">...</span>
+<span class="p">}</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="keep-going">Keep going</h4>
+<p>The possibilities to customize your charts are <a href="https://api.highcharts.com/highcharts/">almost infinite</a>. You can easily change pretty much anything: the color of the lines, the position of the legend, the responsiveness of the charts, &hellip;</p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/vuejs/">vuejs</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>How to watch for changes in Vuex ?</title>
