@@ -19,7 +19,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Mon, 06 Apr 2020 16:59:32 +0200</lastBuildDate>
+        <lastBuildDate>Mon, 06 Apr 2020 17:20:04 +0200</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
@@ -164,7 +164,7 @@
 </div>
 </div><p>If you have a look at the data returned from the HTTP request, you&rsquo;ll see it is in this order: <code>[date, open, high, low, close]</code>.</p>
 <p>Now load your project in a web browser, and you should see something that looks like this:</p>
-<p><img src="/Users/tomflitterman/Desktop/articles/images/highstock-1.png" alt="highstock example vuejs"></p>
+<p><img src="/images/highstock-1.png" alt="highstock example vuejs"></p>
 ]]></description>
                 
                 
