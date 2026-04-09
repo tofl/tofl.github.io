@@ -1,0 +1,12 @@
+baseURL = 'https://cloudnugget.com/'
+locale = 'en-us'
+title = 'CloudNugget'
+theme = 'hugo-book'
+
+[params.sidebar]
+showLevel = 1  # 1 = seulement les sections de premier niveau
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true

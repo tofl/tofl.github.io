@@ -1,0 +1,632 @@
+// ============================================================
+// custom.scss — Elegant, sober styling for Hugo Book theme
+// Drop this file into: assets/scss/custom.scss
+// ============================================================
+
+// ------------------------------------------------------------
+// 1. TYPOGRAPHY IMPORTS
+// ------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap');
+
+// ------------------------------------------------------------
+// 2. DESIGN TOKENS
+// ------------------------------------------------------------
+
+:root {
+  // Background & surface
+  --bg-main:       #f7f5f2;
+  --bg-code:       #eceae6;
+  --bg-blockquote: #ede9e3;
+
+  // Text
+  --text-primary:   #1c1a18;
+  --text-secondary: #5a5650;
+  --text-muted:     #9a9590;
+  --text-sidebar:   #3a3835;
+
+  // Accent (a warm, deep amber — understated)
+  --accent:         #b8621a;
+  --accent-light:   #f0dece;
+  --accent-subtle:  #e8d5c0;
+
+  // Borders & dividers
+  --border-light:   #ddd9d3;
+  --border-medium:  #c8c4be;
+
+  // Spacing baseline
+  --line-height-body: 1.78;
+  --max-prose-width:  68ch;
+}
+
+// ------------------------------------------------------------
+// 3. GLOBAL BASE
+// ------------------------------------------------------------
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// ------------------------------------------------------------
+// 4. LAYOUT — Book container
+// ------------------------------------------------------------
+
+.book-page {
+  background-color: var(--bg-main);
+}
+
+.markdown {
+  max-width: var(--max-prose-width);
+  color: var(--text-primary);
+}
+
+// ------------------------------------------------------------
+// 5. HEADINGS
+// Hierarchy: size → weight → color → spacing
+// ------------------------------------------------------------
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.markdown h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.markdown h2 {
+  font-size: 1.45rem;
+  font-weight: 500;
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.3rem;
+}
+
+.markdown h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-top: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
+.markdown h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 1.8rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.markdown h5,
+.markdown h6 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+// ------------------------------------------------------------
+// 6. BODY TEXT & PARAGRAPHS
+// ------------------------------------------------------------
+
+.markdown p {
+  margin-bottom: 1.3em;
+  font-size: 1rem;
+  color: var(--text-primary);
+  hyphens: auto;
+}
+
+.markdown strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdown em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.markdown strong em,
+.markdown em strong {
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent);
+}
+
+// ------------------------------------------------------------
+// 7. LINKS
+// ------------------------------------------------------------
+
+.markdown a, .markdown a:visited {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-subtle);
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:visited {
+    color: var(--accent);
+  }
+
+  &:hover {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+  }
+}
+
+// ------------------------------------------------------------
+// 8. LISTS
+// ------------------------------------------------------------
+
+.markdown ul,
+.markdown ol {
+  padding-left: 1.6em;
+  margin-bottom: 1.2em;
+}
+
+.markdown li {
+  margin-bottom: 0.35em;
+  line-height: 1.7;
+}
+
+.markdown ul li::marker {
+  color: var(--accent);
+}
+
+.markdown ol li::marker {
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+// Nested lists
+.markdown li > ul,
+.markdown li > ol {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+// ------------------------------------------------------------
+// 9. BLOCKQUOTES
+// ------------------------------------------------------------
+
+.markdown blockquote {
+  margin: 1.8rem 0;
+  padding: 1rem 1.4rem;
+  background-color: var(--bg-blockquote);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+
+  p {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  cite {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-style: normal;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+  }
+}
+
+// ------------------------------------------------------------
+// 10. CODE
+// ------------------------------------------------------------
+
+.markdown code {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 0.85em;
+  background-color: var(--bg-code);
+  color: var(--accent);
+  padding: 0.15em 0.45em;
+  border-radius: 3px;
+  border: 1px solid var(--border-light);
+}
+
+.markdown pre {
+  background-color: #201e1b;
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem;
+  overflow-x: auto;
+  margin: 1.6rem 0;
+  border: 1px solid #38352f;
+
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #e0d8cc;
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+}
+
+// ------------------------------------------------------------
+// 11. HORIZONTAL RULE
+// ------------------------------------------------------------
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 2.5rem auto;
+  width: 60%;
+}
+
+// ------------------------------------------------------------
+// 12. TABLES
+// ------------------------------------------------------------
+
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.8rem 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+
+  th, td {
+    border: 2px solid var(--border-medium) !important;
+  }
+}
+
+.markdown thead {
+  border: 2px solid var(--border-medium);
+
+  th {
+    text-align: left;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+}
+
+.markdown tbody {
+  tr {
+    border: 2px solid var(--border-medium);
+    transition: background 0.1s ease;
+    background-color: var(--bg-main);
+
+    &:nth-child(even) {
+      background-color: var(--bg-code);
+    }
+
+    &:hover {
+      background-color: var(--accent-subtle);
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// 13. SIDEBAR
+// ------------------------------------------------------------
+
+.book-menu .book-menu-content {
+  background-color: var(--bg-main);
+  border-right: none;
+  font-family: 'DM Sans', sans-serif;
+
+  nav {
+    padding: 1.2rem 0;
+  }
+}
+
+// Sidebar brand / title
+.book-menu .book-brand {
+  padding-left: 0.8rem;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 0.8rem;
+
+  a {
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    border: none;
+  }
+}
+
+// Sidebar navigation links
+.book-menu nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li a {
+    display: block;
+    padding: 0.3rem 1.2rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-sidebar);
+    text-decoration: none;
+    border: none;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    line-height: 1.5;
+
+    &:hover {
+      color: var(--accent);
+      border-left-color: var(--accent-subtle);
+      background-color: var(--accent-light);
+    }
+  }
+
+  // Active / current page
+  li.active > a,
+  li > a.active {
+    color: var(--accent);
+    font-weight: 500;
+    border-left-color: var(--accent);
+    background-color: var(--accent-light);
+  }
+
+  // Nested items
+  ul {
+    padding-left: 1rem;
+
+    li a {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+// Section separators in sidebar
+.book-menu nav > ul > li > span,
+.book-menu nav > ul > li > label {
+  display: flex;
+  user-select: none;
+  color: var(--text-muted);
+}
+
+.book-menu nav > ul > li > label:hover {
+  background-color: var(--accent-light);
+}
+
+// ------------------------------------------------------------
+// 14. TABLE OF CONTENTS (right sidebar)
+// ------------------------------------------------------------
+
+.book-toc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  border-left: 1px solid var(--border-light);
+  padding-left: 1.2rem;
+
+  nav > ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.3rem;
+
+      a {
+        color: var(--text-muted);
+        text-decoration: none;
+        border: none;
+        transition: color 0.15s;
+        line-height: 1.5;
+
+        &:hover {
+          color: var(--accent);
+        }
+      }
+
+      &.active > a {
+        color: var(--accent);
+        font-weight: 500;
+      }
+    }
+
+    // Nested TOC
+    ul {
+      padding-left: 0.8rem;
+      margin-top: 0.2rem;
+
+      li a {
+        font-size: 0.77rem;
+        color: var(--border-medium);
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// 15. HEADER / TOP BAR
+// ------------------------------------------------------------
+
+.book-header {
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-light);
+  font-family: 'DM Sans', sans-serif;
+
+  label {
+    color: var(--text-secondary);
+  }
+}
+
+// ------------------------------------------------------------
+// 16. SEARCH
+// ------------------------------------------------------------
+
+.book-search input {
+  background-color: var(--bg-code);
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.7rem;
+  transition: border-color 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-light);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+// ------------------------------------------------------------
+// 17. HINTS / CALLOUT BLOCKS (hugo-book native)
+// ------------------------------------------------------------
+
+.book-hint {
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  margin: 1.6rem 0;
+  border-left: 3px solid;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.925rem;
+
+  p:last-child { margin-bottom: 0; }
+
+  &.info {
+    background-color: #eaf0fb;
+    border-left-color: #3b6ccf;
+    color: #1a2f6a;
+  }
+
+  &.warning {
+    background-color: #fef6e4;
+    border-left-color: #d48a0c;
+    color: #5c3a00;
+  }
+
+  &.danger {
+    background-color: #fdecea;
+    border-left-color: #c0392b;
+    color: #5c1010;
+  }
+}
+
+// ------------------------------------------------------------
+// 18. PAGINATION
+// ------------------------------------------------------------
+
+.book-footer {
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.book-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-light);
+
+  a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: none;
+    transition: color 0.15s;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// 19. DARK MODE
+// Respects system preference gracefully
+// ------------------------------------------------------------
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main:       #1a1917;
+    --bg-code:       #252320;
+    --bg-blockquote: #22201d;
+
+    --text-primary:   #e8e4de;
+    --text-secondary: #a09a92;
+    --text-muted:     #666058;
+    --text-sidebar:   #c8c2ba;
+
+    --accent:         #d4824a;
+    --accent-light:   #2a1f14;
+    --accent-subtle:  #3a2818;
+
+    --border-light:   #2e2c28;
+    --border-medium:  #403c38;
+  }
+
+  .markdown pre {
+    background-color: #111009;
+    border-color: #2a2820;
+  }
+
+  .book-hint {
+    &.info    { background-color: #131c2e; color: #8aaaf0; }
+    &.warning { background-color: #201900; color: #d4a84a; }
+    &.danger  { background-color: #1e0a0a; color: #e07070; }
+  }
+}
+
+// ------------------------------------------------------------
+// 20. RESPONSIVE — tighten spacing on small screens
+// ------------------------------------------------------------
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .markdown h1 { font-size: 1.7rem; }
+  .markdown h2 { font-size: 1.25rem; }
+  .markdown h3 { font-size: 1.05rem; }
+}
