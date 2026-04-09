@@ -1,6 +1,6 @@
 baseURL = 'https://cloudnugget.com/'
 locale = 'en-us'
-title = 'CloudNugget'
+title = '🏠'
 theme = 'hugo-book'
 
 [params.sidebar]
