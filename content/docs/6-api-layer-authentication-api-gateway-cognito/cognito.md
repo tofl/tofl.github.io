@@ -4,13 +4,13 @@ type: docs
 weight: 2
 ---
 
-# Cognito
+## Cognito
 
 Managing user authentication from scratch is a significant engineering effort: you need to handle password hashing, account recovery, MFA, token issuance, session management, and more. Amazon Cognito [🔗](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html) solves this by providing a fully managed identity service that handles user sign-up, sign-in, and access control so you can focus on your application logic instead of reinventing auth infrastructure.
 
 Cognito has two distinct building blocks that are often used together but serve fundamentally different purposes: **User Pools** and **Identity Pools**.
 
-## User Pools
+### User Pools
 
 A User Pool [🔗](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) is a managed user directory. It handles everything related to *authenticating* your users: registration, login, password policies, account verification, MFA, and token issuance. Think of it as your application's dedicated identity provider.
 
@@ -24,7 +24,7 @@ All three are standard JWTs [🔗](https://docs.aws.amazon.com/cognito/latest/de
 
 **Hosted UI** — Cognito provides a pre-built, customizable sign-in/sign-up UI [🔗](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) that you can use out of the box via OAuth 2.0 redirect flows. This is the fastest path to a working auth UI without writing any frontend auth code.
 
-### User Pool Triggers
+#### User Pool Triggers
 
 You can attach Lambda functions to lifecycle events in the User Pool to customize the authentication flow. These Lambda triggers [🔗](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) run synchronously as part of the Cognito flow. The most commonly used ones are:
 
@@ -35,7 +35,7 @@ You can attach Lambda functions to lifecycle events in the User Pool to customiz
 
 A practical example: if you want to allow sign-up only for users with a corporate email domain (`@yourcompany.com`), you implement a pre sign-up trigger that inspects the email attribute and raises an exception to block any other domain.
 
-## Identity Pools (Federated Identities)
+### Identity Pools (Federated Identities)
 
 While User Pools handle *who the user is*, Identity Pools [🔗](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) handle *what the user can do with AWS*. An Identity Pool exchanges a validated identity token (from a User Pool, a social provider, or another IdP) for temporary AWS credentials via STS [🔗](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
 
@@ -43,7 +43,7 @@ This is what enables patterns like: a mobile app user uploads a file directly to
 
 Identity Pools support both *authenticated* identities (users who have signed in) and *unauthenticated* identities (guest users), with separate IAM roles for each.
 
-## User Pools vs Identity Pools
+### User Pools vs Identity Pools
 
 This distinction trips up many developers, so it's worth stating clearly:
 
@@ -55,7 +55,7 @@ This distinction trips up many developers, so it's worth stating clearly:
 
 In most real-world applications, both are used together: the User Pool authenticates the user and issues a JWT, and the Identity Pool exchanges that JWT for AWS credentials the client can use to access S3, DynamoDB, etc. directly.
 
-## Social Providers and Federation
+### Social Providers and Federation
 
 Cognito User Pools support federation with external identity providers [🔗](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html), meaning users can sign in with existing accounts rather than creating a new one. Supported options include:
 
@@ -65,7 +65,7 @@ Cognito User Pools support federation with external identity providers [🔗](ht
 
 From your application's perspective, federated logins produce the same JWT tokens as native Cognito logins — the underlying provider is abstracted away.
 
-## Integrating Cognito with API Gateway
+### Integrating Cognito with API Gateway
 
 The most common backend integration pattern is using a **Cognito User Pool authorizer** in API Gateway [🔗](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html). The flow works as follows:
 
@@ -76,6 +76,6 @@ The most common backend integration pattern is using a **Cognito User Pool autho
 
 This is significantly simpler than a Lambda authorizer for straightforward auth scenarios, because Cognito handles the entire token lifecycle and API Gateway handles validation natively.
 
-## ALB + Cognito Authentication
+### ALB + Cognito Authentication
 
 Application Load Balancer (ALB) can also integrate directly with Cognito [🔗](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html) to protect applications running on EC2, ECS, or any HTTP backend. When this is configured, the ALB itself handles the OAuth 2.0 redirect flow: unauthenticated users are redirected to the Cognito Hosted UI, and after login, the ALB forwards the request to your backend with user claims injected as HTTP headers. Your application receives pre-authenticated requests without needing to implement any auth logic itself.
