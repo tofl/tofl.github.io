@@ -1,0 +1,168 @@
+<div class="qcm-wrap">
+    <div class="qcm-header">
+        <svg class="qcm-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        <span class="qcm-label">Test your knowledge</span>
+    </div>
+    <div class="qcm-progress-bar"><div class="qcm-progress-fill"></div></div>
+    <div class="qcm-body"></div>
+    <script type="application/json" class="qcm-data">{{ .Get "questions" | transform.Unmarshal | jsonify }}</script>
+</div>
+<script>
+    (function() {
+        // Le script est injecté juste après le .qcm-wrap, donc le dernier dans le DOM est le nôtre
+        var allWraps = document.querySelectorAll('.qcm-wrap');
+        var wrap = allWraps[allWraps.length - 1];
+        if (!wrap || wrap.dataset.qcmReady) return;
+        wrap.dataset.qcmReady = '1';
+
+        var scriptTag = wrap.querySelector('script.qcm-data');
+        if (!scriptTag) { console.error('QCM: script tag introuvable'); return; }
+
+        var questions;
+        try {
+            questions = JSON.parse(scriptTag.textContent);
+            if (typeof questions === 'string') questions = JSON.parse(questions);
+        } catch(e) {
+            console.error('QCM: JSON invalide', e); return;
+        }
+
+        if (!questions || typeof questions.length === 'undefined' || !questions.length) {
+            console.error('QCM: tableau vide ou invalide', questions); return;
+        }
+
+        var progressFill = wrap.querySelector('.qcm-progress-fill');
+        var body = wrap.querySelector('.qcm-body');
+        var current = 0;
+        var score = 0;
+
+        function setProgress() {
+            progressFill.style.width = ((current / questions.length) * 100) + '%';
+        }
+
+        function render() {
+            body.innerHTML = '';
+            if (current >= questions.length) { showScore(); return; }
+            setProgress();
+            var q = questions[current];
+
+            var counter = document.createElement('p');
+            counter.className = 'qcm-counter';
+            counter.textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+            body.appendChild(counter);
+
+            var questionEl = document.createElement('p');
+            questionEl.className = 'qcm-question';
+            questionEl.textContent = q.question;
+            body.appendChild(questionEl);
+
+            var answersList = document.createElement('div');
+            answersList.className = 'qcm-answers';
+
+            q.answers.forEach(function(a) {
+                var item = document.createElement('label');
+                item.className = 'qcm-answer';
+
+                var icon = document.createElement('span');
+                icon.className = 'qcm-result-icon';
+                icon.setAttribute('aria-hidden', 'true');
+
+                var cb = document.createElement('input');
+                cb.type = 'checkbox';
+
+                var content = document.createElement('div');
+                content.className = 'qcm-answer-content';
+
+                var text = document.createElement('div');
+                text.className = 'qcm-answer-text';
+                text.textContent = a.answer;
+
+                var expl = document.createElement('div');
+                expl.className = 'qcm-explanation';
+                expl.textContent = a.explanation;
+
+                content.appendChild(text);
+                content.appendChild(expl);
+                item.appendChild(icon);
+                item.appendChild(cb);
+                item.appendChild(content);
+                answersList.appendChild(item);
+
+                item.addEventListener('change', function() {
+                    if (item.dataset.verified) return;
+                    item.classList.toggle('selected', cb.checked);
+                });
+            });
+
+            body.appendChild(answersList);
+
+            var btnRow = document.createElement('div');
+            btnRow.className = 'qcm-btn-row';
+
+            var verifyBtn = document.createElement('button');
+            verifyBtn.className = 'qcm-btn qcm-primary';
+            verifyBtn.textContent = 'Verify';
+            verifyBtn.addEventListener('click', verify);
+            btnRow.appendChild(verifyBtn);
+            body.appendChild(btnRow);
+
+            function verify() {
+                verifyBtn.disabled = true;
+                var questionCorrect = true;
+                var items = answersList.querySelectorAll('.qcm-answer');
+
+                q.answers.forEach(function(a, i) {
+                    var item = items[i];
+                    var cb = item.querySelector('input[type=checkbox]');
+                    var icon = item.querySelector('.qcm-result-icon');
+                    var expl = item.querySelector('.qcm-explanation');
+
+                    item.dataset.verified = '1';
+                    item.classList.remove('selected');
+                    item.style.cursor = 'default';
+                    expl.style.display = 'block';
+
+                    if (a.isCorrect && cb.checked) {
+                        item.classList.add('qcm-correct'); icon.textContent = '✅';
+                    } else if (!a.isCorrect && cb.checked) {
+                        item.classList.add('qcm-wrong'); icon.textContent = '❌'; questionCorrect = false;
+                    } else if (a.isCorrect && !cb.checked) {
+                        item.classList.add('qcm-missed'); icon.textContent = '⚠️'; questionCorrect = false;
+                    }
+                });
+
+                if (questionCorrect) score++;
+
+                var nextBtn = document.createElement('button');
+                nextBtn.className = 'qcm-btn';
+                nextBtn.textContent = current < questions.length - 1 ? 'Next →' : 'See results';
+                nextBtn.addEventListener('click', function() { current++; render(); });
+                btnRow.appendChild(nextBtn);
+            }
+        }
+
+        function showScore() {
+            progressFill.style.width = '100%';
+            var pct = Math.round((score / questions.length) * 100);
+            var msg = pct === 100 ? 'Perfect score! You nailed it. 🎉'
+                : pct >= 66 ? 'Good understanding — a few points worth reviewing.'
+                    : 'Re-read the page and try again!';
+            body.innerHTML =
+                '<div class="qcm-score">' +
+                '<div class="qcm-score-num">' + score + '/' + questions.length + '</div>' +
+                '<div class="qcm-score-sub">' + pct + '% correct</div>' +
+                '<div class="qcm-score-msg">' + msg + '</div>' +
+                '<div class="qcm-btn-row" style="justify-content:center;margin-top:1.25rem">' +
+                '<button class="qcm-btn qcm-restart">Restart</button>' +
+                '</div>' +
+                '</div>';
+            body.querySelector('.qcm-restart').addEventListener('click', function() {
+                current = 0; score = 0; render();
+            });
+        }
+
+        render();
+    })();
+</script>

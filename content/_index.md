@@ -12,11 +12,11 @@ bookToc: false
 
 This is a free, self-paced course to help you pass the **AWS Certified Developer Associate (DVA-C02)** exam.
 
-The content is structured as a learning path, not a reference dump. Each phase builds on the last. If you follow the order, things should click rather than pile up. That said, this course focuses on the concepts and notions you need to pass the exam — hands-on practice on your own is still key to truly getting comfortable with AWS.
+The content is structured as a learning path, not a reference dump. Each section builds on the last. If you follow the order, things should click rather than pile up. That said, this course focuses on the concepts and notions you need to pass the exam — hands-on practice on your own is still key to truly getting comfortable with AWS.
 
 ## How this course is structured
 
-The syllabus is split into **12 phases**, roughly ordered by dependency:
+The syllabus is split into **12 sections**, roughly ordered by dependency:
 
 
 1. [Cloud, IAM & Encryption Foundations]({{< relref "/docs/1-cloud-iam-encryption-foundations/iam-identity-access-management" >}})
@@ -32,7 +32,7 @@ The syllabus is split into **12 phases**, roughly ordered by dependency:
 11. [Additional Databases & Caching (RDS, Aurora, ElastiCache)]({{< relref "/docs/11-additional-databases-caching-rds-aurora-elasticache/rds/" >}})
 12. [Advanced & Supplementary Services]({{< relref "/docs/12-advanced-supplementary-services/cli-sdk-api-limits/" >}})
 
-The exam weights certain domains heavily — **Security (26%)** and **Deployment (24%)** together make up half the test. That's reflected in how much depth each phase gets.
+The exam weights certain domains heavily — **Security (26%)** and **Deployment (24%)** together make up half the test. That's reflected in how much depth each section gets.
 
 
 ## Before you start

@@ -581,8 +581,250 @@ body {
   }
 }
 
+
 // ------------------------------------------------------------
-// 19. DARK MODE
+// 19. QCM
+// ------------------------------------------------------------
+
+.qcm-wrap {
+  font-family: 'DM Sans', sans-serif;
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--border-light, #ddd9d3);
+  border-radius: 6px;
+  background: var(--bg-main, #f7f5f2);
+}
+
+/* Header */
+.qcm-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.qcm-icon-svg {
+  width: 15px;
+  height: 15px;
+  color: var(--accent, #b8621a);
+  flex-shrink: 0;
+}
+
+.qcm-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent, #b8621a);
+}
+
+/* Progress bar */
+.qcm-progress-bar {
+  height: 2px;
+  background: var(--border-light, #ddd9d3);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.qcm-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent, #b8621a);
+  border-radius: 2px;
+  transition: width .35s ease;
+}
+
+/* Counter & question */
+.qcm-counter {
+  font-size: 0.78rem;
+  color: var(--text-muted, #9a9590);
+  margin-bottom: .5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.qcm-question {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+  color: var(--text-primary, #1c1a18);
+}
+
+/* Answers */
+.qcm-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.1rem;
+}
+
+.qcm-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: .6rem .9rem;
+  border: 1px solid var(--border-light, #ddd9d3);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  user-select: none;
+}
+
+.qcm-answer:hover {
+  border-color: var(--accent, #b8621a);
+  background: var(--accent-light, #f0dece);
+}
+
+.qcm-answer.selected {
+  border-color: var(--accent, #b8621a);
+  background: var(--accent-light, #f0dece);
+}
+
+/* Checkbox — pointer-events none so clicks go to the label */
+.qcm-answer input[type="checkbox"] {
+  margin-top: 3px;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  pointer-events: none;
+  accent-color: var(--accent, #b8621a);
+  cursor: pointer;
+}
+
+.qcm-answer-content { flex: 1; }
+
+.qcm-answer-text {
+  font-size: .9rem;
+  line-height: 1.55;
+  color: var(--text-primary, #1c1a18);
+}
+
+.qcm-explanation {
+  font-size: .82rem;
+  color: var(--text-secondary, #5a5650);
+  margin-top: 5px;
+  line-height: 1.55;
+  display: none;
+  font-style: italic;
+}
+
+/* Verified states */
+.qcm-answer.qcm-correct {
+  border-color: #7aab5e !important;
+  background: #eef6e9 !important;
+}
+.qcm-answer.qcm-wrong {
+  border-color: #c0392b !important;
+  background: #fdecea !important;
+}
+.qcm-answer.qcm-missed {
+  border-color: #d48a0c !important;
+  background: #fef6e4 !important;
+}
+
+.qcm-result-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  line-height: 1;
+}
+
+/* Buttons */
+.qcm-btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.qcm-btn {
+  padding: .4rem 1.1rem;
+  border: 1px solid var(--border-medium, #c8c4be);
+  border-radius: 4px;
+  background: transparent;
+  font-size: .875rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  color: var(--text-secondary, #5a5650);
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s, transform .1s;
+}
+
+.qcm-btn:hover {
+  background: var(--bg-code, #eceae6);
+  border-color: var(--border-medium, #c8c4be);
+  color: var(--text-primary, #1c1a18);
+}
+
+.qcm-btn:active  { transform: scale(.98); }
+.qcm-btn:disabled { opacity: .35; cursor: default; }
+
+.qcm-btn.qcm-primary {
+  background: var(--accent, #b8621a);
+  color: #fff;
+  border-color: transparent;
+}
+
+.qcm-btn.qcm-primary:hover {
+  background: var(--text-primary, #1c1a18);
+  color: #fff;
+}
+
+/* Score card */
+.qcm-score {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1px solid var(--border-light, #ddd9d3);
+  border-radius: 4px;
+}
+
+.qcm-score-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accent, #b8621a);
+}
+
+.qcm-score-sub {
+  font-size: .85rem;
+  color: var(--text-muted, #9a9590);
+  margin-top: .35rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.qcm-score-msg {
+  font-family: 'Lora', Georgia, serif;
+  font-size: .95rem;
+  font-style: italic;
+  color: var(--text-secondary, #5a5650);
+  margin-top: 1rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .qcm-wrap {
+    border-color: var(--border-light, #2e2c28);
+    background: var(--bg-main, #1a1917);
+  }
+  .qcm-answer {
+    border-color: var(--border-light, #2e2c28);
+  }
+  .qcm-answer:hover,
+  .qcm-answer.selected {
+    border-color: var(--accent, #d4824a);
+    background: var(--accent-light, #2a1f14);
+  }
+  .qcm-answer.qcm-correct { background: #132010 !important; border-color: #4a8a35 !important; }
+  .qcm-answer.qcm-wrong   { background: #1e0a0a !important; border-color: #a03020 !important; }
+  .qcm-answer.qcm-missed  { background: #201500 !important; border-color: #a06a00 !important; }
+  .qcm-progress-bar { background: var(--border-light, #2e2c28); }
+  .qcm-score { border-color: var(--border-light, #2e2c28); }
+}
+
+// ------------------------------------------------------------
+// 20. DARK MODE
 // Respects system preference gracefully
 // ------------------------------------------------------------
 
@@ -618,7 +860,7 @@ body {
 }
 
 // ------------------------------------------------------------
-// 20. RESPONSIVE — tighten spacing on small screens
+// 21. RESPONSIVE — tighten spacing on small screens
 // ------------------------------------------------------------
 
 @media (max-width: 768px) {
