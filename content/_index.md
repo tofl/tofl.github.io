@@ -16,7 +16,9 @@ The content is structured as a learning path, not a reference dump. Each section
 
 ## How this course is structured
 
-The syllabus is split into **12 sections**, roughly ordered by dependency:
+The syllabus is split into **12 sections**, roughly ordered by dependency.
+
+Each subsection ends with **practice questions** to help you consolidate what you've just read — **757 questions in total** across the course.
 
 
 1. [Cloud, IAM & Encryption Foundations]({{< relref "/docs/1-cloud-iam-encryption-foundations/iam-identity-access-management" >}})
