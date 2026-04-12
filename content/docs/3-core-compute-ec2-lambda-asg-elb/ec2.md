@@ -111,3 +111,358 @@ Placement groups [🔗](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/plac
 EC2 Hibernate [🔗](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) lets you pause an instance and resume it later in the exact same state. When you hibernate, the in-memory (RAM) contents are written to the EBS root volume, and the instance stops. On restart, memory is reloaded, processes resume, and the instance appears never to have stopped.
 
 This is useful when you need to preserve application state across interruptions without a full reboot and re-initialization cycle. Key constraint: the root EBS volume must be large enough to hold the RAM contents, and it must be encrypted. Hibernate is not supported for instances with more than 150 GB of RAM.
+
+{{< qcm >}}
+[
+{
+"question": "A company runs a large Hadoop cluster that needs fault isolation between groups of nodes, but expects hundreds of instances per group. Which EC2 placement group strategy should a developer use?",
+"answers": [
+{
+"answer": "Cluster placement group",
+"isCorrect": false,
+"explanation": "Cluster placement groups pack instances onto the same physical rack for lowest latency, but provide no fault isolation — a rack failure affects all instances. This doesn't meet the requirement."
+},
+{
+"answer": "Spread placement group",
+"isCorrect": false,
+"explanation": "Spread placement groups provide the highest fault isolation (each instance on a distinct rack), but are limited to 7 instances per AZ — far too few for a large Hadoop cluster."
+},
+{
+"answer": "Partition placement group",
+"isCorrect": true,
+"explanation": "Partition placement groups divide instances across logical partitions (up to 7 per AZ), each on separate racks, and support hundreds of instances per partition. This is the intended pattern for large distributed systems like Hadoop, Cassandra, and Kafka."
+},
+{
+"answer": "No placement group — let AWS distribute instances automatically",
+"isCorrect": false,
+"explanation": "Without a placement group, AWS makes no guarantees about fault isolation between node groups. For a large distributed system where fault domain control matters, a partition placement group is the right choice."
+}
+]
+},
+{
+"question": "A developer needs to run a batch rendering workload that is fault-tolerant and can be restarted if interrupted. The team wants to minimize EC2 costs as much as possible. Which purchasing option is most appropriate?",
+"answers": [
+{
+"answer": "On-Demand Instances",
+"isCorrect": false,
+"explanation": "On-Demand is the most expensive per-hour option and offers no discount. While flexible, it's not cost-optimal for a workload that can tolerate interruptions."
+},
+{
+"answer": "Reserved Instances",
+"isCorrect": false,
+"explanation": "Reserved Instances are best for steady-state, predictable workloads committed over 1 or 3 years. A batch rendering job doesn't justify a long-term commitment and wouldn't maximize the RI benefit."
+},
+{
+"answer": "Spot Instances",
+"isCorrect": true,
+"explanation": "Spot Instances use unused EC2 capacity at up to 90% off On-Demand pricing. They can be reclaimed by AWS with a 2-minute warning, making them ideal for fault-tolerant, interruptible workloads like batch rendering or CI pipelines."
+},
+{
+"answer": "Dedicated Hosts",
+"isCorrect": false,
+"explanation": "Dedicated Hosts are the most expensive option and are intended for compliance requirements or software licenses tied to physical hardware. They are not appropriate for cost-optimized batch workloads."
+}
+]
+},
+{
+"question": "An EC2 instance running a web server needs to allow HTTPS traffic from the internet. A developer adds an inbound rule on port 443 to the instance's security group. Do they also need to add an outbound rule to allow the response traffic?",
+"answers": [
+{
+"answer": "Yes, an explicit outbound rule on port 443 must be added for the response to reach the client.",
+"isCorrect": false,
+"explanation": "Security groups are stateful. Return traffic for an allowed inbound connection is automatically permitted without needing a separate outbound rule."
+},
+{
+"answer": "No, because security groups are stateful and automatically allow response traffic for permitted inbound connections.",
+"isCorrect": true,
+"explanation": "Security group statefulness means that if inbound traffic on port 443 is allowed, the corresponding outbound response is automatically permitted. No additional outbound rule is needed."
+}
+]
+},
+{
+"question": "A developer wants every new EC2 instance launched in a fleet to have Apache installed, started, and enabled automatically, without any manual steps after launch. What is the simplest AWS-native way to accomplish this?",
+"answers": [
+{
+"answer": "Use an Elastic IP to remotely run install commands after launch.",
+"isCorrect": false,
+"explanation": "Elastic IPs are static public IP addresses — they have nothing to do with automating software installation on instances."
+},
+{
+"answer": "Provide a User Data bootstrap script that installs and starts Apache on first launch.",
+"isCorrect": true,
+"explanation": "EC2 User Data runs a script automatically on the very first launch of an instance, executed as root. This is the standard, simplest mechanism for automating post-launch configuration such as installing packages and starting services."
+},
+{
+"answer": "Create a security group rule that triggers the installation.",
+"isCorrect": false,
+"explanation": "Security groups are virtual firewalls that control network traffic. They cannot execute commands or install software on instances."
+},
+{
+"answer": "Modify the instance type to a compute-optimized family to enable auto-configuration.",
+"isCorrect": false,
+"explanation": "Instance type families determine hardware characteristics (CPU, memory, etc.). They have no effect on software installation or instance configuration."
+}
+]
+},
+{
+"question": "A company runs a production database on EC2 and must ensure the instance's data persists across stops and reboots. Which storage option should be used for the database volume?",
+"answers": [
+{
+"answer": "EC2 Instance Store",
+"isCorrect": false,
+"explanation": "Instance Store is ephemeral — data is lost when the instance stops, terminates, or the underlying hardware fails. It is unsuitable for any data that must persist."
+},
+{
+"answer": "Amazon EBS (Elastic Block Store)",
+"isCorrect": true,
+"explanation": "EBS is a persistent, network-attached block storage volume. Data survives instance stops and reboots, making it the correct choice for database volumes or any data that must be durable."
+}
+]
+},
+{
+"question": "A developer is analyzing EC2 purchasing options for a workload that runs continuously 24/7 and has predictable, steady resource requirements over the next three years. Which option provides the best cost savings?",
+"answers": [
+{
+"answer": "On-Demand Instances",
+"isCorrect": false,
+"explanation": "On-Demand is the most flexible but most expensive option per hour. For a steady, long-running workload, it results in significantly higher costs than commitment-based options."
+},
+{
+"answer": "Spot Instances",
+"isCorrect": false,
+"explanation": "Spot Instances are cheapest but can be interrupted with only a 2-minute warning. A 24/7 production workload cannot tolerate arbitrary interruptions."
+},
+{
+"answer": "Reserved Instances with a 3-year term",
+"isCorrect": true,
+"explanation": "Reserved Instances offer up to 72% savings over On-Demand when committed for 1 or 3 years. For a steady-state, predictable workload running continuously, a 3-year RI provides the maximum cost benefit."
+},
+{
+"answer": "Dedicated Hosts",
+"isCorrect": false,
+"explanation": "Dedicated Hosts are required for specific software licensing or compliance needs. Without such a requirement, they are more expensive than Reserved Instances and not cost-optimal for a standard workload."
+}
+]
+},
+{
+"question": "Which of the following statements about EC2 Security Groups are correct? (Select TWO)",
+"answers": [
+{
+"answer": "Security groups support both allow and deny rules.",
+"isCorrect": false,
+"explanation": "Security groups are allow-only. There is no concept of a deny rule — traffic not explicitly permitted is simply dropped."
+},
+{
+"answer": "Security groups can reference other security groups as traffic sources instead of IP ranges.",
+"isCorrect": true,
+"explanation": "This is a common and important pattern. For example, you can allow inbound traffic from 'the load balancer's security group' rather than hardcoding specific IP addresses, making rules more dynamic and maintainable."
+},
+{
+"answer": "An instance can belong to multiple security groups, and their rules are combined.",
+"isCorrect": true,
+"explanation": "Multiple security groups can be attached to a single instance. The effective rule set is the union of all groups — if any group permits traffic, it is allowed."
+},
+{
+"answer": "Security group rule changes take effect only after the instance is restarted.",
+"isCorrect": false,
+"explanation": "Security group changes take effect immediately — no instance restart is required."
+}
+]
+},
+{
+"question": "A developer needs SSH access to a production EC2 instance without opening port 22 or distributing private key files, while also ensuring all sessions are logged for auditing. What should they use?",
+"answers": [
+{
+"answer": "Connect using an Elastic IP and a standard SSH client.",
+"isCorrect": false,
+"explanation": "An Elastic IP is a static public IP address. Using it with a standard SSH client still requires port 22 to be open and private key management — neither requirement is met."
+},
+{
+"answer": "Use AWS Systems Manager Session Manager.",
+"isCorrect": true,
+"explanation": "Session Manager provides browser-based or CLI shell access to EC2 instances without opening port 22, without managing key pairs, and with built-in session logging for auditability. This is the modern, recommended pattern for secure instance access."
+},
+{
+"answer": "Add an inbound rule on port 22 scoped to the developer's IP address.",
+"isCorrect": false,
+"explanation": "While narrowing port 22 access to a specific IP is a best practice improvement, it still requires opening port 22 and managing private keys. It does not meet the no-port-22, no-key-file requirements."
+},
+{
+"answer": "Attach the instance to a Cluster placement group to enable secure internal access.",
+"isCorrect": false,
+"explanation": "Placement groups control physical distribution of instances for latency or fault tolerance. They have no effect on SSH access methods or security."
+}
+]
+},
+{
+"question": "An AMI has been created in us-east-1. A developer needs to launch instances from the same AMI in eu-west-1. What must be done?",
+"answers": [
+{
+"answer": "Nothing — AMIs are global resources and are automatically available in all regions.",
+"isCorrect": false,
+"explanation": "AMIs are region-specific, not global. An AMI created in one region is not automatically available in another."
+},
+{
+"answer": "Copy the AMI to eu-west-1, then launch instances from the copied AMI.",
+"isCorrect": true,
+"explanation": "AMIs are region-specific but can be copied across regions using the 'Copy AMI' feature. Once copied to eu-west-1, it can be used to launch instances there."
+},
+{
+"answer": "Share the AMI with a different AWS account in eu-west-1.",
+"isCorrect": false,
+"explanation": "Sharing an AMI with another account still doesn't make it available in a different region. Region is an independent concern from account sharing."
+},
+{
+"answer": "Launch the instance in us-east-1 and migrate it to eu-west-1.",
+"isCorrect": false,
+"explanation": "There is no native 'migrate instance' feature between regions. The correct approach for multi-region AMI reuse is to copy the AMI to the target region."
+}
+]
+},
+{
+"question": "A developer is setting up a temporary high-performance computing (HPC) job that requires sub-millisecond latency between nodes. Which EC2 placement group type should they choose?",
+"answers": [
+{
+"answer": "Cluster",
+"isCorrect": true,
+"explanation": "Cluster placement groups pack instances onto the same physical rack within a single AZ, providing the lowest possible network latency and highest throughput between instances. This is the correct choice for tightly-coupled HPC workloads requiring sub-millisecond communication."
+},
+{
+"answer": "Spread",
+"isCorrect": false,
+"explanation": "Spread placement groups prioritize fault isolation by placing each instance on distinct hardware. This increases physical distance between nodes, which is the opposite of what low-latency HPC requires."
+},
+{
+"answer": "Partition",
+"isCorrect": false,
+"explanation": "Partition placement groups balance fault isolation with scale. They are designed for large distributed systems needing fault domain control, not for the lowest possible inter-node latency."
+}
+]
+},
+{
+"question": "A developer needs a static public IP address for an EC2 instance so that DNS records pointing to it remain valid even if the instance is replaced. What should they use?",
+"answers": [
+{
+"answer": "A default public IP assigned at launch",
+"isCorrect": false,
+"explanation": "Default public IPs assigned at launch are dynamic — they change every time the instance stops and restarts. They cannot be relied upon for stable DNS mappings."
+},
+{
+"answer": "An Elastic IP (EIP)",
+"isCorrect": true,
+"explanation": "An Elastic IP is a static public IPv4 address that you allocate to your account. It remains associated with your account until you release it, and can be remapped to a different instance in case of failure — keeping DNS records valid."
+},
+{
+"answer": "A security group with a fixed IP rule",
+"isCorrect": false,
+"explanation": "Security groups control traffic rules, not IP address assignment. They cannot provide a static public IP."
+},
+{
+"answer": "An instance store volume",
+"isCorrect": false,
+"explanation": "Instance store is an ephemeral local storage option, completely unrelated to IP address management."
+}
+]
+},
+{
+"question": "An EC2 instance is hibernated. Which of the following correctly describes what happens to the instance's state?",
+"answers": [
+{
+"answer": "All in-memory (RAM) contents are lost, and the instance cold-boots when resumed.",
+"isCorrect": false,
+"explanation": "This describes a standard stop/start, not hibernation. Hibernation specifically preserves in-memory state by writing it to disk."
+},
+{
+"answer": "RAM contents are saved to the EBS root volume, the instance stops, and on restart memory is restored so processes resume where they left off.",
+"isCorrect": true,
+"explanation": "This is exactly how EC2 Hibernate works. The in-memory state is written to the encrypted EBS root volume before the instance stops. On restart, the RAM contents are reloaded and processes resume without a full reboot cycle."
+},
+{
+"answer": "The instance is paused in place with memory preserved on the host — no data is written to EBS.",
+"isCorrect": false,
+"explanation": "Memory is not preserved in-place on the host during hibernation. It is explicitly written to the EBS root volume so it can survive the instance being fully stopped."
+},
+{
+"answer": "Hibernate copies RAM contents to an S3 bucket for durability.",
+"isCorrect": false,
+"explanation": "Hibernate writes RAM contents to the EBS root volume, not to S3. The root volume must be encrypted and large enough to hold the RAM contents."
+}
+]
+},
+{
+"question": "A workload needs an EC2 instance with a very large amount of RAM to run an in-memory database. Which instance family is best suited for this requirement?",
+"answers": [
+{
+"answer": "C family (e.g., c7g)",
+"isCorrect": false,
+"explanation": "The C family is compute-optimized, featuring a high CPU-to-memory ratio. It is not designed for workloads that require large amounts of RAM."
+},
+{
+"answer": "T family (e.g., t3)",
+"isCorrect": false,
+"explanation": "The T family offers burstable, general-purpose performance suitable for dev/test or variable workloads. It does not provide the large memory footprint needed for in-memory databases."
+},
+{
+"answer": "R family (e.g., r7g)",
+"isCorrect": true,
+"explanation": "The R family (along with X and Z) is memory-optimized, providing large amounts of RAM. These are the correct instance families for in-memory databases, caching layers, and real-time analytics."
+},
+{
+"answer": "I family (e.g., i4i)",
+"isCorrect": false,
+"explanation": "The I family is storage-optimized, offering high sequential read/write throughput for workloads like data warehousing. It is not specifically designed for large in-memory workloads."
+}
+]
+},
+{
+"question": "A software vendor requires their application to run on hardware where physical cores and sockets can be tracked for licensing compliance. Which EC2 purchasing option fulfills this requirement?",
+"answers": [
+{
+"answer": "Spot Instances",
+"isCorrect": false,
+"explanation": "Spot Instances run on shared, unallocated capacity with no control over physical placement. They cannot guarantee single-tenant hardware or visibility into physical cores/sockets."
+},
+{
+"answer": "Reserved Instances",
+"isCorrect": false,
+"explanation": "Reserved Instances provide a billing discount for committed usage but do not guarantee dedicated physical hardware. Instances may still share physical hosts with other customers."
+},
+{
+"answer": "Dedicated Hosts",
+"isCorrect": true,
+"explanation": "Dedicated Hosts give you a physical server fully allocated to your account, with visibility into its physical cores, sockets, and host ID. This is required for software licenses tied to physical hardware (e.g., Windows Server per-core, Oracle DB) and for compliance mandating single-tenant infrastructure."
+},
+{
+"answer": "Savings Plans",
+"isCorrect": false,
+"explanation": "Savings Plans offer flexible cost savings based on a committed spend rate, but like Reserved Instances, they don't provide dedicated physical hardware."
+}
+]
+},
+{
+"question": "Which of the following are true about EC2 User Data? (Select TWO)",
+"answers": [
+{
+"answer": "User Data scripts run on every instance reboot by default.",
+"isCorrect": false,
+"explanation": "By default, User Data runs only once — on the very first launch of the instance. It does not re-execute on subsequent reboots unless explicitly configured to do so."
+},
+{
+"answer": "User Data is executed as the root user.",
+"isCorrect": true,
+"explanation": "User Data scripts run with root privileges, which is why they can perform administrative tasks like installing packages and starting system services."
+},
+{
+"answer": "User Data adds to the overall launch time of an instance since it runs before the instance becomes available.",
+"isCorrect": true,
+"explanation": "User Data executes at boot time, before the instance is reported as ready. Complex or long-running scripts will extend the time it takes for an instance to become available."
+},
+{
+"answer": "User Data scripts are limited to 100 lines of bash.",
+"isCorrect": false,
+"explanation": "There is no line limit for User Data scripts. The only constraint is a 16 KB size limit for the User Data content."
+}
+]
+}
+]
+{{< /qcm >}}

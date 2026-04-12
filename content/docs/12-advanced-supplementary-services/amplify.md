@@ -115,3 +115,378 @@ type Todo @model @auth(rules: [{ allow: owner }]) {
 Amplify generates TypeScript types, local storage operations, and all required AppSync resources from this single definition. The `@auth` directive controls who can read and write records — this maps directly to AppSync authorization rules.
 
 For the exam, the key points about DataStore are: it requires AppSync as the backend, it provides offline-capable data access with automatic conflict resolution, and conflict resolution behavior is configurable per model.
+
+{{< qcm >}}
+[
+{
+"question": "A developer runs `amplify add api` in their project and selects the GraphQL option. Which AWS service is provisioned as the backend for this API?",
+"answers": [
+{
+"answer": "Amazon API Gateway with a Lambda function",
+"isCorrect": false,
+"explanation": "API Gateway + Lambda is provisioned when you select the REST option with `amplify add api`, not GraphQL."
+},
+{
+"answer": "AWS AppSync",
+"isCorrect": true,
+"explanation": "The GraphQL option in `amplify add api` creates an AWS AppSync API under the hood. Amplify auto-generates resolvers, DynamoDB tables, and subscription support from your schema."
+},
+{
+"answer": "Amazon DynamoDB with a GraphQL layer",
+"isCorrect": false,
+"explanation": "DynamoDB may be provisioned as a data source, but the GraphQL API layer is AppSync, not a standalone DynamoDB GraphQL construct."
+},
+{
+"answer": "AWS Lambda with a GraphQL middleware",
+"isCorrect": false,
+"explanation": "Lambda is not the GraphQL engine in Amplify. AppSync is the managed GraphQL service that handles queries, mutations, and subscriptions."
+}
+]
+},
+{
+"question": "A team is onboarding a new developer to a project that already has an existing Amplify backend deployed in the cloud. Which CLI command should the new developer run to sync the cloud environment to their local machine?",
+"answers": [
+{
+"answer": "amplify init",
+"isCorrect": false,
+"explanation": "`amplify init` initializes a brand-new Amplify project locally. It does not pull an existing cloud environment's configuration."
+},
+{
+"answer": "amplify push",
+"isCorrect": false,
+"explanation": "`amplify push` deploys local changes to the cloud. It does not pull existing cloud configuration to a local machine."
+},
+{
+"answer": "amplify pull",
+"isCorrect": true,
+"explanation": "`amplify pull` syncs an existing cloud Amplify environment back to the local project, which is exactly what a new team member needs to do to get the existing backend configuration."
+},
+{
+"answer": "amplify env add",
+"isCorrect": false,
+"explanation": "`amplify env add` creates a new isolated backend environment (e.g., staging or prod). It does not sync an existing environment to a local machine."
+}
+]
+},
+{
+"question": "A developer uses `amplify add storage` to provision an S3 bucket. They want to store files that should be readable by all authenticated users but writable only by the file owner. Which access level should they use?",
+"answers": [
+{
+"answer": "guest",
+"isCorrect": false,
+"explanation": "The `guest` access level makes files publicly accessible (no authentication required), stored under the `public/` prefix. This does not restrict writes to the owner."
+},
+{
+"answer": "private",
+"isCorrect": false,
+"explanation": "The `private` access level makes files accessible only by the owning user — other authenticated users cannot read them. This is more restrictive than required."
+},
+{
+"answer": "protected",
+"isCorrect": true,
+"explanation": "The `protected` access level stores files under `protected/{identityId}/`. All authenticated users can read these files, but only the owner can write to them — exactly the behavior described."
+}
+]
+},
+{
+"question": "Which of the following correctly describes what happens when `amplify push` is executed?",
+"answers": [
+{
+"answer": "It deploys the frontend application to Amplify Hosting.",
+"isCorrect": false,
+"explanation": "Frontend deployment to Amplify Hosting is triggered via Git pushes to a connected repository, not via `amplify push`."
+},
+{
+"answer": "It synthesizes CloudFormation templates from local configuration and deploys the backend resources to AWS.",
+"isCorrect": true,
+"explanation": "`amplify push` synthesizes CloudFormation templates from your local Amplify configuration and provisions or updates the corresponding AWS backend resources, making environments reproducible and version-controlled."
+},
+{
+"answer": "It pulls the latest backend configuration from the cloud to the local environment.",
+"isCorrect": false,
+"explanation": "Pulling from cloud to local is done with `amplify pull`, not `amplify push`."
+},
+{
+"answer": "It creates a new isolated backend environment.",
+"isCorrect": false,
+"explanation": "Creating a new environment is done with `amplify env add`. `amplify push` deploys changes to the currently active environment."
+}
+]
+},
+{
+"question": "A mobile app uses Amplify DataStore. A user edits a record while offline. When the device reconnects, another user's conflicting edit is detected on the AppSync backend. How does DataStore handle this by default, and what other strategies are available?",
+"answers": [
+{
+"answer": "DataStore discards the local change and always uses the server version. No other strategies are available.",
+"isCorrect": false,
+"explanation": "DataStore does not simply discard local changes. It applies a configurable conflict resolution strategy, and multiple built-in options are available."
+},
+{
+"answer": "DataStore applies a conflict resolution strategy. Built-in options include Auto Merge, Optimistic Concurrency, and Custom Lambda.",
+"isCorrect": true,
+"explanation": "DataStore supports three conflict resolution strategies: Auto Merge, Optimistic Concurrency, and Custom Lambda. The strategy is configured per model using the `@model` directive in the GraphQL schema."
+},
+{
+"answer": "DataStore throws an exception and requires the developer to manually resolve conflicts in application code.",
+"isCorrect": false,
+"explanation": "DataStore handles conflict resolution automatically based on the configured strategy. Manual conflict resolution in application code is not required by default."
+},
+{
+"answer": "DataStore uses DynamoDB Streams to detect and merge conflicts automatically, with no configuration needed.",
+"isCorrect": false,
+"explanation": "DataStore uses AppSync (not DynamoDB Streams directly) for sync and conflict resolution, and the strategy is configurable per model."
+}
+]
+},
+{
+"question": "What is the underlying AWS service used when a developer runs `amplify add auth`?",
+"answers": [
+{
+"answer": "AWS IAM",
+"isCorrect": false,
+"explanation": "IAM manages AWS resource permissions, not end-user authentication flows. `amplify add auth` provisions Cognito, not IAM user management."
+},
+{
+"answer": "Amazon Cognito User Pool (and optionally an Identity Pool)",
+"isCorrect": true,
+"explanation": "`amplify add auth` provisions a Cognito User Pool for authentication (sign-up, sign-in, MFA, etc.) and optionally a Cognito Identity Pool to grant authenticated users access to AWS resources."
+},
+{
+"answer": "AWS Directory Service",
+"isCorrect": false,
+"explanation": "AWS Directory Service is an enterprise directory solution, not the service Amplify uses for app authentication."
+},
+{
+"answer": "Amazon API Gateway with a custom authorizer",
+"isCorrect": false,
+"explanation": "API Gateway with a custom authorizer is a separate pattern. Amplify Auth is backed by Cognito, not API Gateway."
+}
+]
+},
+{
+"question": "A developer needs their React application to support offline data access and automatically synchronize changes with the cloud when connectivity is restored. Which Amplify feature is the most appropriate choice?",
+"answers": [
+{
+"answer": "Amplify Storage with the `private` access level",
+"isCorrect": false,
+"explanation": "Amplify Storage is designed for file storage on S3, not for structured data with offline-first access and sync."
+},
+{
+"answer": "Amplify API with REST backend",
+"isCorrect": false,
+"explanation": "The REST API option uses API Gateway + Lambda, which requires an active network connection. It does not provide offline-first access or automatic sync."
+},
+{
+"answer": "Amplify DataStore",
+"isCorrect": true,
+"explanation": "DataStore is a local-first data store that uses IndexedDB in the browser. It keeps the app functional offline and automatically reconciles changes with the AppSync backend when connectivity is restored."
+},
+{
+"answer": "Amplify Auth with Cognito Identity Pool",
+"isCorrect": false,
+"explanation": "Cognito Identity Pool grants credentials to access AWS resources. It is not an offline data store or sync mechanism."
+}
+]
+},
+{
+"question": "Which backend service does Amplify DataStore require for cloud synchronization?",
+"answers": [
+{
+"answer": "Amazon DynamoDB directly via the AWS SDK",
+"isCorrect": false,
+"explanation": "DataStore does not sync directly with DynamoDB. It uses AppSync as the intermediary, which in turn may use DynamoDB as a data source."
+},
+{
+"answer": "AWS AppSync",
+"isCorrect": true,
+"explanation": "DataStore requires AppSync as its cloud backend. It uses GraphQL subscriptions and mutations through AppSync to sync local changes and receive remote updates."
+},
+{
+"answer": "Amazon API Gateway",
+"isCorrect": false,
+"explanation": "API Gateway is used for REST APIs in Amplify. DataStore relies on AppSync's GraphQL model, not REST endpoints."
+},
+{
+"answer": "AWS Lambda",
+"isCorrect": false,
+"explanation": "Lambda can be used as a custom conflict resolution handler in DataStore, but it is not the core sync backend — AppSync is."
+}
+]
+},
+{
+"question": "A company connects their GitHub repository to Amplify Hosting. A developer opens a pull request. What Amplify Hosting feature allows reviewers to test the changes on a live URL before merging?",
+"answers": [
+{
+"answer": "Custom domain with ACM certificate",
+"isCorrect": false,
+"explanation": "Custom domains attach your own domain to an Amplify app. They are not related to generating temporary preview environments for pull requests."
+},
+{
+"answer": "Branch previews (pull request previews)",
+"isCorrect": true,
+"explanation": "Amplify Hosting can deploy a temporary environment for every open pull request, giving reviewers a live URL to test before merging. This is the pull request preview feature."
+},
+{
+"answer": "Amplify environments with `amplify env add`",
+"isCorrect": false,
+"explanation": "Amplify CLI environments (dev, staging, prod) are backend resource isolation concepts, not the same as Amplify Hosting's pull request preview deployments."
+},
+{
+"answer": "Amplify DataStore offline sync",
+"isCorrect": false,
+"explanation": "DataStore is a data synchronization feature, entirely unrelated to frontend deployment previews."
+}
+]
+},
+{
+"question": "Where does the Amplify JavaScript library read endpoint URLs, region configuration, and credentials from, so they are never hardcoded in application code?",
+"answers": [
+{
+"answer": "Environment variables set in the CI/CD pipeline",
+"isCorrect": false,
+"explanation": "While environment variables are used in some workflows, the Amplify library specifically reads from a generated configuration file, not directly from CI/CD pipeline environment variables."
+},
+{
+"answer": "The `amplifyconfiguration.json` file (or `aws-exports.js` in older versions) generated by the CLI",
+"isCorrect": true,
+"explanation": "The Amplify CLI generates `amplifyconfiguration.json` (or `aws-exports.js` in older versions) containing all endpoint URLs, region, and resource identifiers. The library reads from this file at runtime."
+},
+{
+"answer": "AWS Secrets Manager",
+"isCorrect": false,
+"explanation": "AWS Secrets Manager stores secrets server-side. The Amplify client library uses its own generated configuration file, not Secrets Manager, for client-side configuration."
+},
+{
+"answer": "The `amplify.yml` file at the repo root",
+"isCorrect": false,
+"explanation": "`amplify.yml` defines build settings (pre-build, build, post-build commands) for Amplify Hosting. It is not the source of runtime configuration for the Amplify client library."
+}
+]
+},
+{
+"question": "A developer wants to deploy a Next.js application that uses server-side rendering (SSR). Which AWS Amplify feature supports this natively?",
+"answers": [
+{
+"answer": "Amplify CLI with the `hosting` category backed by S3 only",
+"isCorrect": false,
+"explanation": "A plain S3 hosting setup only serves static files. SSR requires server-side compute, which plain S3 cannot provide."
+},
+{
+"answer": "Amplify Hosting",
+"isCorrect": true,
+"explanation": "Amplify Hosting natively supports Next.js SSR applications, not just static sites. It manages the entire deployment lifecycle including the server-side rendering layer."
+},
+{
+"answer": "Amplify DataStore",
+"isCorrect": false,
+"explanation": "DataStore is a client-side data synchronization library. It has no role in deploying or hosting SSR applications."
+},
+{
+"answer": "Amplify Libraries for Next.js",
+"isCorrect": false,
+"explanation": "The Amplify Libraries for Next.js provide client SDK functionality (auth, API, storage calls). They do not handle the hosting or deployment of the SSR application itself."
+}
+]
+},
+{
+"question": "Which of the following statements correctly distinguishes Amplify CLI environments from Amplify Hosting branch deployments? (Select TWO)",
+"answers": [
+{
+"answer": "Amplify CLI environments are isolated sets of AWS backend resources (e.g., separate Cognito pools, DynamoDB tables) for different stages like dev, staging, and prod.",
+"isCorrect": true,
+"explanation": "CLI environments created with `amplify env add` each have their own fully isolated set of AWS backend resources, making them suitable for separating development stages."
+},
+{
+"answer": "Amplify Hosting branch deployments are CI/CD deployments of the frontend application, each mapped to a branch and a unique URL.",
+"isCorrect": true,
+"explanation": "Amplify Hosting maps Git branches to deployment URLs (e.g., `main.d1xyz.amplifyapp.com`). These are frontend deployments and are distinct from the backend environment concept."
+},
+{
+"answer": "Amplify CLI environments and Amplify Hosting branch deployments are identical concepts and can be used interchangeably.",
+"isCorrect": false,
+"explanation": "They are related but distinct. CLI environments manage backend AWS resources; Hosting branch deployments manage frontend build and deploy pipelines. They are often linked but are not the same concept."
+},
+{
+"answer": "Amplify Hosting branch deployments provision separate CloudFormation stacks for each Git branch.",
+"isCorrect": false,
+"explanation": "CloudFormation stacks for backend resources are managed by CLI environments, not by Hosting branch deployments. Hosting branch deployments focus on building and serving the frontend."
+}
+]
+},
+{
+"question": "A developer defines the following in their Amplify GraphQL schema: `type Todo @model @auth(rules: [{ allow: owner }])`. What does the `@auth` directive control in this context?",
+"answers": [
+{
+"answer": "It configures the Cognito User Pool MFA settings for the application.",
+"isCorrect": false,
+"explanation": "MFA settings are configured through `amplify add auth` and Cognito, not via the `@auth` directive on a GraphQL model."
+},
+{
+"answer": "It defines who can read and write records for this model, mapping to AppSync authorization rules.",
+"isCorrect": true,
+"explanation": "The `@auth` directive on an Amplify GraphQL model controls access to records. In this case, `allow: owner` means only the record's creator can read and write it, and this maps directly to AppSync authorization rules."
+},
+{
+"answer": "It specifies the conflict resolution strategy for DataStore sync.",
+"isCorrect": false,
+"explanation": "Conflict resolution is configured separately (e.g., via the `@model` directive settings or DataStore configuration), not via `@auth`."
+},
+{
+"answer": "It attaches an IAM role to the Lambda resolver for this model.",
+"isCorrect": false,
+"explanation": "`@auth` controls data-level access rules (who can read/write records), not IAM role configuration for Lambda resolvers."
+}
+]
+},
+{
+"question": "A developer needs to configure custom build commands for different branches in Amplify Hosting. Where should this configuration be defined?",
+"answers": [
+{
+"answer": "In the `amplify.yml` file at the root of the repository",
+"isCorrect": true,
+"explanation": "`amplify.yml` is the Amplify Hosting build specification file. It defines pre-build, build, and post-build commands and can be scoped per branch."
+},
+{
+"answer": "In the `amplifyconfiguration.json` file",
+"isCorrect": false,
+"explanation": "`amplifyconfiguration.json` contains backend resource configuration (endpoints, region) for the client library. It does not control the CI/CD build pipeline."
+},
+{
+"answer": "In a `buildspec.yml` file, similar to AWS CodeBuild",
+"isCorrect": false,
+"explanation": "`buildspec.yml` is the build specification for AWS CodeBuild. Amplify Hosting uses its own `amplify.yml` file format."
+},
+{
+"answer": "In the CloudFormation template generated by `amplify push`",
+"isCorrect": false,
+"explanation": "CloudFormation templates generated by `amplify push` define backend infrastructure. Frontend build commands are controlled by `amplify.yml`, not CloudFormation."
+}
+]
+},
+{
+"question": "Which of the following Amplify CLI categories maps to Amazon S3 and DynamoDB as its underlying services?",
+"answers": [
+{
+"answer": "auth",
+"isCorrect": false,
+"explanation": "The `auth` category provisions Amazon Cognito, not S3 or DynamoDB."
+},
+{
+"answer": "storage",
+"isCorrect": true,
+"explanation": "The `storage` category provisions Amazon S3 (for file storage) and/or DynamoDB (for NoSQL data). Both are underlying services mapped to this category."
+},
+{
+"answer": "function",
+"isCorrect": false,
+"explanation": "The `function` category provisions AWS Lambda functions, not S3 or DynamoDB."
+},
+{
+"answer": "api",
+"isCorrect": false,
+"explanation": "The `api` category provisions API Gateway + Lambda (for REST) or AppSync (for GraphQL), not S3 or DynamoDB directly."
+}
+]
+}
+]
+{{< /qcm >}}

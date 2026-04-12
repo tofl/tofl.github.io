@@ -8,7 +8,7 @@
     </div>
     <div class="qcm-progress-bar"><div class="qcm-progress-fill"></div></div>
     <div class="qcm-body"></div>
-    <script type="application/json" class="qcm-data">{{ .Get "questions" | transform.Unmarshal | jsonify }}</script>
+    <script type="application/json" class="qcm-data">{{ .Inner | transform.Unmarshal | jsonify }}</script>
 </div>
 <script>
     (function() {

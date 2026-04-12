@@ -54,3 +54,458 @@ This distinction matters because it determines what guarantees you can rely on w
 Kinesis Data Streams, by contrast, operates at-least-once — the Kinesis Client Library (KCL) checkpoints progress, but network issues can cause records to be delivered more than once. Step Functions Standard Workflows guarantee exactly-once execution of each state. Express Workflows are at-least-once.
 
 The practical takeaway: **default to designing consumers as idempotent**, regardless of the delivery guarantee. Even services that claim exactly-once delivery have edge cases, and idempotent consumers are robust by definition.
+
+{{< qcm >}}
+[
+{
+"question": "A developer is building a Lambda function that retries a DynamoDB write operation in a loop when it encounters throttling errors. Which retry strategy should the developer implement to avoid overwhelming DynamoDB during recovery?",
+"answers": [
+{
+"answer": "Retry immediately on each failure to minimize latency impact.",
+"isCorrect": false,
+"explanation": "Immediate retries under throttling conditions will create a thundering herd effect, making it harder for DynamoDB to recover and potentially worsening the situation."
+},
+{
+"answer": "Implement exponential backoff with jitter between retry attempts.",
+"isCorrect": true,
+"explanation": "Exponential backoff increases wait time geometrically between retries, and jitter adds randomness to prevent synchronized retry waves from multiple clients — the recommended approach for custom retry logic inside application code."
+},
+{
+"answer": "Retry with a fixed delay of 1 second between each attempt.",
+"isCorrect": false,
+"explanation": "A fixed delay without jitter can still cause synchronized retry storms if multiple clients started failing at the same time. Exponential backoff with jitter is the correct pattern."
+},
+{
+"answer": "Rely on the AWS SDK's built-in retry mechanism since it handles DynamoDB throttling automatically.",
+"isCorrect": false,
+"explanation": "The AWS SDK handles retries at the HTTP client level, but when the developer is writing custom retry logic inside a Lambda loop, they are responsible for implementing exponential backoff with jitter themselves."
+}
+]
+},
+{
+"question": "Which of the following operations are idempotent? (Select TWO)",
+"answers": [
+{
+"answer": "A POST /orders endpoint that creates a new order record each time it is called.",
+"isCorrect": false,
+"explanation": "POST requests that create new resources are not idempotent — retrying the call produces duplicate records."
+},
+{
+"answer": "A PUT /users/{id} endpoint that fully replaces the user object with a fixed payload.",
+"isCorrect": true,
+"explanation": "A PUT that replaces the entire resource with a deterministic payload is idempotent — calling it multiple times produces the same result as calling it once."
+},
+{
+"answer": "A DynamoDB UpdateItem call that increments an item's counter attribute by 1.",
+"isCorrect": false,
+"explanation": "Incrementing a counter is not idempotent — each retry changes the value, leading to incorrect results if the operation is duplicated."
+},
+{
+"answer": "A DynamoDB PutItem call that writes a fixed, deterministic item.",
+"isCorrect": true,
+"explanation": "A PutItem with a fully determined item content is idempotent — writing the same item multiple times results in the same final state."
+}
+]
+},
+{
+"question": "A company uses SQS Standard queues to process orders. Some messages are failing repeatedly and then disappearing without any trace. What is the BEST solution to ensure failed messages are not lost?",
+"answers": [
+{
+"answer": "Increase the message visibility timeout so consumers have more time to process messages.",
+"isCorrect": false,
+"explanation": "A longer visibility timeout helps prevent double-processing but does not prevent messages from eventually being lost after max receive count is exceeded."
+},
+{
+"answer": "Configure a Dead-Letter Queue (DLQ) on the SQS queue to capture messages that exceed the maxReceiveCount threshold.",
+"isCorrect": true,
+"explanation": "Configuring a DLQ ensures that messages that fail processing more than maxReceiveCount times are moved to the DLQ instead of being discarded, allowing inspection and reprocessing."
+},
+{
+"answer": "Switch to SQS FIFO queues to guarantee exactly-once processing.",
+"isCorrect": false,
+"explanation": "FIFO queues provide deduplication but do not prevent messages from being lost if processing fails repeatedly. A DLQ is still needed to capture failed messages."
+},
+{
+"answer": "Enable long polling on the SQS queue to reduce the number of empty responses.",
+"isCorrect": false,
+"explanation": "Long polling improves efficiency by reducing empty receives but does not address message loss due to repeated processing failures."
+}
+]
+},
+{
+"question": "An SNS topic delivers messages to multiple HTTP endpoints. One endpoint is intermittently unavailable. After SNS exhausts its retries, where will the undelivered messages be sent if a DLQ has been configured?",
+"answers": [
+{
+"answer": "To a DLQ configured at the SNS topic level.",
+"isCorrect": false,
+"explanation": "In SNS, DLQs are configured per-subscription, not per-topic. The DLQ is associated with the individual subscription that is failing, not the topic itself."
+},
+{
+"answer": "To a DLQ configured on the individual SNS subscription for that endpoint.",
+"isCorrect": true,
+"explanation": "SNS DLQs are configured per subscription. When SNS cannot deliver to a specific subscriber after exhausting retries, it routes the message to that subscription's DLQ."
+},
+{
+"answer": "Back to the original SNS topic for reprocessing.",
+"isCorrect": false,
+"explanation": "SNS does not re-publish failed messages to the topic. Failed deliveries go to the subscription's configured DLQ."
+},
+{
+"answer": "To an S3 bucket configured as the SNS archive destination.",
+"isCorrect": false,
+"explanation": "SNS does not automatically archive failed messages to S3. The correct failure destination is a DLQ configured on the subscription."
+}
+]
+},
+{
+"question": "A Lambda function is triggered asynchronously by S3 events. Some invocations are failing. A developer wants to capture the payloads of failed events for analysis. What is the correct approach?",
+"answers": [
+{
+"answer": "Configure an SQS DLQ directly on the S3 bucket event notification.",
+"isCorrect": false,
+"explanation": "S3 event notifications do not support DLQ configuration. The failure handling must be configured on the Lambda function's async invocation settings."
+},
+{
+"answer": "Configure an OnFailure destination on the Lambda function pointing to an SQS queue or SNS topic.",
+"isCorrect": true,
+"explanation": "For asynchronous Lambda invocations, you configure an OnFailure destination (SQS queue or SNS topic) that captures the event payload after all retry attempts have been exhausted."
+},
+{
+"answer": "Enable Lambda's built-in DLQ by setting the ReservedConcurrency to zero.",
+"isCorrect": false,
+"explanation": "Setting ReservedConcurrency to zero throttles all invocations, not capturing failures. The correct mechanism is an OnFailure destination or a DLQ on the Lambda's async configuration."
+},
+{
+"answer": "Configure a DLQ on the Lambda event source mapping.",
+"isCorrect": false,
+"explanation": "Event source mappings (used for SQS/Kinesis triggers) have their own failure handling. For async invocations triggered by S3, the OnFailure destination on the function itself is the correct approach."
+}
+]
+},
+{
+"question": "Which AWS service uses Catch and Retry blocks within its state machine definition for error handling, rather than relying on Dead-Letter Queues?",
+"answers": [
+{
+"answer": "Amazon SQS",
+"isCorrect": false,
+"explanation": "SQS uses DLQs (configured via maxReceiveCount) to handle messages that fail processing repeatedly."
+},
+{
+"answer": "AWS Step Functions",
+"isCorrect": true,
+"explanation": "Step Functions handles errors through Catch and Retry blocks built into the state machine definition. It does not use DLQs directly for error handling."
+},
+{
+"answer": "Amazon SNS",
+"isCorrect": false,
+"explanation": "SNS uses per-subscription DLQs to capture messages that could not be delivered after exhausting retries."
+},
+{
+"answer": "Amazon EventBridge",
+"isCorrect": false,
+"explanation": "EventBridge supports DLQ configuration for events that fail to reach their target after retries."
+}
+]
+},
+{
+"question": "A developer is building a payment processing system that uses SQS. To prevent duplicate charges when a message is retried, which design approach should the developer take?",
+"answers": [
+{
+"answer": "Use SQS Standard queues because they guarantee exactly-once delivery.",
+"isCorrect": false,
+"explanation": "SQS Standard queues guarantee at-least-once delivery, meaning duplicates are possible. They do not provide exactly-once delivery guarantees."
+},
+{
+"answer": "Use SQS FIFO queues with a MessageDeduplicationId so the consumer can safely process retries.",
+"isCorrect": true,
+"explanation": "SQS FIFO queues provide exactly-once processing within a 5-minute deduplication window using MessageDeduplicationId, preventing duplicate messages from being delivered to consumers."
+},
+{
+"answer": "Increase the visibility timeout to prevent any message from being received more than once.",
+"isCorrect": false,
+"explanation": "A longer visibility timeout reduces but does not eliminate the possibility of duplicate delivery. It is not a substitute for idempotency design or FIFO deduplication."
+},
+{
+"answer": "Design the consumer to be idempotent using a client-generated idempotency key stored with each transaction.",
+"isCorrect": true,
+"explanation": "Designing consumers to be idempotent using idempotency keys is the most robust approach — even if a message is delivered more than once, the consumer will detect the duplicate and not process it again."
+}
+]
+},
+{
+"question": "What is the PRIMARY reason jitter is added to exponential backoff retry strategies?",
+"answers": [
+{
+"answer": "To reduce the total number of retry attempts required.",
+"isCorrect": false,
+"explanation": "Jitter does not reduce the number of retries. It randomizes the timing of retries to avoid synchronized spikes from multiple clients."
+},
+{
+"answer": "To spread retry attempts across time and prevent synchronized retry waves from multiple clients.",
+"isCorrect": true,
+"explanation": "Without jitter, clients that all started failing at the same moment will retry in synchronized bursts even with exponential backoff. Jitter randomizes the intervals so retries are distributed over time, reducing load spikes on the downstream service."
+},
+{
+"answer": "To ensure retries only happen during low-traffic periods.",
+"isCorrect": false,
+"explanation": "Jitter adds randomness to retry intervals but does not schedule retries based on traffic patterns. Its purpose is to desynchronize concurrent clients, not to time retries by traffic levels."
+},
+{
+"answer": "To comply with AWS SDK retry quotas and avoid throttling errors.",
+"isCorrect": false,
+"explanation": "Jitter is a client-side design pattern to prevent thundering herds. It is not an AWS SDK quota compliance mechanism."
+}
+]
+},
+{
+"question": "A developer configures a DLQ for an SQS Standard queue with a maxReceiveCount of 3. What happens to a message that fails processing three times?",
+"answers": [
+{
+"answer": "The message is permanently deleted from the queue.",
+"isCorrect": false,
+"explanation": "Without a DLQ, messages would be deleted after maxReceiveCount is exceeded. With a DLQ configured, the message is moved to the DLQ instead of being deleted."
+},
+{
+"answer": "The message is moved to the configured Dead-Letter Queue.",
+"isCorrect": true,
+"explanation": "After a message is received and not deleted maxReceiveCount (3) times, SQS automatically moves it to the configured DLQ, where it can be inspected and reprocessed."
+},
+{
+"answer": "The message remains in the original queue and SQS retries indefinitely.",
+"isCorrect": false,
+"explanation": "SQS does not retry indefinitely. Once maxReceiveCount is reached, the message is moved to the DLQ (if configured) or deleted."
+},
+{
+"answer": "The message is returned to the front of the queue with highest priority.",
+"isCorrect": false,
+"explanation": "SQS Standard queues do not support message priority. Messages are not reordered; they are moved to the DLQ after exceeding maxReceiveCount."
+}
+]
+},
+{
+"question": "A developer is configuring a Dead-Letter Queue for an SQS FIFO queue. Which type of queue must be used as the DLQ?",
+"answers": [
+{
+"answer": "An SQS Standard queue, because DLQs do not need to preserve ordering.",
+"isCorrect": false,
+"explanation": "SQS FIFO queues require a FIFO DLQ. A Standard queue cannot be used as the DLQ for a FIFO queue."
+},
+{
+"answer": "An SQS FIFO queue.",
+"isCorrect": true,
+"explanation": "FIFO queues must use a FIFO queue as their DLQ to maintain compatibility with deduplication and ordering semantics."
+},
+{
+"answer": "Any SQS queue type, since DLQ type is independent of source queue type.",
+"isCorrect": false,
+"explanation": "The DLQ type must match the source queue type. A FIFO source queue requires a FIFO DLQ; a Standard source queue requires a Standard DLQ."
+},
+{
+"answer": "An SNS topic configured as a fanout destination.",
+"isCorrect": false,
+"explanation": "SQS DLQs must be SQS queues, not SNS topics. SNS topics are not valid DLQ destinations for SQS."
+}
+]
+},
+{
+"question": "Which of the following statements about Kinesis Data Streams delivery semantics are correct? (Select TWO)",
+"answers": [
+{
+"answer": "Kinesis Data Streams guarantees exactly-once delivery of records.",
+"isCorrect": false,
+"explanation": "Kinesis Data Streams operates at-least-once delivery. Network issues can cause records to be delivered more than once, so consumers must be designed to handle duplicates."
+},
+{
+"answer": "Kinesis Data Streams operates at-least-once delivery, and consumers may receive duplicate records.",
+"isCorrect": true,
+"explanation": "Kinesis operates at-least-once — the KCL uses checkpoints to track progress, but network issues or failures can result in records being processed more than once."
+},
+{
+"answer": "Consumers of Kinesis Data Streams should be designed to be idempotent to handle potential duplicate records.",
+"isCorrect": true,
+"explanation": "Because Kinesis provides at-least-once delivery, consumer logic must be idempotent to safely handle redelivered records without causing incorrect results."
+},
+{
+"answer": "The Kinesis Client Library (KCL) prevents duplicate record processing by design.",
+"isCorrect": false,
+"explanation": "The KCL uses checkpointing to track processed records, but it does not guarantee exactly-once processing. Duplicates can occur under failure scenarios."
+}
+]
+},
+{
+"question": "A developer is comparing AWS Step Functions Standard Workflows and Express Workflows for a critical financial transaction processing pipeline. Which execution guarantee does each workflow type provide?",
+"answers": [
+{
+"answer": "Standard Workflows: at-least-once. Express Workflows: exactly-once.",
+"isCorrect": false,
+"explanation": "This is reversed. Standard Workflows guarantee exactly-once execution of each state; Express Workflows are at-least-once."
+},
+{
+"answer": "Standard Workflows: exactly-once. Express Workflows: at-least-once.",
+"isCorrect": true,
+"explanation": "Step Functions Standard Workflows guarantee exactly-once execution of each state in the workflow. Express Workflows are at-least-once and therefore require consumers to handle potential duplicates."
+},
+{
+"answer": "Both Standard and Express Workflows guarantee exactly-once execution.",
+"isCorrect": false,
+"explanation": "Only Standard Workflows guarantee exactly-once execution. Express Workflows are at-least-once and suited for high-volume, short-duration workloads where exactly-once is not required."
+},
+{
+"answer": "Both Standard and Express Workflows operate at-least-once.",
+"isCorrect": false,
+"explanation": "Standard Workflows guarantee exactly-once execution per state, making them appropriate for workflows where duplicate state execution would cause problems."
+}
+]
+},
+{
+"question": "A distributed application makes API calls to a downstream service. The service begins returning 503 errors under heavy load. The AWS SDK is configured with default retry behavior. What will the SDK do automatically?",
+"answers": [
+{
+"answer": "Retry the failed requests immediately without any delay.",
+"isCorrect": false,
+"explanation": "The AWS SDK does not retry immediately. It implements exponential backoff for retryable errors such as throttling and transient failures."
+},
+{
+"answer": "Apply exponential backoff with retries for retryable errors such as throttling and transient failures.",
+"isCorrect": true,
+"explanation": "The AWS SDK automatically implements exponential backoff for retryable errors (including 503 transient failures and throttling), increasing the wait time between retries geometrically."
+},
+{
+"answer": "Fail immediately and surface the error to the application without retrying.",
+"isCorrect": false,
+"explanation": "503 errors are retryable transient failures. The AWS SDK retries them automatically using exponential backoff rather than failing immediately."
+},
+{
+"answer": "Queue the requests locally and retry once the service recovers.",
+"isCorrect": false,
+"explanation": "The AWS SDK does not implement a local queue for failed requests. It retries using exponential backoff up to the configured maximum number of attempts."
+}
+]
+},
+{
+"question": "An API Gateway endpoint uses idempotency tokens. A client sends a request with a specific token, which times out before the client receives a response. The client retries the same request with the same token. What is the expected behavior?",
+"answers": [
+{
+"answer": "API Gateway processes the second request as a new operation, potentially causing duplicate side effects.",
+"isCorrect": false,
+"explanation": "When an idempotency token is reused, API Gateway detects the duplicate and returns the result of the original request rather than processing it again."
+},
+{
+"answer": "API Gateway detects the duplicate token and returns the result of the original request without re-executing the operation.",
+"isCorrect": true,
+"explanation": "Idempotency tokens allow API Gateway to identify duplicate requests. If the same token is submitted again within the idempotency window, the service returns the cached response without re-executing the backend operation."
+},
+{
+"answer": "API Gateway rejects the second request with a 409 Conflict error.",
+"isCorrect": false,
+"explanation": "API Gateway does not reject retried requests with the same token — it returns the original result transparently, making the retry safe from the client's perspective."
+},
+{
+"answer": "The behavior depends entirely on the Lambda function — API Gateway passes the token through but does not enforce idempotency.",
+"isCorrect": false,
+"explanation": "API Gateway has built-in idempotency support using idempotency tokens. It does not simply pass the token through — it can detect and short-circuit duplicate submissions."
+}
+]
+},
+{
+"question": "A developer is designing a system where a Lambda function processes messages from an SQS queue. Some messages consistently fail processing. The developer wants to ensure failed messages are isolated without blocking the queue and can be retried later. What should the developer configure?",
+"answers": [
+{
+"answer": "Set the Lambda function's reserved concurrency to 0 to stop processing until the issue is fixed.",
+"isCorrect": false,
+"explanation": "Setting reserved concurrency to 0 stops all invocations, blocking the queue entirely. This is not an isolation strategy — it affects all messages, not just failing ones."
+},
+{
+"answer": "Configure a DLQ on the SQS queue so that messages exceeding maxReceiveCount are moved there automatically.",
+"isCorrect": true,
+"explanation": "A DLQ isolates persistently failing messages after they exceed the maxReceiveCount threshold, keeping the main queue healthy while preserving failed messages for investigation and reprocessing."
+},
+{
+"answer": "Increase the SQS message retention period to the maximum (14 days) to allow more time for processing.",
+"isCorrect": false,
+"explanation": "Increasing retention does not isolate failing messages. Without a DLQ, the messages will continue to be retried until they expire, potentially blocking other messages in FIFO queues."
+},
+{
+"answer": "Configure a Lambda OnFailure destination pointing to an SQS queue.",
+"isCorrect": false,
+"explanation": "OnFailure destinations apply to asynchronous Lambda invocations (e.g., triggered by SNS or S3). For SQS-triggered Lambda, failure handling is managed via the DLQ configured on the SQS queue itself."
+}
+]
+},
+{
+"question": "Which of the following best describes the 'thundering herd' problem in distributed systems?",
+"answers": [
+{
+"answer": "A single large message consuming all available memory in a queue.",
+"isCorrect": false,
+"explanation": "The thundering herd problem is about traffic patterns, not message size. It refers to a spike in retry attempts from many clients hitting a recovering service simultaneously."
+},
+{
+"answer": "Multiple clients retrying failed requests simultaneously, creating a traffic spike that prevents a downstream service from recovering.",
+"isCorrect": true,
+"explanation": "The thundering herd occurs when many clients, all failing at the same time, immediately retry in unison. This synchronized burst of traffic overwhelms a struggling service, making recovery harder. Exponential backoff with jitter is the solution."
+},
+{
+"answer": "A Lambda function receiving more concurrent invocations than its reserved concurrency allows.",
+"isCorrect": false,
+"explanation": "Lambda throttling due to concurrency limits is a different problem. The thundering herd specifically refers to retry storms from multiple distributed clients hitting a downstream service simultaneously."
+},
+{
+"answer": "An SQS queue receiving more messages than it can process, causing messages to pile up.",
+"isCorrect": false,
+"explanation": "Queue backlog is a scaling problem, not a thundering herd. The thundering herd is specifically about synchronized retry spikes from many clients retrying at the same time."
+}
+]
+},
+{
+"question": "A developer wants to ensure that a client-generated UUID is used to prevent duplicate submissions to a Lambda function invoked asynchronously. Which feature should the developer use?",
+"answers": [
+{
+"answer": "Lambda reserved concurrency",
+"isCorrect": false,
+"explanation": "Reserved concurrency limits the number of concurrent executions but does not detect or prevent duplicate invocations."
+},
+{
+"answer": "Lambda idempotency support using a client-generated idempotency key",
+"isCorrect": true,
+"explanation": "Lambda supports idempotency through a client-provided idempotency key (UUID). Lambda stores the key and result, and returns the cached result if the same key is submitted again within the idempotency window."
+},
+{
+"answer": "Lambda destination configuration with an OnSuccess destination",
+"isCorrect": false,
+"explanation": "OnSuccess destinations route the result of successful invocations to another service. They do not detect or prevent duplicate invocations."
+},
+{
+"answer": "SQS FIFO deduplication at the event source",
+"isCorrect": false,
+"explanation": "SQS FIFO deduplication prevents duplicate messages from being enqueued, but this does not directly address idempotency at the Lambda invocation level for async triggers."
+}
+]
+},
+{
+"question": "Why is it recommended to design consumers as idempotent even when using services that claim exactly-once delivery?",
+"answers": [
+{
+"answer": "Because exactly-once delivery services always have edge cases where duplicates can still occur.",
+"isCorrect": true,
+"explanation": "Even services that provide exactly-once delivery guarantees have edge cases. Designing consumers as idempotent makes them robust regardless of the delivery guarantee, providing a safe default that works even if the underlying infrastructure has rare failure modes."
+},
+{
+"answer": "Because AWS services never actually provide exactly-once delivery.",
+"isCorrect": false,
+"explanation": "Some AWS services do provide exactly-once delivery (e.g., SQS FIFO within the deduplication window, Step Functions Standard Workflows). The recommendation to use idempotency is a defense-in-depth approach, not a denial of these guarantees."
+},
+{
+"answer": "Because idempotent consumers are required by the AWS shared responsibility model.",
+"isCorrect": false,
+"explanation": "The AWS shared responsibility model governs security responsibilities, not application design patterns. Idempotency is a best practice recommendation, not a compliance requirement."
+},
+{
+"answer": "Because consumers cannot detect whether a message was already processed without an idempotency key.",
+"isCorrect": false,
+"explanation": "While idempotency keys help detect duplicates, the recommendation for idempotent design goes beyond detection — it ensures that even undetected duplicates do not cause incorrect system state."
+}
+]
+}
+]
+{{< /qcm >}}
