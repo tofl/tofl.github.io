@@ -38,11 +38,13 @@
 </html>
 
 {{ define "menu-container" }}
+{{ if not .IsHome }}
 <aside class="book-menu">
     <div class="book-menu-content">
         {{ template "menu" . }}
     </div>
 </aside>
+{{ end }}
 {{ end }}
 
 {{ define "menu" }}
