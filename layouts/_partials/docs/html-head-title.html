@@ -1,0 +1,5 @@
+{{ if .IsHome }}
+    {{ .Site.Params.LandingPageTitle }}
+{{ else }}
+    {{ with partial "docs/title" . }}{{ . }} | {{ end }}{{ .Site.Title }}
+{{ end }}

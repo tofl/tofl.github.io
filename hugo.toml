@@ -3,6 +3,11 @@ locale = 'en-us'
 title = 'CloudNugget'
 theme = 'hugo-book'
 
+[params]
+    BookFavicon = "favicon.png"
+    LandingPageTitle = "CloudNugget | Free AWS Developer Associate Course + 1000 Practice Questions"
+    LandingPageDescription = "Master AWS and pass the Developer Associate exam with confidence. Free course, real-world explanations, and close to 1,000 practice questions to test your skills."
+
 [params.sidebar]
 showLevel = 1  # 1 = seulement les sections de premier niveau
 
