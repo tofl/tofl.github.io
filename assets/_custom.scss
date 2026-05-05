@@ -824,7 +824,106 @@ body {
 }
 
 // ------------------------------------------------------------
-// 20. DARK MODE
+// 20. FAQ LINKS
+// ------------------------------------------------------------
+
+.faq-links {
+  font-family: 'DM Sans', sans-serif;
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border-light, #ddd9d3);
+  border-radius: 6px;
+  background: var(--bg-main, #f7f5f2);
+}
+
+.faq-links-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light, #ddd9d3);
+}
+
+.faq-links-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent, #b8621a);
+  flex-shrink: 0;
+}
+
+.faq-links-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent, #b8621a);
+}
+
+.faq-links .faq-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq-links-item {
+  margin: 0;
+  padding: 0;
+}
+
+.faq-links-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #5a5650);
+  text-decoration: none;
+  border: none;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: var(--accent-light, #f0dece);
+    color: var(--accent, #b8621a);
+    text-decoration: none;
+    border: none;
+
+    .faq-links-arrow {
+      color: var(--accent, #b8621a);
+      transform: translateX(2px);
+    }
+  }
+}
+
+.faq-links-arrow {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: var(--text-muted, #9a9590);
+  transition: transform 0.15s, color 0.15s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .faq-links {
+    border-color: var(--border-light, #2e2c28);
+    background: var(--bg-main, #1a1917);
+  }
+
+  .faq-links-header {
+    border-bottom-color: var(--border-light, #2e2c28);
+  }
+
+  .faq-links-link:hover {
+    background: var(--accent-light, #2a1f14);
+  }
+}
+
+// ------------------------------------------------------------
+// 21. DARK MODE
 // Respects system preference gracefully
 // ------------------------------------------------------------
 
@@ -860,7 +959,7 @@ body {
 }
 
 // ------------------------------------------------------------
-// 21. RESPONSIVE — tighten spacing on small screens
+// 22. RESPONSIVE — tighten spacing on small screens
 // ------------------------------------------------------------
 
 @media (max-width: 768px) {
