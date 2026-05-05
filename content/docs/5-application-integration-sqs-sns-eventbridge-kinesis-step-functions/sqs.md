@@ -540,3 +540,48 @@ Encryption in transit is always enforced via HTTPS endpoints.
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "SQS Message Groups and Message Group IDs in FIFO Queues",
+"slug": "sqs-message-groups-and-message-group-ids-in-fifo-queues"
+},
+{
+"title": "Lambda Polling from SQS FIFO Queues: Group-Based Processing and Concurrency",
+"slug": "lambda-polling-from-sqs-fifo-queues-group-based-processing-and-concurrency"
+},
+{
+"title": "SQS Extended Client Library: Handling Messages Larger Than 256 KB",
+"slug": "sqs-extended-client-library-handling-messages-larger-than-256-kb"
+},
+{
+"title": "SQS Batch Operations: SendMessageBatch and ReceiveMessageBatch for Efficiency",
+"slug": "sqs-batch-operations-sendmessagebatch-and-receivemessagebatch-for-efficiency"
+},
+{
+"title": "Monitoring SQS Queue Depth and Age of Messages: CloudWatch Metrics and Alarms",
+"slug": "monitoring-sqs-queue-depth-and-age-of-messages-cloudwatch-metrics-and-alarms"
+},
+{
+"title": "Setting Up SQS Alarms for Dead-Letter Queue Messages and Consumer Failures",
+"slug": "setting-up-sqs-alarms-for-dead-letter-queue-messages-and-consumer-failures"
+},
+{
+"title": "Cost Optimization for SQS: Batching, Long Polling, and Quota Planning",
+"slug": "cost-optimization-for-sqs-batching-long-polling-and-quota-planning"
+},
+{
+"title": "Cross-Region SQS: Replication Patterns and Multi-Region Failover",
+"slug": "cross-region-sqs-replication-patterns-and-multi-region-failover"
+},
+{
+"title": "SQS Permissions and Cross-Account Queue Access: Resource Policies and IAM",
+"slug": "sqs-permissions-and-cross-account-queue-access-resource-policies-and-iam"
+},
+{
+"title": "Handling Race Conditions in SQS Processing: Idempotency and Duplicate Detection",
+"slug": "handling-race-conditions-in-sqs-processing-idempotency-and-duplicate-detection"
+}
+]
+{{< /faq >}}

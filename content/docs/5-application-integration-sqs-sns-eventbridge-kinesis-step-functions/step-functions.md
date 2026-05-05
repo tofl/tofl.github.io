@@ -558,3 +558,48 @@ Using direct SDK integrations rather than Lambda wrappers reduces latency, cost,
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Understanding State Machine Input and Output Processing in Step Functions",
+"slug": "understanding-state-machine-input-and-output-processing-in-step-functions"
+},
+{
+"title": "Implementing Retry and Catch Error Handling in Step Functions State Machines",
+"slug": "implementing-retry-and-catch-error-handling-in-step-functions-state-machines"
+},
+{
+"title": "Comparing Step Functions Standard vs Express Workflows: Trade-offs and Use Cases",
+"slug": "comparing-step-functions-standard-vs-express-workflows-trade-offs-and-use-cases"
+},
+{
+"title": "Integrating Step Functions with Other AWS Services: Task Integration Patterns",
+"slug": "integrating-step-functions-with-other-aws-services-task-integration-patterns"
+},
+{
+"title": "Parallel and Map States in Step Functions: Running Concurrent Work",
+"slug": "parallel-and-map-states-in-step-functions-running-concurrent-work"
+},
+{
+"title": "Building Saga Patterns with Step Functions: Distributed Transactions and Compensations",
+"slug": "building-saga-patterns-with-step-functions-distributed-transactions-and-compensations"
+},
+{
+"title": "Handling Task Token Callbacks in Step Functions for Human Approval Workflows",
+"slug": "handling-task-token-callbacks-in-step-functions-for-human-approval-workflows"
+},
+{
+"title": "Choice State Conditions in Step Functions: Branching Logic and Decision Trees",
+"slug": "choice-state-conditions-in-step-functions-branching-logic-and-decision-trees"
+},
+{
+"title": "Monitoring and Debugging Step Functions Executions: CloudWatch Logs, X-Ray, and Execution History",
+"slug": "monitoring-and-debugging-step-functions-executions-cloudwatch-logs-x-ray-and-execution-history"
+},
+{
+"title": "Pass States and Data Transformation in Step Functions: Injecting Constants and Reshaping JSON",
+"slug": "pass-states-and-data-transformation-in-step-functions-injecting-constants-and-reshaping-json"
+}
+]
+{{< /faq >}}

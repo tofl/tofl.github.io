@@ -518,3 +518,48 @@ This makes SES a useful building block for email-driven workflows, such as proce
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "How to Move Your AWS SES Account Out of Sandbox Mode",
+"slug": "how-to-move-your-aws-ses-account-out-of-sandbox-mode"
+},
+{
+"title": "Setting Up SPF, DKIM, and DMARC for Amazon SES Domain Verification",
+"slug": "setting-up-spf-dkim-and-dmarc-for-amazon-ses-domain-verification"
+},
+{
+"title": "Handling SES Bounces and Complaints with SNS, SQS, and Lambda",
+"slug": "handling-ses-bounces-and-complaints-with-sns-sqs-and-lambda"
+},
+{
+"title": "Amazon SES Configuration Sets and Event Destinations Explained",
+"slug": "amazon-ses-configuration-sets-and-event-destinations-explained"
+},
+{
+"title": "SES SendEmail vs SendRawEmail: When to Use Each API",
+"slug": "ses-sendemail-vs-sendrawemail-when-to-use-each-api"
+},
+{
+"title": "Building an Inbound Email Processing Pipeline with SES Receipt Rules and Lambda",
+"slug": "building-an-inbound-email-processing-pipeline-with-ses-receipt-rules-and-lambda"
+},
+{
+"title": "SES Sending Quotas, Throttling, and How to Monitor Them",
+"slug": "ses-sending-quotas-throttling-and-how-to-monitor-them"
+},
+{
+"title": "Comparing Amazon SES, SNS Email, and Third-Party Email Services",
+"slug": "comparing-amazon-ses-sns-email-and-third-party-email-services"
+},
+{
+"title": "Protecting Your SES Sending Reputation: Reputation Dashboard and Best Practices",
+"slug": "protecting-your-ses-sending-reputation-reputation-dashboard-and-best-practices"
+},
+{
+"title": "Dedicated IPs vs Shared IPs in Amazon SES: When to Choose Each",
+"slug": "dedicated-ips-vs-shared-ips-in-amazon-ses-when-to-choose-each"
+}
+]
+{{< /faq >}}

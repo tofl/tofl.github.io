@@ -503,3 +503,48 @@ From an IAM perspective, the same role separation applies as with ECS generally:
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Fargate Capacity Providers: Mixing Standard and Spot for Cost Savings",
+"slug": "fargate-capacity-providers-mixing-standard-and-spot-for-cost-savings"
+},
+{
+"title": "Handling Fargate Spot Interruptions: SIGTERM and Graceful Shutdown",
+"slug": "handling-fargate-spot-interruptions-sigterm-and-graceful-shutdown"
+},
+{
+"title": "Fargate Ephemeral Storage: Sizing, Pricing, and Best Practices",
+"slug": "fargate-ephemeral-storage-sizing-pricing-and-best-practices"
+},
+{
+"title": "Mounting EFS in Fargate Tasks: Step-by-Step Configuration",
+"slug": "mounting-efs-in-fargate-tasks-step-by-step-configuration"
+},
+{
+"title": "Fargate Platform Versions Explained",
+"slug": "fargate-platform-versions-explained"
+},
+{
+"title": "Running Windows Containers on ECS Fargate",
+"slug": "running-windows-containers-on-ecs-fargate"
+},
+{
+"title": "EKS Fargate Profiles: How Pod-to-Fargate Selection Works",
+"slug": "eks-fargate-profiles-how-pod-to-fargate-selection-works"
+},
+{
+"title": "VPC Endpoints for Fargate Tasks in Private Subnets",
+"slug": "vpc-endpoints-for-fargate-tasks-in-private-subnets"
+},
+{
+"title": "Sizing Fargate Tasks: Right-Sizing CPU and Memory to Avoid Waste",
+"slug": "sizing-fargate-tasks-right-sizing-cpu-and-memory-to-avoid-waste"
+},
+{
+"title": "ENI Limits and IP Address Planning for Fargate at Scale",
+"slug": "eni-limits-and-ip-address-planning-for-fargate-at-scale"
+}
+]
+{{< /faq >}}

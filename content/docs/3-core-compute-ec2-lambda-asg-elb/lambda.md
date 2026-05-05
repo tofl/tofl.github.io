@@ -601,3 +601,104 @@ These limits appear directly in exam questions:
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "AWS Lambda Cold Starts: Causes, Measurement, and Mitigation Strategies",
+"slug": "aws-lambda-cold-starts-causes-measurement-and-mitigation-strategies"
+},
+{
+"title": "Lambda SnapStart for Java: How It Works and When to Use It",
+"slug": "lambda-snapstart-for-java-how-it-works-and-when-to-use-it"
+},
+{
+"title": "Lambda Destinations vs Dead Letter Queues: Routing Async Invocation Results",
+"slug": "lambda-destinations-vs-dead-letter-queues-routing-async-invocation-results"
+},
+{
+"title": "Lambda Reserved Concurrency vs Provisioned Concurrency: A Practical Comparison",
+"slug": "lambda-reserved-concurrency-vs-provisioned-concurrency-a-practical-comparison"
+},
+{
+"title": "Lambda Function URLs vs API Gateway vs ALB: Choosing the Right HTTP Front Door",
+"slug": "lambda-function-urls-vs-api-gateway-vs-alb-choosing-the-right-http-front-door"
+},
+{
+"title": "Lambda Versions and Aliases: Implementing Blue/Green and Canary Deployments",
+"slug": "lambda-versions-and-aliases-implementing-bluegreen-and-canary-deployments"
+},
+{
+"title": "Lambda Event Source Mapping: SQS vs Kinesis vs DynamoDB Streams",
+"slug": "lambda-event-source-mapping-sqs-vs-kinesis-vs-dynamodb-streams"
+},
+{
+"title": "Lambda Layers: Sharing Code and Dependencies Across Functions",
+"slug": "lambda-layers-sharing-code-and-dependencies-across-functions"
+},
+{
+"title": "Packaging Lambda Functions as Container Images: When and How",
+"slug": "packaging-lambda-functions-as-container-images-when-and-how"
+},
+{
+"title": "Building Custom Lambda Runtimes with the Runtime API",
+"slug": "building-custom-lambda-runtimes-with-the-runtime-api"
+},
+{
+"title": "Optimizing Lambda Memory and CPU: Right-Sizing for Cost and Performance",
+"slug": "optimizing-lambda-memory-and-cpu-right-sizing-for-cost-and-performance"
+},
+{
+"title": "Connecting Lambda to RDS: The Connection Pooling Problem and RDS Proxy",
+"slug": "connecting-lambda-to-rds-the-connection-pooling-problem-and-rds-proxy"
+},
+{
+"title": "Lambda Extensions Explained: Telemetry, Secrets Caching, and Beyond",
+"slug": "lambda-extensions-explained-telemetry-secrets-caching-and-beyond"
+},
+{
+"title": "Caching SSM Parameters and Secrets in Lambda with the Parameters and Secrets Extension",
+"slug": "caching-ssm-parameters-and-secrets-in-lambda-with-the-parameters-and-secrets-extension"
+},
+{
+"title": "Monitoring Lambda Functions with CloudWatch Metrics, Logs, and X-Ray",
+"slug": "monitoring-lambda-functions-with-cloudwatch-metrics-logs-and-x-ray"
+},
+{
+"title": "Lambda Throttling and 429 Errors: Handling Concurrency Limits Gracefully",
+"slug": "lambda-throttling-and-429-errors-handling-concurrency-limits-gracefully"
+},
+{
+"title": "Lambda@Edge vs CloudFront Functions: Detailed Feature and Use Case Comparison",
+"slug": "lambdaedge-vs-cloudfront-functions-detailed-feature-and-use-case-comparison"
+},
+{
+"title": "Securing Lambda Environment Variables with KMS Customer-Managed Keys",
+"slug": "securing-lambda-environment-variables-with-kms-customer-managed-keys"
+},
+{
+"title": "Lambda VPC Networking Deep Dive: Hyperplane ENIs, NAT Gateways, and VPC Endpoints",
+"slug": "lambda-vpc-networking-deep-dive-hyperplane-enis-nat-gateways-and-vpc-endpoints"
+},
+{
+"title": "Lambda Function URLs: Auth Modes, CORS, and Practical Use Cases",
+"slug": "lambda-function-urls-auth-modes-cors-and-practical-use-cases"
+},
+{
+"title": "Idempotency in Lambda: Handling Retries and Duplicate Invocations Safely",
+"slug": "idempotency-in-lambda-handling-retries-and-duplicate-invocations-safely"
+},
+{
+"title": "Lambda Execution Environment Reuse: Leveraging Warm Starts for Performance",
+"slug": "lambda-execution-environment-reuse-leveraging-warm-starts-for-performance"
+},
+{
+"title": "Lambda /tmp Storage: Use Cases, Limits, and Configuration",
+"slug": "lambda-tmp-storage-use-cases-limits-and-configuration"
+},
+{
+"title": "Mounting EFS in Lambda: Shared State for Serverless Workloads",
+"slug": "mounting-efs-in-lambda-shared-state-for-serverless-workloads"
+}
+]
+{{< /faq >}}

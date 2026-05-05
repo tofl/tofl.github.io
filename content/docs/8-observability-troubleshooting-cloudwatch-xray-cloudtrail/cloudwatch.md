@@ -520,3 +520,48 @@ Both features follow the same pattern: opt in, and CloudWatch automatically begi
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "CloudWatch Logs Retention Policies and Archiving to S3 for Long-Term Storage",
+"slug": "cloudwatch-logs-retention-policies-and-archiving-to-s3-for-long-term-storage"
+},
+{
+"title": "Building Custom Metrics from Application Logs with CloudWatch Metric Filters",
+"slug": "building-custom-metrics-from-application-logs-with-cloudwatch-metric-filters"
+},
+{
+"title": "CloudWatch Synthetics: Monitoring Application Availability and Performance Proactively",
+"slug": "cloudwatch-synthetics-monitoring-application-availability-and-performance-proactively"
+},
+{
+"title": "CloudWatch Dashboards as Code: Infrastructure as Code for Observability",
+"slug": "cloudwatch-dashboards-as-code-infrastructure-as-code-for-observability"
+},
+{
+"title": "CloudWatch Logs Insights Query Optimization: Performance Tips for Large Log Volumes",
+"slug": "cloudwatch-logs-insights-query-optimization-performance-tips-for-large-log-volumes"
+},
+{
+"title": "CloudWatch Anomaly Detection vs Static Alarms: When to Use Machine Learning-Based Thresholds",
+"slug": "cloudwatch-anomaly-detection-vs-static-alarms-when-to-use-machine-learning-based-thresholds"
+},
+{
+"title": "Integrating CloudWatch with Slack, PagerDuty, and Third-Party Incident Management Tools",
+"slug": "integrating-cloudwatch-with-slack-pagerduty-and-third-party-incident-management-tools"
+},
+{
+"title": "CloudWatch ServiceLens and Trace Map: Visualizing Service Dependencies and Latency",
+"slug": "cloudwatch-servicelens-and-trace-map-visualizing-service-dependencies-and-latency"
+},
+{
+"title": "CloudWatch Alarms as Code: Defining Monitoring Standards for Teams",
+"slug": "cloudwatch-alarms-as-code-defining-monitoring-standards-for-teams"
+},
+{
+"title": "CloudWatch Log Groups as Metric Sources: Inferring Operational Health from Logs",
+"slug": "cloudwatch-log-groups-as-metric-sources-inferring-operational-health-from-logs"
+}
+]
+{{< /faq >}}

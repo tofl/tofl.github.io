@@ -465,3 +465,56 @@ The ECS task in this pattern needs the Task Execution Role to launch, and a Task
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "ECS vs EKS vs Fargate: Choosing the Right Container Service on AWS",
+"slug": "ecs-vs-eks-vs-fargate-choosing-the-right-container-service-on-aws"
+},
+{
+"title": "ECS Capacity Providers Explained: FARGATE, FARGATE_SPOT, and EC2 Auto Scaling",
+"slug": "ecs-capacity-providers-explained-fargate-fargate-spot-and-ec2-auto-scaling"
+},
+{
+"title": "ECS Task Placement Strategies and Constraints",
+"slug": "ecs-task-placement-strategies-and-constraints"
+},
+{
+"title": "Rolling Update vs Blue/Green vs Canary Deployments in ECS",
+"slug": "rolling-update-vs-bluegreen-vs-canary-deployments-in-ecs"
+},
+{
+"title": "Injecting Secrets and Environment Variables into ECS Tasks",
+"slug": "injecting-secrets-and-environment-variables-into-ecs-tasks"
+},
+{
+"title": "Mounting EFS Volumes in ECS Tasks for Persistent Storage",
+"slug": "mounting-efs-volumes-in-ecs-tasks-for-persistent-storage"
+},
+{
+"title": "ECS Service Connect vs Service Discovery with Cloud Map",
+"slug": "ecs-service-connect-vs-service-discovery-with-cloud-map"
+},
+{
+"title": "Running Scheduled Batch Jobs with ECS and EventBridge",
+"slug": "running-scheduled-batch-jobs-with-ecs-and-eventbridge"
+},
+{
+"title": "ECS Task Networking: awsvpc Mode and ENI Trunking",
+"slug": "ecs-task-networking-awsvpc-mode-and-eni-trunking"
+},
+{
+"title": "Logging and Monitoring ECS Tasks with CloudWatch and FireLens",
+"slug": "logging-and-monitoring-ecs-tasks-with-cloudwatch-and-firelens"
+},
+{
+"title": "ECS Health Checks: Container Health vs ELB Health Checks",
+"slug": "ecs-health-checks-container-health-vs-elb-health-checks"
+},
+{
+"title": "ECS Fargate Pricing and Cost Optimization Strategies",
+"slug": "ecs-fargate-pricing-and-cost-optimization-strategies"
+}
+]
+{{< /faq >}}

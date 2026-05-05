@@ -566,15 +566,63 @@ The strong recommendation for any code running inside AWS is to rely on roles an
 ]
 {{< /qcm >}}
 
-{{< faq >}}                                                                                                                                                                                                                                                                                                      
-[                                                                                                                                                                                                                                                                                                                
-{                                                                                                                                                                                                                                                                                                            
-"title": "ACM Certificate Caching and TTL",                                                                                                                                                                                                                                                              
-"url": "acm-certificate-caching-and-ttl-impact-on-https-handshake-performance"                                                                                                                                                                                                                           
-},                                                                                                                                                                                                                                                                                                           
-{                                                                                                                                                                                                                                                                                                            
-"title": "DNS Failover with Route 53",                                                                                                                                                                                                                                                                   
-"url": "active-passive-vs-active-active-dns-failover-with-route-53"                                                                                                                                                                                                                                      
-}                                                                                                                                                                                                                                                                                                            
-]                                                                                                                                                                                                                                                                                                                
+{{< faq >}}
+[
+{
+"title": "How to Secure the AWS Root User Account",
+"slug": "how-to-secure-the-aws-root-user-account"
+},
+{
+"title": "IAM Permission Boundaries Explained",
+"slug": "iam-permission-boundaries-explained"
+},
+{
+"title": "AWS Service Control Policies (SCPs) vs IAM Policies",
+"slug": "aws-service-control-policies-scps-vs-iam-policies"
+},
+{
+"title": "Understanding IAM Policy Conditions with Examples",
+"slug": "understanding-iam-policy-conditions-with-examples"
+},
+{
+"title": "How to Use IAM Identity Center (formerly AWS SSO) for Developer Access",
+"slug": "how-to-use-iam-identity-center-formerly-aws-sso-for-developer-access"
+},
+{
+"title": "EC2 Instance Metadata Service v1 vs v2 (IMDSv2)",
+"slug": "ec2-instance-metadata-service-v1-vs-v2-imdsv2"
+},
+{
+"title": "How to Rotate IAM Access Keys Safely",
+"slug": "how-to-rotate-iam-access-keys-safely"
+},
+{
+"title": "Cross-Account Access in AWS: Roles vs Resource-Based Policies",
+"slug": "cross-account-access-in-aws-roles-vs-resource-based-policies"
+},
+{
+"title": "Debugging IAM Permission Errors: A Step-by-Step Guide",
+"slug": "debugging-iam-permission-errors-a-step-by-step-guide"
+},
+{
+"title": "IAM Roles for Lambda: Execution Roles Explained",
+"slug": "iam-roles-for-lambda-execution-roles-explained"
+},
+{
+"title": "Using AWS STS AssumeRoleWithWebIdentity for Mobile and Web Apps",
+"slug": "using-aws-sts-assumerolewithwebidentity-for-mobile-and-web-apps"
+},
+{
+"title": "IAM Policy Variables and Tag-Based Access Control (ABAC)",
+"slug": "iam-policy-variables-and-tag-based-access-control-abac"
+},
+{
+"title": "Inline Policies vs Managed Policies: When to Use Each",
+"slug": "inline-policies-vs-managed-policies-when-to-use-each"
+},
+{
+"title": "AWS CLI Named Profiles and Configuring Multiple Accounts",
+"slug": "aws-cli-named-profiles-and-configuring-multiple-accounts"
+}
+]
 {{< /faq >}}

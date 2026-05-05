@@ -475,3 +475,40 @@ As a developer, you're unlikely to configure either — that's infrastructure/op
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "How to Connect AWS Lambda to a VPC: Configuration and Cold Start Implications",
+"slug": "how-to-connect-aws-lambda-to-a-vpc-configuration-and-cold-start-implications"
+},
+{
+"title": "Gateway Endpoints vs Interface Endpoints: Choosing the Right VPC Endpoint Type",
+"slug": "gateway-endpoints-vs-interface-endpoints-choosing-the-right-vpc-endpoint-type"
+},
+{
+"title": "How to Diagnose VPC Connectivity Issues with VPC Flow Logs",
+"slug": "how-to-diagnose-vpc-connectivity-issues-with-vpc-flow-logs"
+},
+{
+"title": "VPC Peering vs Transit Gateway: Choosing the Right VPC Connectivity Pattern",
+"slug": "vpc-peering-vs-transit-gateway-choosing-the-right-vpc-connectivity-pattern"
+},
+{
+"title": "Designing VPC CIDR Blocks and Subnets: A Practical Sizing Guide",
+"slug": "designing-vpc-cidr-blocks-and-subnets-a-practical-sizing-guide"
+},
+{
+"title": "NAT Gateway vs NAT Instance: Cost, Performance, and Operational Trade-offs",
+"slug": "nat-gateway-vs-nat-instance-cost-performance-and-operational-trade-offs"
+},
+{
+"title": "Security Group Best Practices: Referencing Other Security Groups vs CIDR Ranges",
+"slug": "security-group-best-practices-referencing-other-security-groups-vs-cidr-ranges"
+},
+{
+"title": "VPC Endpoint Policies: Restricting What Can Be Accessed Through an Endpoint",
+"slug": "vpc-endpoint-policies-restricting-what-can-be-accessed-through-an-endpoint"
+}
+]
+{{< /faq >}}

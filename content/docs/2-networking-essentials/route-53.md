@@ -385,3 +385,48 @@ To use private hosted zones, **DNS resolution and DNS hostnames must be enabled*
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Alias Records vs CNAME Records in Route 53: Key Differences Explained",
+"slug": "alias-records-vs-cname-records-in-route-53-key-differences-explained"
+},
+{
+"title": "Route 53 Routing Policies Compared: Simple, Weighted, Latency, Failover, Geolocation, and Geoproximity",
+"slug": "route-53-routing-policies-compared-simple-weighted-latency-failover-geolocation-and-geoproximity"
+},
+{
+"title": "Implementing Canary Deployments with Route 53 Weighted Routing",
+"slug": "implementing-canary-deployments-with-route-53-weighted-routing"
+},
+{
+"title": "Route 53 Health Checks Explained: Endpoint, Calculated, and CloudWatch Alarm Types",
+"slug": "route-53-health-checks-explained-endpoint-calculated-and-cloudwatch-alarm-types"
+},
+{
+"title": "Active-Passive vs Active-Active DNS Failover with Route 53",
+"slug": "active-passive-vs-active-active-dns-failover-with-route-53"
+},
+{
+"title": "Route 53 Private Hosted Zones: Configuration and Use Cases",
+"slug": "route-53-private-hosted-zones-configuration-and-use-cases"
+},
+{
+"title": "Route 53 TTL Best Practices: Balancing Cost, Performance, and Failover Speed",
+"slug": "route-53-ttl-best-practices-balancing-cost-performance-and-failover-speed"
+},
+{
+"title": "Route 53 vs CloudFront vs Global Accelerator: Choosing the Right Global Traffic Service",
+"slug": "route-53-vs-cloudfront-vs-global-accelerator-choosing-the-right-global-traffic-service"
+},
+{
+"title": "Registering and Transferring Domains with Route 53",
+"slug": "registering-and-transferring-domains-with-route-53"
+},
+{
+"title": "Route 53 Resolver: Hybrid DNS Between AWS VPCs and On-Premises Networks",
+"slug": "route-53-resolver-hybrid-dns-between-aws-vpcs-and-on-premises-networks"
+}
+]
+{{< /faq >}}

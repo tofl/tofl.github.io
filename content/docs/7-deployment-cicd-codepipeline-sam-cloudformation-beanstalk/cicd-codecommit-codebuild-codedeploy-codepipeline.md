@@ -591,3 +591,72 @@ AWS Copilot [🔗](https://aws.github.io/copilot-cli/) is a CLI tool designed to
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "CodeCommit Branch Policies and Pull Request Approvals",
+"slug": "codecommit-branch-policies-and-pull-request-approvals"
+},
+{
+"title": "CodeBuild Custom Docker Images: Beyond AWS-Managed Runtimes",
+"slug": "codebuild-custom-docker-images-beyond-aws-managed-runtimes"
+},
+{
+"title": "CodeBuild Artifacts Compared: S3, CodePipeline, and Local Caching",
+"slug": "codebuild-artifacts-compared-s3-codepipeline-and-local-caching"
+},
+{
+"title": "CodeDeploy Blue/Green Deployments: Implementation and Rollback Strategies",
+"slug": "codedeploy-bluegreen-deployments-implementation-and-rollback-strategies"
+},
+{
+"title": "CodeDeploy On-Premises Servers: Agent Installation and Activation",
+"slug": "codedeploy-on-premises-servers-agent-installation-and-activation"
+},
+{
+"title": "Building a Multi-Environment Pipeline with CodePipeline Stage Variables",
+"slug": "building-a-multi-environment-pipeline-with-codepipeline-stage-variables"
+},
+{
+"title": "Integrating CodePipeline with Third-Party Source Control: GitHub, GitLab, and Bitbucket",
+"slug": "integrating-codepipeline-with-third-party-source-control-github-gitlab-and-bitbucket"
+},
+{
+"title": "CodePipeline Manual Approval Actions: Email Notifications and Approval Workflows",
+"slug": "codepipeline-manual-approval-actions-email-notifications-and-approval-workflows"
+},
+{
+"title": "CodePipeline Execution Retry: Handling Transient Failures Without Manual Intervention",
+"slug": "codepipeline-execution-retry-handling-transient-failures-without-manual-intervention"
+},
+{
+"title": "CodePipeline Failure Notifications: SNS and EventBridge Integration",
+"slug": "codepipeline-failure-notifications-sns-and-eventbridge-integration"
+},
+{
+"title": "CodeArtifact Repository Configuration: Upstream Repositories and Package Retention",
+"slug": "codeartifact-repository-configuration-upstream-repositories-and-package-retention"
+},
+{
+"title": "CodeGuru Reviewer Best Practices: Interpreting Findings and Fixing Common Issues",
+"slug": "codeguru-reviewer-best-practices-interpreting-findings-and-fixing-common-issues"
+},
+{
+"title": "AWS Copilot Patterns: Environment-Based Deployments for ECS and App Runner",
+"slug": "aws-copilot-patterns-environment-based-deployments-for-ecs-and-app-runner"
+},
+{
+"title": "CI/CD Pipeline Cost Optimization: Reducing CodeBuild, CodePipeline, and Artifact Costs",
+"slug": "cicd-pipeline-cost-optimization-reducing-codebuild-codepipeline-and-artifact-costs"
+},
+{
+"title": "Securing CI/CD Pipelines: Credentials, Secrets, and Permission Least-Privilege",
+"slug": "securing-cicd-pipelines-credentials-secrets-and-permission-least-privilege"
+},
+{
+"title": "Comparing CodePipeline, AWS SAM Pipelines, and Copilot for Application Deployment",
+"slug": "comparing-codepipeline-aws-sam-pipelines-and-copilot-for-application-deployment"
+}
+]
+{{< /faq >}}

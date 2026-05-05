@@ -522,3 +522,48 @@ CDK Pipelines is built on top of CodePipeline and CodeBuild, so it integrates na
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "CDK vs Terraform vs CloudFormation: Choosing the Right IaC Language and Tool",
+"slug": "cdk-vs-terraform-vs-cloudformation-choosing-the-right-iac-language-and-tool"
+},
+{
+"title": "CDK Constructs Composition: Building Higher-Order Abstractions from L2 and L3 Blocks",
+"slug": "cdk-constructs-composition-building-higher-order-abstractions-from-l2-and-l3-blocks"
+},
+{
+"title": "CDK Nested Stacks: Organizing Complex Applications into Logical Units",
+"slug": "cdk-nested-stacks-organizing-complex-applications-into-logical-units"
+},
+{
+"title": "CDK Context Values: Externalizing Configuration Without Hardcoding",
+"slug": "cdk-context-values-externalizing-configuration-without-hardcoding"
+},
+{
+"title": "CDK Assertions and Testing: Unit Testing Infrastructure Code",
+"slug": "cdk-assertions-and-testing-unit-testing-infrastructure-code"
+},
+{
+"title": "Managing Secrets and Credentials in CDK: Avoiding Hardcoding Sensitive Values",
+"slug": "managing-secrets-and-credentials-in-cdk-avoiding-hardcoding-sensitive-values"
+},
+{
+"title": "CDK Custom Resources: Extending CDK for Unsupported AWS Services",
+"slug": "cdk-custom-resources-extending-cdk-for-unsupported-aws-services"
+},
+{
+"title": "CDK Construct Hub and Community Constructs: Discovering and Reusing Published Constructs",
+"slug": "cdk-construct-hub-and-community-constructs-discovering-and-reusing-published-constructs"
+},
+{
+"title": "CDK Asset Management: Bundling Docker Images, Files, and Dependencies",
+"slug": "cdk-asset-management-bundling-docker-images-files-and-dependencies"
+},
+{
+"title": "Migrating from CloudFormation to CDK: Step-by-Step Conversion Guide",
+"slug": "migrating-from-cloudformation-to-cdk-step-by-step-conversion-guide"
+}
+]
+{{< /faq >}}

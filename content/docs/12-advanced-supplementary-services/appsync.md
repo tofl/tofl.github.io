@@ -488,3 +488,44 @@ AppSync server-side caching [🔗](https://docs.aws.amazon.com/appsync/latest/de
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "AppSync VTL Mapping Templates: A Practical Guide for Developers",
+"slug": "appsync-vtl-mapping-templates-a-practical-guide-for-developers"
+},
+{
+"title": "AppSync JavaScript Resolvers vs VTL: Migration Guide and Best Practices",
+"slug": "appsync-javascript-resolvers-vs-vtl-migration-guide-and-best-practices"
+},
+{
+"title": "AppSync Pipeline Resolvers: Chaining Functions for Complex Workflows",
+"slug": "appsync-pipeline-resolvers-chaining-functions-for-complex-workflows"
+},
+{
+"title": "AppSync Caching: Per-Resolver vs Full-Request Caching Strategies",
+"slug": "appsync-caching-per-resolver-vs-full-request-caching-strategies"
+},
+{
+"title": "Securing AppSync APIs: Comparing API Key, IAM, Cognito, OIDC, and Lambda Authorization",
+"slug": "securing-appsync-apis-comparing-api-key-iam-cognito-oidc-and-lambda-authorization"
+},
+{
+"title": "Connecting AppSync Directly to DynamoDB: Resolvers Without Lambda",
+"slug": "connecting-appsync-directly-to-dynamodb-resolvers-without-lambda"
+},
+{
+"title": "Monitoring and Logging AppSync APIs with CloudWatch and X-Ray",
+"slug": "monitoring-and-logging-appsync-apis-with-cloudwatch-and-x-ray"
+},
+{
+"title": "AppSync GraphQL Schema Design Best Practices",
+"slug": "appsync-graphql-schema-design-best-practices"
+},
+{
+"title": "GraphQL vs REST APIs: When to Choose AppSync Over API Gateway",
+"slug": "graphql-vs-rest-apis-when-to-choose-appsync-over-api-gateway"
+}
+]
+{{< /faq >}}

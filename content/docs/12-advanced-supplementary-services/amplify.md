@@ -490,3 +490,60 @@ For the exam, the key points about DataStore are: it requires AppSync as the bac
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Amplify CLI vs CDK vs CloudFormation: Choosing the Right IaC Tool",
+"slug": "amplify-cli-vs-cdk-vs-cloudformation-choosing-the-right-iac-tool"
+},
+{
+"title": "Amplify Environments vs Amplify Hosting Branches: Understanding the Difference",
+"slug": "amplify-environments-vs-amplify-hosting-branches-understanding-the-difference"
+},
+{
+"title": "AppSync vs API Gateway: Choosing Between GraphQL and REST on AWS",
+"slug": "appsync-vs-api-gateway-choosing-between-graphql-and-rest-on-aws"
+},
+{
+"title": "AppSync Resolvers Explained: VTL, JavaScript, and Direct Lambda Resolvers",
+"slug": "appsync-resolvers-explained-vtl-javascript-and-direct-lambda-resolvers"
+},
+{
+"title": "AppSync Real-Time Subscriptions: How They Work Under the Hood",
+"slug": "appsync-real-time-subscriptions-how-they-work-under-the-hood"
+},
+{
+"title": "Cognito Identity Pool Access Levels in S3: How Public, Protected, and Private Prefixes Work",
+"slug": "cognito-identity-pool-access-levels-in-s3-how-public-protected-and-private-prefixes-work"
+},
+{
+"title": "Conflict Resolution Strategies in Amplify DataStore: Auto Merge, Optimistic Concurrency, and Custom Lambda",
+"slug": "conflict-resolution-strategies-in-amplify-datastore-auto-merge-optimistic-concurrency-and-custom-lambda"
+},
+{
+"title": "Building Offline-First Mobile Apps with Amplify DataStore",
+"slug": "building-offline-first-mobile-apps-with-amplify-datastore"
+},
+{
+"title": "AppSync Authorization Modes: API Key, IAM, Cognito, OIDC, and Lambda",
+"slug": "appsync-authorization-modes-api-key-iam-cognito-oidc-and-lambda"
+},
+{
+"title": "Server-Side Rendering with Next.js on Amplify Hosting",
+"slug": "server-side-rendering-with-nextjs-on-amplify-hosting"
+},
+{
+"title": "Customizing the amplify.yml Build Specification for CI/CD Pipelines",
+"slug": "customizing-the-amplifyyml-build-specification-for-cicd-pipelines"
+},
+{
+"title": "Amplify Pull Request Previews: Isolated Test Environments per PR",
+"slug": "amplify-pull-request-previews-isolated-test-environments-per-pr"
+},
+{
+"title": "Cognito User Pools vs Identity Pools: Two Services, Two Purposes",
+"slug": "cognito-user-pools-vs-identity-pools-two-services-two-purposes"
+}
+]
+{{< /faq >}}

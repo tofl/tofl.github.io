@@ -438,3 +438,64 @@ ELB and ASG are designed to work together. When you attach an ALB target group t
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "ALB vs NLB vs Gateway Load Balancer: Choosing the Right ELB Type",
+"slug": "alb-vs-nlb-vs-gateway-load-balancer-choosing-the-right-elb-type"
+},
+{
+"title": "ALB Listener Rules and Path-Based Routing for Microservices",
+"slug": "alb-listener-rules-and-path-based-routing-for-microservices"
+},
+{
+"title": "ALB Authentication with Amazon Cognito and OIDC Providers",
+"slug": "alb-authentication-with-amazon-cognito-and-oidc-providers"
+},
+{
+"title": "Configuring Health Checks for ALB and NLB Target Groups",
+"slug": "configuring-health-checks-for-alb-and-nlb-target-groups"
+},
+{
+"title": "Sticky Sessions in ALB: Duration-Based vs Application-Based Cookies",
+"slug": "sticky-sessions-in-alb-duration-based-vs-application-based-cookies"
+},
+{
+"title": "Cross-Zone Load Balancing in ALB and NLB: How It Affects Traffic Distribution and Cost",
+"slug": "cross-zone-load-balancing-in-alb-and-nlb-how-it-affects-traffic-distribution-and-cost"
+},
+{
+"title": "SSL/TLS Termination on ELB with ACM and SNI for Multiple Domains",
+"slug": "ssltls-termination-on-elb-with-acm-and-sni-for-multiple-domains"
+},
+{
+"title": "ELB Deregistration Delay: Tuning Connection Draining for Faster Deployments",
+"slug": "elb-deregistration-delay-tuning-connection-draining-for-faster-deployments"
+},
+{
+"title": "ALB Target Types Compared: Instance, IP, Lambda, and ALB-as-Target",
+"slug": "alb-target-types-compared-instance-ip-lambda-and-alb-as-target"
+},
+{
+"title": "Integrating Auto Scaling Groups with ALB Target Groups: Self-Healing Fleets",
+"slug": "integrating-auto-scaling-groups-with-alb-target-groups-self-healing-fleets"
+},
+{
+"title": "Invoking Lambda Functions Through an Application Load Balancer",
+"slug": "invoking-lambda-functions-through-an-application-load-balancer"
+},
+{
+"title": "ALB Access Logs and Request Tracing for Debugging and Analytics",
+"slug": "alb-access-logs-and-request-tracing-for-debugging-and-analytics"
+},
+{
+"title": "Network Load Balancer Static IPs and Elastic IPs: When to Use Them",
+"slug": "network-load-balancer-static-ips-and-elastic-ips-when-to-use-them"
+},
+{
+"title": "ALB vs API Gateway: Choosing the Right Front Door for HTTP APIs",
+"slug": "alb-vs-api-gateway-choosing-the-right-front-door-for-http-apis"
+}
+]
+{{< /faq >}}

@@ -457,3 +457,52 @@ A common exam scenario: a Lambda function processes order events from an MSK top
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Kafka Consumer Groups Explained: Partition Assignment and Rebalancing",
+"slug": "kafka-consumer-groups-explained-partition-assignment-and-rebalancing"
+},
+{
+"title": "Kafka Producer Semantics: At-Least-Once, At-Most-Once, and Exactly-Once Delivery",
+"slug": "kafka-producer-semantics-at-least-once-at-most-once-and-exactly-once-delivery"
+},
+{
+"title": "Choosing Between MSK Provisioned and MSK Serverless: A Decision Framework",
+"slug": "choosing-between-msk-provisioned-and-msk-serverless-a-decision-framework"
+},
+{
+"title": "MSK IAM Authentication: Configuring Producers and Consumers with SigV4",
+"slug": "msk-iam-authentication-configuring-producers-and-consumers-with-sigv4"
+},
+{
+"title": "MSK IAM Authentication: Configuring Kafka Clients with SigV4",
+"slug": "msk-iam-authentication-configuring-kafka-clients-with-sigv4"
+},
+{
+"title": "Lambda Event Source Mapping for MSK: Batching, Parallelism, and Error Handling",
+"slug": "lambda-event-source-mapping-for-msk-batching-parallelism-and-error-handling"
+},
+{
+"title": "Handling Poison-Pill Messages in Kafka and Lambda Stream Consumers",
+"slug": "handling-poison-pill-messages-in-kafka-and-lambda-stream-consumers"
+},
+{
+"title": "Choosing Between MSK and Kinesis Data Streams: A Practical Decision Guide",
+"slug": "choosing-between-msk-and-kinesis-data-streams-a-practical-decision-guide"
+},
+{
+"title": "Kafka Topic Configuration: Partitions, Replication Factor, and Retention",
+"slug": "kafka-topic-configuration-partitions-replication-factor-and-retention"
+},
+{
+"title": "Schema Registry on AWS: Using AWS Glue Schema Registry with MSK and Kinesis",
+"slug": "schema-registry-on-aws-using-aws-glue-schema-registry-with-msk-and-kinesis"
+},
+{
+"title": "MSK Connect: Deploying Source and Sink Connectors Without Managing Workers",
+"slug": "msk-connect-deploying-source-and-sink-connectors-without-managing-workers"
+}
+]
+{{< /faq >}}

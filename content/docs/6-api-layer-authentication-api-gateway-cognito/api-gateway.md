@@ -496,3 +496,52 @@ API Gateway assigns each connection a unique **connection ID**. Your backend can
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "API Gateway Request and Response Mapping Templates in Detail",
+"slug": "api-gateway-request-and-response-mapping-templates-in-detail"
+},
+{
+"title": "API Gateway Throttling and Usage Plans in Practice",
+"slug": "api-gateway-throttling-and-usage-plans-in-practice"
+},
+{
+"title": "API Gateway Authorizers Compared: Lambda, Cognito, and Custom",
+"slug": "api-gateway-authorizers-compared-lambda-cognito-and-custom"
+},
+{
+"title": "Securing API Gateway with Resource Policies: Cross-Account and IP-Based Access",
+"slug": "securing-api-gateway-with-resource-policies-cross-account-and-ip-based-access"
+},
+{
+"title": "Connecting API Gateway to VPC-Based Backends with VPC Links",
+"slug": "connecting-api-gateway-to-vpc-based-backends-with-vpc-links"
+},
+{
+"title": "API Gateway Models and Request Validation",
+"slug": "api-gateway-models-and-request-validation"
+},
+{
+"title": "API Gateway Custom Domain Names and Certificates",
+"slug": "api-gateway-custom-domain-names-and-certificates"
+},
+{
+"title": "Comparing REST APIs and HTTP APIs in API Gateway",
+"slug": "comparing-rest-apis-and-http-apis-in-api-gateway"
+},
+{
+"title": "Building a GraphQL API with API Gateway and AppSync",
+"slug": "building-a-graphql-api-with-api-gateway-and-appsync"
+},
+{
+"title": "API Gateway Request/Response Transformations Without Lambda",
+"slug": "api-gateway-requestresponse-transformations-without-lambda"
+},
+{
+"title": "Monitoring API Gateway with CloudWatch and Access Logging",
+"slug": "monitoring-api-gateway-with-cloudwatch-and-access-logging"
+}
+]
+{{< /faq >}}

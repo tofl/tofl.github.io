@@ -541,3 +541,56 @@ None of these consumers knows the others exist. Adding a fourth — a fraud dete
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "EventBridge vs SNS vs SQS: Choosing the Right Messaging Service on AWS",
+"slug": "eventbridge-vs-sns-vs-sqs-choosing-the-right-messaging-service-on-aws"
+},
+{
+"title": "Writing EventBridge Event Patterns: Syntax, Operators, and Examples",
+"slug": "writing-eventbridge-event-patterns-syntax-operators-and-examples"
+},
+{
+"title": "EventBridge Input Transformer: Reshaping Events Before Delivery to Targets",
+"slug": "eventbridge-input-transformer-reshaping-events-before-delivery-to-targets"
+},
+{
+"title": "EventBridge Pipes vs Rules vs Step Functions: When to Use Each",
+"slug": "eventbridge-pipes-vs-rules-vs-step-functions-when-to-use-each"
+},
+{
+"title": "EventBridge API Destinations: Calling Third-Party SaaS APIs from Events",
+"slug": "eventbridge-api-destinations-calling-third-party-saas-apis-from-events"
+},
+{
+"title": "EventBridge Scheduler vs EventBridge Scheduled Rules vs CloudWatch Events: Which to Use",
+"slug": "eventbridge-scheduler-vs-eventbridge-scheduled-rules-vs-cloudwatch-events-which-to-use"
+},
+{
+"title": "EventBridge Archive and Replay: Building Auditable Event-Driven Systems",
+"slug": "eventbridge-archive-and-replay-building-auditable-event-driven-systems"
+},
+{
+"title": "Cross-Account and Cross-Region EventBridge: Configuring Resource-Based Policies",
+"slug": "cross-account-and-cross-region-eventbridge-configuring-resource-based-policies"
+},
+{
+"title": "Securing EventBridge Buses: IAM, Resource Policies, and Encryption",
+"slug": "securing-eventbridge-buses-iam-resource-policies-and-encryption"
+},
+{
+"title": "Triggering ECS, Step Functions, and Lambda from EventBridge: Required IAM Roles",
+"slug": "triggering-ecs-step-functions-and-lambda-from-eventbridge-required-iam-roles"
+},
+{
+"title": "EventBridge Schema Registry and Code Bindings: Typed Events for Producers and Consumers",
+"slug": "eventbridge-schema-registry-and-code-bindings-typed-events-for-producers-and-consumers"
+},
+{
+"title": "Monitoring EventBridge: Key CloudWatch Metrics and Logs for Debugging",
+"slug": "monitoring-eventbridge-key-cloudwatch-metrics-and-logs-for-debugging"
+}
+]
+{{< /faq >}}

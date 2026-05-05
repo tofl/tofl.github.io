@@ -450,3 +450,52 @@ Beyond eviction, you should always set a **TTL (Time To Live)** on cached keys. 
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "ElastiCache Redis Cluster Mode Enabled vs Disabled: Sharding Explained",
+"slug": "elasticache-redis-cluster-mode-enabled-vs-disabled-sharding-explained"
+},
+{
+"title": "Caching Strategies Compared: Lazy Loading, Write-Through, and Write-Behind",
+"slug": "caching-strategies-compared-lazy-loading-write-through-and-write-behind"
+},
+{
+"title": "Connecting AWS Lambda to ElastiCache in a VPC",
+"slug": "connecting-aws-lambda-to-elasticache-in-a-vpc"
+},
+{
+"title": "Redis AUTH and Role-Based Access Control (RBAC) in ElastiCache",
+"slug": "redis-auth-and-role-based-access-control-rbac-in-elasticache"
+},
+{
+"title": "DynamoDB Accelerator (DAX) vs ElastiCache: Which Caching Layer to Choose",
+"slug": "dynamodb-accelerator-dax-vs-elasticache-which-caching-layer-to-choose"
+},
+{
+"title": "Building Real-Time Leaderboards with Redis Sorted Sets on ElastiCache",
+"slug": "building-real-time-leaderboards-with-redis-sorted-sets-on-elasticache"
+},
+{
+"title": "Storing Web Sessions in ElastiCache Redis: Architecture and Best Practices",
+"slug": "storing-web-sessions-in-elasticache-redis-architecture-and-best-practices"
+},
+{
+"title": "ElastiCache Backup and Restore: Snapshots for Redis Explained",
+"slug": "elasticache-backup-and-restore-snapshots-for-redis-explained"
+},
+{
+"title": "Scaling ElastiCache: Vertical vs Horizontal Scaling Strategies",
+"slug": "scaling-elasticache-vertical-vs-horizontal-scaling-strategies"
+},
+{
+"title": "Monitoring ElastiCache with CloudWatch: Key Metrics Developers Should Track",
+"slug": "monitoring-elasticache-with-cloudwatch-key-metrics-developers-should-track"
+},
+{
+"title": "Global Datastore for Redis: Cross-Region Replication on ElastiCache",
+"slug": "global-datastore-for-redis-cross-region-replication-on-elasticache"
+}
+]
+{{< /faq >}}

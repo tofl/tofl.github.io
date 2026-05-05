@@ -580,3 +580,60 @@ If you started with a coupled database and need to migrate to a decoupled setup,
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Understanding Elastic Beanstalk Application Versions and Deployment Lifecycle",
+"slug": "understanding-elastic-beanstalk-application-versions-and-deployment-lifecycle"
+},
+{
+"title": "Scaling Elastic Beanstalk Applications: Auto Scaling, Environment Tiers, and Capacity Planning",
+"slug": "scaling-elastic-beanstalk-applications-auto-scaling-environment-tiers-and-capacity-planning"
+},
+{
+"title": "Elastic Beanstalk Environment Properties and Cross-Environment Replication with Saved Configurations",
+"slug": "elastic-beanstalk-environment-properties-and-cross-environment-replication-with-saved-configurations"
+},
+{
+"title": "Connecting Elastic Beanstalk to External RDS: Security Groups, IAM, and Connection Pooling",
+"slug": "connecting-elastic-beanstalk-to-external-rds-security-groups-iam-and-connection-pooling"
+},
+{
+"title": "Elastic Beanstalk Worker Tier and SQS Integration: Decoupling Request Processing",
+"slug": "elastic-beanstalk-worker-tier-and-sqs-integration-decoupling-request-processing"
+},
+{
+"title": "Elastic Beanstalk Immutable and Blue/Green Deployments: Zero-Downtime Strategies",
+"slug": "elastic-beanstalk-immutable-and-bluegreen-deployments-zero-downtime-strategies"
+},
+{
+"title": "Elastic Beanstalk Health Reporting: Enhanced Health Monitoring and Auto Remediation",
+"slug": "elastic-beanstalk-health-reporting-enhanced-health-monitoring-and-auto-remediation"
+},
+{
+"title": "Elastic Beanstalk Custom Platforms vs Docker: When to Build Your Own Platform",
+"slug": "elastic-beanstalk-custom-platforms-vs-docker-when-to-build-your-own-platform"
+},
+{
+"title": "Elastic Beanstalk Managed Platform Updates: Automatic Patching and Minimizing Downtime",
+"slug": "elastic-beanstalk-managed-platform-updates-automatic-patching-and-minimizing-downtime"
+},
+{
+"title": "Elastic Beanstalk Domain Names and Custom Domains with HTTPS",
+"slug": "elastic-beanstalk-domain-names-and-custom-domains-with-https"
+},
+{
+"title": "Monitoring Elastic Beanstalk Applications: CloudWatch Dashboards and X-Ray Integration",
+"slug": "monitoring-elastic-beanstalk-applications-cloudwatch-dashboards-and-x-ray-integration"
+},
+{
+"title": "Elastic Beanstalk Secrets Management: Storing Credentials in Environment Variables and Secrets Manager",
+"slug": "elastic-beanstalk-secrets-management-storing-credentials-in-environment-variables-and-secrets-manager"
+},
+{
+"title": "Elastic Beanstalk vs EC2 vs Fargate: When to Choose Each Compute Option on AWS",
+"slug": "elastic-beanstalk-vs-ec2-vs-fargate-when-to-choose-each-compute-option-on-aws"
+}
+]
+{{< /faq >}}

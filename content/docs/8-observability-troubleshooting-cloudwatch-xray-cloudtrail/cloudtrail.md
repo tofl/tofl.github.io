@@ -513,3 +513,40 @@ In a multi-account AWS environment using AWS Organizations, you can create an **
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "CloudTrail vs VPC Flow Logs vs CloudWatch Logs: Understanding the Audit Trail Landscape",
+"slug": "cloudtrail-vs-vpc-flow-logs-vs-cloudwatch-logs-understanding-the-audit-trail-landscape"
+},
+{
+"title": "CloudTrail S3 Bucket Configuration: Securing and Accessing Audit Logs",
+"slug": "cloudtrail-s3-bucket-configuration-securing-and-accessing-audit-logs"
+},
+{
+"title": "CloudTrail Management Events vs Data Events Billing: Cost Optimization Strategies",
+"slug": "cloudtrail-management-events-vs-data-events-billing-cost-optimization-strategies"
+},
+{
+"title": "Using CloudTrail Logs to Detect Unauthorized or Anomalous Activity",
+"slug": "using-cloudtrail-logs-to-detect-unauthorized-or-anomalous-activity"
+},
+{
+"title": "CloudTrail Organization Trails Across Multiple Accounts: Centralized Audit Logging",
+"slug": "cloudtrail-organization-trails-across-multiple-accounts-centralized-audit-logging"
+},
+{
+"title": "CloudTrail Insights Deep Dive: Detecting Anomalies and Setting Up Automated Responses",
+"slug": "cloudtrail-insights-deep-dive-detecting-anomalies-and-setting-up-automated-responses"
+},
+{
+"title": "Comparing CloudTrail with AWS Config: Audit Trail vs Configuration Compliance",
+"slug": "comparing-cloudtrail-with-aws-config-audit-trail-vs-configuration-compliance"
+},
+{
+"title": "CloudTrail Event Details: Understanding the userIdentity, requestParameters, and responseElements Fields",
+"slug": "cloudtrail-event-details-understanding-the-useridentity-requestparameters-and-responseelements-fields"
+}
+]
+{{< /faq >}}

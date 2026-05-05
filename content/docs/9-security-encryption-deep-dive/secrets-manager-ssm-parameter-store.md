@@ -418,3 +418,48 @@ SSM goes beyond configuration storage. **Session Manager** [🔗](https://docs.a
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Comparing Secrets Manager and SSM Parameter Store for Credentials Rotation",
+"slug": "comparing-secrets-manager-and-ssm-parameter-store-for-credentials-rotation"
+},
+{
+"title": "Building a Secrets Rotation Lambda Function for RDS: Step-by-Step Implementation",
+"slug": "building-a-secrets-rotation-lambda-function-for-rds-step-by-step-implementation"
+},
+{
+"title": "Designing Multi-Tenant Secret Storage: Isolating Secrets Across Customer Accounts",
+"slug": "designing-multi-tenant-secret-storage-isolating-secrets-across-customer-accounts"
+},
+{
+"title": "Lambda Execution Role Permissions for Secrets Manager: Least-Privilege Configuration",
+"slug": "lambda-execution-role-permissions-for-secrets-manager-least-privilege-configuration"
+},
+{
+"title": "Using IAM Database Authentication Instead of Passwords: Eliminating Stored Credentials",
+"slug": "using-iam-database-authentication-instead-of-passwords-eliminating-stored-credentials"
+},
+{
+"title": "Managing Feature Flags with SSM Parameter Store: Runtime Configuration Without Code Changes",
+"slug": "managing-feature-flags-with-ssm-parameter-store-runtime-configuration-without-code-changes"
+},
+{
+"title": "Parameter Store GetParametersByPath vs GetParameter: Choosing the Right API",
+"slug": "parameter-store-getparametersbypath-vs-getparameter-choosing-the-right-api"
+},
+{
+"title": "Encrypting Sensitive Parameter Values: KMS Integration and At-Rest Security",
+"slug": "encrypting-sensitive-parameter-values-kms-integration-and-at-rest-security"
+},
+{
+"title": "Secrets Manager vs Application Secrets Management Tools: Postgres, MongoDB, HashiCorp Vault",
+"slug": "secrets-manager-vs-application-secrets-management-tools-postgres-mongodb-hashicorp-vault"
+},
+{
+"title": "EventBridge Rules for Secrets Rotation Notifications and Automated Remediation",
+"slug": "eventbridge-rules-for-secrets-rotation-notifications-and-automated-remediation"
+}
+]
+{{< /faq >}}

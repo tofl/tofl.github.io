@@ -584,3 +584,56 @@ This SAM + CodeDeploy integration gives you production-grade deployment safety f
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "SAM Transform Under the Hood: How SAM Templates Are Converted to CloudFormation",
+"slug": "sam-transform-under-the-hood-how-sam-templates-are-converted-to-cloudformation"
+},
+{
+"title": "Debugging SAM Local Invocations: Common Errors and Troubleshooting Strategies",
+"slug": "debugging-sam-local-invocations-common-errors-and-troubleshooting-strategies"
+},
+{
+"title": "SAM CLI Configuration File (samconfig.toml): Guided Deploy and Parameter Persistence",
+"slug": "sam-cli-configuration-file-samconfigtoml-guided-deploy-and-parameter-persistence"
+},
+{
+"title": "SAM Intrinsic Functions and Custom Resource Handling in Templates",
+"slug": "sam-intrinsic-functions-and-custom-resource-handling-in-templates"
+},
+{
+"title": "SAM Globals Section Best Practices: Sharing Runtime, Environment, and Timeout Across Functions",
+"slug": "sam-globals-section-best-practices-sharing-runtime-environment-and-timeout-across-functions"
+},
+{
+"title": "SAM CLI Testing: sam local test and Integrating with pytest/Jest for Unit Testing",
+"slug": "sam-cli-testing-sam-local-test-and-integrating-with-pytestjest-for-unit-testing"
+},
+{
+"title": "SAM Events: CloudWatch Events, SQS, DynamoDB Streams, and S3 as Lambda Triggers",
+"slug": "sam-events-cloudwatch-events-sqs-dynamodb-streams-and-s3-as-lambda-triggers"
+},
+{
+"title": "Simplifying Microservices with SAM: Multi-Function Applications and Shared Layers",
+"slug": "simplifying-microservices-with-sam-multi-function-applications-and-shared-layers"
+},
+{
+"title": "SAM Policy Templates Deep Dive: Available Policies and Building Custom Permissions",
+"slug": "sam-policy-templates-deep-dive-available-policies-and-building-custom-permissions"
+},
+{
+"title": "Testing SAM Deployments with AWS SAM Tests and Smoke Tests",
+"slug": "testing-sam-deployments-with-aws-sam-tests-and-smoke-tests"
+},
+{
+"title": "SAM CodeDeploy Integration: Automated Traffic Shifting and Gradual Rollouts",
+"slug": "sam-codedeploy-integration-automated-traffic-shifting-and-gradual-rollouts"
+},
+{
+"title": "SAM for Container-Based Functions: Using Docker Images with AWS::Serverless::Function",
+"slug": "sam-for-container-based-functions-using-docker-images-with-awsserverlessfunction"
+}
+]
+{{< /faq >}}

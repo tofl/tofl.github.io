@@ -585,3 +585,76 @@ Encryption is applied to all data including indexes, streams, and backups. [🔗
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "DynamoDB Single-Table Design: Modeling Relationships in NoSQL",
+"slug": "dynamodb-single-table-design-modeling-relationships-in-nosql"
+},
+{
+"title": "Avoiding Hot Partitions in DynamoDB: Write Sharding and Key Design Patterns",
+"slug": "avoiding-hot-partitions-in-dynamodb-write-sharding-and-key-design-patterns"
+},
+{
+"title": "DynamoDB On-Demand vs Provisioned Capacity: Cost Comparison and Switching Strategies",
+"slug": "dynamodb-on-demand-vs-provisioned-capacity-cost-comparison-and-switching-strategies"
+},
+{
+"title": "DynamoDB Auto Scaling: Configuring Target Tracking for RCU and WCU",
+"slug": "dynamodb-auto-scaling-configuring-target-tracking-for-rcu-and-wcu"
+},
+{
+"title": "DynamoDB Conditional Expressions: Syntax and Common Patterns",
+"slug": "dynamodb-conditional-expressions-syntax-and-common-patterns"
+},
+{
+"title": "DynamoDB Update Expressions Explained: SET, REMOVE, ADD, and DELETE",
+"slug": "dynamodb-update-expressions-explained-set-remove-add-and-delete"
+},
+{
+"title": "Querying DynamoDB Efficiently: FilterExpression vs KeyConditionExpression",
+"slug": "querying-dynamodb-efficiently-filterexpression-vs-keyconditionexpression"
+},
+{
+"title": "DynamoDB Pagination: Handling LastEvaluatedKey and ExclusiveStartKey",
+"slug": "dynamodb-pagination-handling-lastevaluatedkey-and-exclusivestartkey"
+},
+{
+"title": "DynamoDB Capacity Calculations: RCU and WCU Worked Examples for the Exam",
+"slug": "dynamodb-capacity-calculations-rcu-and-wcu-worked-examples-for-the-exam"
+},
+{
+"title": "LSI vs GSI in DynamoDB: Choosing the Right Secondary Index",
+"slug": "lsi-vs-gsi-in-dynamodb-choosing-the-right-secondary-index"
+},
+{
+"title": "Triggering AWS Lambda from DynamoDB Streams: A Hands-On Guide",
+"slug": "triggering-aws-lambda-from-dynamodb-streams-a-hands-on-guide"
+},
+{
+"title": "DynamoDB DAX vs ElastiCache for Caching: A Decision Guide",
+"slug": "dynamodb-dax-vs-elasticache-for-caching-a-decision-guide"
+},
+{
+"title": "Migrating Data to DynamoDB: AWS DMS, Data Pipeline, and Custom Approaches",
+"slug": "migrating-data-to-dynamodb-aws-dms-data-pipeline-and-custom-approaches"
+},
+{
+"title": "Exporting DynamoDB Tables to S3 for Analytics with Athena",
+"slug": "exporting-dynamodb-tables-to-s3-for-analytics-with-athena"
+},
+{
+"title": "DynamoDB Item Size Limits and Working Around the 400 KB Boundary",
+"slug": "dynamodb-item-size-limits-and-working-around-the-400-kb-boundary"
+},
+{
+"title": "DynamoDB Fine-Grained Access Control with IAM Condition Keys",
+"slug": "dynamodb-fine-grained-access-control-with-iam-condition-keys"
+},
+{
+"title": "DynamoDB Error Handling: ProvisionedThroughputExceeded, ConditionalCheckFailed, and Retries",
+"slug": "dynamodb-error-handling-provisionedthroughputexceeded-conditionalcheckfailed-and-retries"
+}
+]
+{{< /faq >}}

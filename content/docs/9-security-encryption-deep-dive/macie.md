@@ -297,3 +297,28 @@ This pattern is a common exam scenario: Macie surfaces the problem; EventBridge 
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Macie Findings Deep Dive: Sensitive Data Categories and Custom Identifiers",
+"slug": "macie-findings-deep-dive-sensitive-data-categories-and-custom-identifiers"
+},
+{
+"title": "Integrating Macie with Security Hub and Automated Remediation Pipelines",
+"slug": "integrating-macie-with-security-hub-and-automated-remediation-pipelines"
+},
+{
+"title": "Scheduling and Monitoring Macie Discovery Jobs: Best Practices and Cost Optimization",
+"slug": "scheduling-and-monitoring-macie-discovery-jobs-best-practices-and-cost-optimization"
+},
+{
+"title": "Macie vs AWS Config vs Security Hub: Clarifying Data Security vs Configuration vs Findings Management",
+"slug": "macie-vs-aws-config-vs-security-hub-clarifying-data-security-vs-configuration-vs-findings-management"
+},
+{
+"title": "Macie Sensitive Data Discovery for RDS Databases and DynamoDB: Extending Beyond S3",
+"slug": "macie-sensitive-data-discovery-for-rds-databases-and-dynamodb-extending-beyond-s3"
+}
+]
+{{< /faq >}}

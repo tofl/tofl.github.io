@@ -473,3 +473,52 @@ If your users are exclusively in North America and Europe, Price Class 100 avoid
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "CloudFront Functions vs Lambda@Edge: Which to Choose for Edge Compute",
+"slug": "cloudfront-functions-vs-lambdaedge-which-to-choose-for-edge-compute"
+},
+{
+"title": "CloudFront Signed URLs vs Signed Cookies: How to Serve Private Content",
+"slug": "cloudfront-signed-urls-vs-signed-cookies-how-to-serve-private-content"
+},
+{
+"title": "Origin Access Control (OAC) vs Origin Access Identity (OAI): Securing S3 Origins in CloudFront",
+"slug": "origin-access-control-oac-vs-origin-access-identity-oai-securing-s3-origins-in-cloudfront"
+},
+{
+"title": "CloudFront Cache Invalidation vs Versioned Filenames: Strategies for Cache Busting",
+"slug": "cloudfront-cache-invalidation-vs-versioned-filenames-strategies-for-cache-busting"
+},
+{
+"title": "CloudFront Cache Behaviors and Cache Keys: Controlling What Gets Cached",
+"slug": "cloudfront-cache-behaviors-and-cache-keys-controlling-what-gets-cached"
+},
+{
+"title": "Configuring Custom Domains and ACM Certificates with CloudFront",
+"slug": "configuring-custom-domains-and-acm-certificates-with-cloudfront"
+},
+{
+"title": "CloudFront Origin Failover: Building Highly Available Origins",
+"slug": "cloudfront-origin-failover-building-highly-available-origins"
+},
+{
+"title": "Integrating AWS WAF with CloudFront: Protecting Distributions at the Edge",
+"slug": "integrating-aws-waf-with-cloudfront-protecting-distributions-at-the-edge"
+},
+{
+"title": "CloudFront vs S3 Transfer Acceleration: Choosing the Right Speed Optimization",
+"slug": "cloudfront-vs-s3-transfer-acceleration-choosing-the-right-speed-optimization"
+},
+{
+"title": "CloudFront Real-Time Logs and Standard Access Logs: Monitoring Your Distribution",
+"slug": "cloudfront-real-time-logs-and-standard-access-logs-monitoring-your-distribution"
+},
+{
+"title": "Geo-Restriction in CloudFront vs Geo-Match Rules in AWS WAF",
+"slug": "geo-restriction-in-cloudfront-vs-geo-match-rules-in-aws-waf"
+}
+]
+{{< /faq >}}

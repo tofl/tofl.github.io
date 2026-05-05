@@ -387,3 +387,36 @@ For the exam, keep in mind that AppConfig is the go-to answer whenever a questio
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "AppConfig vs SSM Parameter Store: When to Use Configuration Management Services",
+"slug": "appconfig-vs-ssm-parameter-store-when-to-use-configuration-management-services"
+},
+{
+"title": "CloudWatch Alarms for AppConfig Deployments: Defining Rollback Conditions",
+"slug": "cloudwatch-alarms-for-appconfig-deployments-defining-rollback-conditions"
+},
+{
+"title": "AppConfig Validators: JSON Schema and Lambda Custom Validation Examples",
+"slug": "appconfig-validators-json-schema-and-lambda-custom-validation-examples"
+},
+{
+"title": "AppConfig Feature Flags Implementation Patterns: Percentage-Based and Attribute-Based Rollouts",
+"slug": "appconfig-feature-flags-implementation-patterns-percentage-based-and-attribute-based-rollouts"
+},
+{
+"title": "AppConfig Deployment Strategies Comparison: Choosing Linear, Exponential, or AllAtOnce",
+"slug": "appconfig-deployment-strategies-comparison-choosing-linear-exponential-or-allatonce"
+},
+{
+"title": "AppConfig Integration with AWS SAM and CloudFormation for Infrastructure as Code",
+"slug": "appconfig-integration-with-aws-sam-and-cloudformation-for-infrastructure-as-code"
+},
+{
+"title": "AppConfig Finer Points: Monitoring Deployment Progress and Rollback Mechanics",
+"slug": "appconfig-finer-points-monitoring-deployment-progress-and-rollback-mechanics"
+}
+]
+{{< /faq >}}

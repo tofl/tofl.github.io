@@ -423,3 +423,48 @@ Unlike public ACM certificates, **Private CA certificates can be exported** — 
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Choosing Between Public Certificates and Private CA: Decision Framework",
+"slug": "choosing-between-public-certificates-and-private-ca-decision-framework"
+},
+{
+"title": "ACM Private CA Certificate Rotation Strategy: Manual vs Automated",
+"slug": "acm-private-ca-certificate-rotation-strategy-manual-vs-automated"
+},
+{
+"title": "Configuring mTLS with ACM Private CA: Client and Server Certificates",
+"slug": "configuring-mtls-with-acm-private-ca-client-and-server-certificates"
+},
+{
+"title": "Exporting Certificates from ACM for Use in Non-AWS Environments",
+"slug": "exporting-certificates-from-acm-for-use-in-non-aws-environments"
+},
+{
+"title": "Integrating ACM with AWS WAF and CloudFront for Comprehensive TLS Management",
+"slug": "integrating-acm-with-aws-waf-and-cloudfront-for-comprehensive-tls-management"
+},
+{
+"title": "ACM Certificate Request Failure: DNS Validation and Email Validation Troubleshooting",
+"slug": "acm-certificate-request-failure-dns-validation-and-email-validation-troubleshooting"
+},
+{
+"title": "Using ACM Certificates Across Multiple Subdomains: Wildcard and SAN Certificates",
+"slug": "using-acm-certificates-across-multiple-subdomains-wildcard-and-san-certificates"
+},
+{
+"title": "ACM Certificate Caching and TTL: Impact on HTTPS Handshake Performance",
+"slug": "acm-certificate-caching-and-ttl-impact-on-https-handshake-performance"
+},
+{
+"title": "ACM Private CA Cost Model Deep Dive: Reducing Expenses Through Efficient Certificate Design",
+"slug": "acm-private-ca-cost-model-deep-dive-reducing-expenses-through-efficient-certificate-design"
+},
+{
+"title": "Monitoring ACM Certificate Expiration: CloudWatch Events, SNS Alerts, and Automated Renewal",
+"slug": "monitoring-acm-certificate-expiration-cloudwatch-events-sns-alerts-and-automated-renewal"
+}
+]
+{{< /faq >}}

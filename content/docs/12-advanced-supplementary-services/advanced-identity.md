@@ -496,3 +496,52 @@ With ABAC, you don't need to create a new role for every project or team — the
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "AWS Organizations Explained: Multi-Account Management with OUs and SCPs",
+"slug": "aws-organizations-explained-multi-account-management-with-ous-and-scps"
+},
+{
+"title": "Service Control Policies (SCPs) in Depth: Syntax, Inheritance, and Common Patterns",
+"slug": "service-control-policies-scps-in-depth-syntax-inheritance-and-common-patterns"
+},
+{
+"title": "AWS Resource Access Manager (RAM): Sharing Resources Across Accounts",
+"slug": "aws-resource-access-manager-ram-sharing-resources-across-accounts"
+},
+{
+"title": "AWS Directory Service Compared: Managed Microsoft AD vs AD Connector vs Simple AD",
+"slug": "aws-directory-service-compared-managed-microsoft-ad-vs-ad-connector-vs-simple-ad"
+},
+{
+"title": "SAML 2.0 Federation with AWS: How AssumeRoleWithSAML Works",
+"slug": "saml-20-federation-with-aws-how-assumerolewithsaml-works"
+},
+{
+"title": "Web Identity Federation vs Amazon Cognito: Which to Use for Mobile and Web Apps",
+"slug": "web-identity-federation-vs-amazon-cognito-which-to-use-for-mobile-and-web-apps"
+},
+{
+"title": "Attribute-Based Access Control (ABAC) in AWS: Designing Tag-Based Policies at Scale",
+"slug": "attribute-based-access-control-abac-in-aws-designing-tag-based-policies-at-scale"
+},
+{
+"title": "Session Tags in AWS STS: Passing Attributes Through Role Assumption",
+"slug": "session-tags-in-aws-sts-passing-attributes-through-role-assumption"
+},
+{
+"title": "IAM Identity Center Permission Sets: Design and Best Practices",
+"slug": "iam-identity-center-permission-sets-design-and-best-practices"
+},
+{
+"title": "Configuring AWS CLI v2 with IAM Identity Center (SSO)",
+"slug": "configuring-aws-cli-v2-with-iam-identity-center-sso"
+},
+{
+"title": "Trust Relationships Between AWS Managed Microsoft AD and On-Premises Active Directory",
+"slug": "trust-relationships-between-aws-managed-microsoft-ad-and-on-premises-active-directory"
+}
+]
+{{< /faq >}}

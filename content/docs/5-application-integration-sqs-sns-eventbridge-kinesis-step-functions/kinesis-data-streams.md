@@ -540,3 +540,60 @@ Use Kinesis when you need **ordered, replayable streams** consumed by **multiple
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Choosing Between Kinesis Data Streams and Kinesis Data Firehose",
+"slug": "choosing-between-kinesis-data-streams-and-kinesis-data-firehose"
+},
+{
+"title": "Designing Partition Keys in Kinesis Data Streams: Avoiding Hot Shards",
+"slug": "designing-partition-keys-in-kinesis-data-streams-avoiding-hot-shards"
+},
+{
+"title": "Kinesis Producer Library (KPL) vs PutRecords API: When to Use Each",
+"slug": "kinesis-producer-library-kpl-vs-putrecords-api-when-to-use-each"
+},
+{
+"title": "Kinesis Client Library (KCL) Explained: Checkpointing, Leases, and DynamoDB",
+"slug": "kinesis-client-library-kcl-explained-checkpointing-leases-and-dynamodb"
+},
+{
+"title": "Resharding Kinesis Streams: Shard Splitting, Merging, and Consumer Impact",
+"slug": "resharding-kinesis-streams-shard-splitting-merging-and-consumer-impact"
+},
+{
+"title": "Kinesis Provisioned vs On-Demand Capacity Mode: Cost and Performance Trade-offs",
+"slug": "kinesis-provisioned-vs-on-demand-capacity-mode-cost-and-performance-trade-offs"
+},
+{
+"title": "Kinesis Enhanced Fan-Out: How HTTP/2 Push Eliminates Shard Read Contention",
+"slug": "kinesis-enhanced-fan-out-how-http2-push-eliminates-shard-read-contention"
+},
+{
+"title": "Encrypting Kinesis Data Streams with KMS: Server-Side Encryption Setup",
+"slug": "encrypting-kinesis-data-streams-with-kms-server-side-encryption-setup"
+},
+{
+"title": "Configuring Kinesis Data Firehose: Buffering, Compression, and S3 Partitioning",
+"slug": "configuring-kinesis-data-firehose-buffering-compression-and-s3-partitioning"
+},
+{
+"title": "Transforming Records in Kinesis Data Firehose with Lambda",
+"slug": "transforming-records-in-kinesis-data-firehose-with-lambda"
+},
+{
+"title": "Kinesis Data Streams Retention: Extended Retention and Long-Term Replay Patterns",
+"slug": "kinesis-data-streams-retention-extended-retention-and-long-term-replay-patterns"
+},
+{
+"title": "Triggering Lambda from Kinesis Data Streams: Batching, Parallelization, and Error Handling",
+"slug": "triggering-lambda-from-kinesis-data-streams-batching-parallelization-and-error-handling"
+},
+{
+"title": "Monitoring Kinesis Data Streams: Key CloudWatch Metrics for Producers and Consumers",
+"slug": "monitoring-kinesis-data-streams-key-cloudwatch-metrics-for-producers-and-consumers"
+}
+]
+{{< /faq >}}

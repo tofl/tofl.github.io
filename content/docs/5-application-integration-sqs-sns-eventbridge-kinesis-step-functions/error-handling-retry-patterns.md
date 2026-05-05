@@ -509,3 +509,56 @@ The practical takeaway: **default to designing consumers as idempotent**, regard
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Implementing Idempotency in AWS Lambda with DynamoDB",
+"slug": "implementing-idempotency-in-aws-lambda-with-dynamodb"
+},
+{
+"title": "SQS FIFO Deduplication: MessageDeduplicationId and Content-Based Deduplication",
+"slug": "sqs-fifo-deduplication-messagededuplicationid-and-content-based-deduplication"
+},
+{
+"title": "Configuring SQS Dead-Letter Queues: maxReceiveCount, Redrive Policy, and Redrive to Source",
+"slug": "configuring-sqs-dead-letter-queues-maxreceivecount-redrive-policy-and-redrive-to-source"
+},
+{
+"title": "SNS Subscription Dead-Letter Queues: Capturing Failed Deliveries",
+"slug": "sns-subscription-dead-letter-queues-capturing-failed-deliveries"
+},
+{
+"title": "Lambda Async Invocation: Retry Behavior and OnFailure/OnSuccess Destinations",
+"slug": "lambda-async-invocation-retry-behavior-and-onfailureonsuccess-destinations"
+},
+{
+"title": "EventBridge Retry Policies and Dead-Letter Queues for Failed Targets",
+"slug": "eventbridge-retry-policies-and-dead-letter-queues-for-failed-targets"
+},
+{
+"title": "Step Functions Retry and Catch Blocks: Building Resilient State Machines",
+"slug": "step-functions-retry-and-catch-blocks-building-resilient-state-machines"
+},
+{
+"title": "At-Least-Once vs Exactly-Once Delivery Across AWS Messaging Services",
+"slug": "at-least-once-vs-exactly-once-delivery-across-aws-messaging-services"
+},
+{
+"title": "Designing Idempotent REST APIs on API Gateway with Idempotency Keys",
+"slug": "designing-idempotent-rest-apis-on-api-gateway-with-idempotency-keys"
+},
+{
+"title": "Implementing Exponential Backoff with Jitter in Application Code",
+"slug": "implementing-exponential-backoff-with-jitter-in-application-code"
+},
+{
+"title": "The Thundering Herd Problem in Distributed Systems and How AWS Mitigates It",
+"slug": "the-thundering-herd-problem-in-distributed-systems-and-how-aws-mitigates-it"
+},
+{
+"title": "Poison-Pill Messages in SQS and Kinesis: Detection and Handling Strategies",
+"slug": "poison-pill-messages-in-sqs-and-kinesis-detection-and-handling-strategies"
+}
+]
+{{< /faq >}}

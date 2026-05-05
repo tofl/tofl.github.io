@@ -690,3 +690,44 @@ These scripts are especially relevant when you need EC2 instances to configure t
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "CloudFormation Template Modularity: Breaking Large Templates Into Reusable Pieces",
+"slug": "cloudformation-template-modularity-breaking-large-templates-into-reusable-pieces"
+},
+{
+"title": "CloudFormation Wait Conditions and Creation Policies: Coordinating Resource Dependencies",
+"slug": "cloudformation-wait-conditions-and-creation-policies-coordinating-resource-dependencies"
+},
+{
+"title": "CloudFormation Custom Resources: Extending CloudFormation with Lambda or SNS",
+"slug": "cloudformation-custom-resources-extending-cloudformation-with-lambda-or-sns"
+},
+{
+"title": "CloudFormation Rollback Triggers: Automatic Rollback on CloudWatch Alarms",
+"slug": "cloudformation-rollback-triggers-automatic-rollback-on-cloudwatch-alarms"
+},
+{
+"title": "CloudFormation Transformation Examples: SAM and Other Transformation Processors",
+"slug": "cloudformation-transformation-examples-sam-and-other-transformation-processors"
+},
+{
+"title": "CloudFormation Best Practices: Template Organization, Naming, and Tagging Strategy",
+"slug": "cloudformation-best-practices-template-organization-naming-and-tagging-strategy"
+},
+{
+"title": "Debugging CloudFormation Stack Failures: Reading Error Messages and Common Pitfalls",
+"slug": "debugging-cloudformation-stack-failures-reading-error-messages-and-common-pitfalls"
+},
+{
+"title": "Managing Multiple AWS Regions with CloudFormation: Template Reuse and Region-Specific Resources",
+"slug": "managing-multiple-aws-regions-with-cloudformation-template-reuse-and-region-specific-resources"
+},
+{
+"title": "CloudFormation Policy Examples: Least-Privilege IAM for Stack Operations",
+"slug": "cloudformation-policy-examples-least-privilege-iam-for-stack-operations"
+}
+]
+{{< /faq >}}

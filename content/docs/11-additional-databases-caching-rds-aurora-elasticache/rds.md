@@ -446,3 +446,48 @@ This is particularly useful for Lambda and ECS workloads — the execution role 
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "How to Encrypt an Existing Unencrypted RDS Instance",
+"slug": "how-to-encrypt-an-existing-unencrypted-rds-instance"
+},
+{
+"title": "RDS Multi-AZ vs Read Replicas: Availability vs Scalability",
+"slug": "rds-multi-az-vs-read-replicas-availability-vs-scalability"
+},
+{
+"title": "Point-in-Time Recovery (PITR) in RDS: How It Works and How to Use It",
+"slug": "point-in-time-recovery-pitr-in-rds-how-it-works-and-how-to-use-it"
+},
+{
+"title": "RDS Storage Auto Scaling: Configuration and Limits",
+"slug": "rds-storage-auto-scaling-configuration-and-limits"
+},
+{
+"title": "gp2 vs gp3 vs io1 vs io2 for RDS: Choosing the Right Storage Type",
+"slug": "gp2-vs-gp3-vs-io1-vs-io2-for-rds-choosing-the-right-storage-type"
+},
+{
+"title": "Connecting AWS Lambda to RDS: Patterns and Pitfalls",
+"slug": "connecting-aws-lambda-to-rds-patterns-and-pitfalls"
+},
+{
+"title": "Enforcing SSL/TLS Connections to RDS for MySQL and PostgreSQL",
+"slug": "enforcing-ssltls-connections-to-rds-for-mysql-and-postgresql"
+},
+{
+"title": "RDS Parameter Groups and Option Groups Explained",
+"slug": "rds-parameter-groups-and-option-groups-explained"
+},
+{
+"title": "Cross-Region RDS Disaster Recovery Strategies",
+"slug": "cross-region-rds-disaster-recovery-strategies"
+},
+{
+"title": "Monitoring RDS Performance: CloudWatch Metrics, Enhanced Monitoring, and Performance Insights",
+"slug": "monitoring-rds-performance-cloudwatch-metrics-enhanced-monitoring-and-performance-insights"
+}
+]
+{{< /faq >}}

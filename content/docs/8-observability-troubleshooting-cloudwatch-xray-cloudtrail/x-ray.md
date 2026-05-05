@@ -534,3 +534,44 @@ AWS supports the **OpenTelemetry** standard as a vendor-neutral alternative to t
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Understanding X-Ray Trace ID Header Propagation Across Service Boundaries",
+"slug": "understanding-x-ray-trace-id-header-propagation-across-service-boundaries"
+},
+{
+"title": "X-Ray SDK Instrumentation by Language: Python, Node.js, Java, and Go Best Practices",
+"slug": "x-ray-sdk-instrumentation-by-language-python-nodejs-java-and-go-best-practices"
+},
+{
+"title": "X-Ray Sampling Rules in Production: Balancing Cost and Visibility",
+"slug": "x-ray-sampling-rules-in-production-balancing-cost-and-visibility"
+},
+{
+"title": "X-Ray Service Map Limitations and When to Use CloudWatch ServiceLens Instead",
+"slug": "x-ray-service-map-limitations-and-when-to-use-cloudwatch-servicelens-instead"
+},
+{
+"title": "X-Ray Subsegments for Detailed Timing: Instrumenting Database Queries and External API Calls",
+"slug": "x-ray-subsegments-for-detailed-timing-instrumenting-database-queries-and-external-api-calls"
+},
+{
+"title": "Analyzing X-Ray Traces: Using the Timeline View to Diagnose Latency and Errors",
+"slug": "analyzing-x-ray-traces-using-the-timeline-view-to-diagnose-latency-and-errors"
+},
+{
+"title": "X-Ray Error Analysis: Fault vs Error Status and Filtering for Root Causes",
+"slug": "x-ray-error-analysis-fault-vs-error-status-and-filtering-for-root-causes"
+},
+{
+"title": "Using X-Ray to Debug DynamoDB Hot Partitions and Lambda Throttling",
+"slug": "using-x-ray-to-debug-dynamodb-hot-partitions-and-lambda-throttling"
+},
+{
+"title": "X-Ray with VPC and Private Services: Tracing When Lambda Cannot Reach X-Ray Endpoint",
+"slug": "x-ray-with-vpc-and-private-services-tracing-when-lambda-cannot-reach-x-ray-endpoint"
+}
+]
+{{< /faq >}}

@@ -9,10 +9,10 @@
     </div>
     <ul class="faq-links-list">
         {{ range $items }}
-        {{ $url := .url }}
-        {{ $url = strings.TrimSuffix ".md" $url }}
+        {{ $slug := .slug }}
+        {{ $slug = strings.TrimSuffix ".md" $slug }}
         <li class="faq-links-item">
-            <a href="/faq/{{ $url }}" class="faq-links-link">
+            <a href="/faq/{{ $slug }}" class="faq-links-link">
                 <svg class="faq-links-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>

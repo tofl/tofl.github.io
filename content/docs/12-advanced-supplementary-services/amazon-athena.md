@@ -511,3 +511,44 @@ The practical implication is that cost optimization is entirely about reducing b
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Athena Federated Queries: Querying Data Beyond S3",
+"slug": "athena-federated-queries-querying-data-beyond-s3"
+},
+{
+"title": "Athena CTAS and INSERT INTO: Transforming Data with SQL",
+"slug": "athena-ctas-and-insert-into-transforming-data-with-sql"
+},
+{
+"title": "Securing Amazon Athena: IAM, Lake Formation, and Encryption",
+"slug": "securing-amazon-athena-iam-lake-formation-and-encryption"
+},
+{
+"title": "Connecting Athena to BI Tools: JDBC, ODBC, and QuickSight Integration",
+"slug": "connecting-athena-to-bi-tools-jdbc-odbc-and-quicksight-integration"
+},
+{
+"title": "Athena Query Performance Tuning: Beyond Partitioning and Columnar Formats",
+"slug": "athena-query-performance-tuning-beyond-partitioning-and-columnar-formats"
+},
+{
+"title": "Athena vs Redshift Spectrum vs S3 Select: Choosing the Right Query Service",
+"slug": "athena-vs-redshift-spectrum-vs-s3-select-choosing-the-right-query-service"
+},
+{
+"title": "Querying VPC Flow Logs and CloudTrail with Athena: Practical Examples",
+"slug": "querying-vpc-flow-logs-and-cloudtrail-with-athena-practical-examples"
+},
+{
+"title": "Partition Projection in Athena: Eliminating Glue Catalog Bottlenecks",
+"slug": "partition-projection-in-athena-eliminating-glue-catalog-bottlenecks"
+},
+{
+"title": "Optimizing Athena Costs: A Practical Checklist for Developers",
+"slug": "optimizing-athena-costs-a-practical-checklist-for-developers"
+}
+]
+{{< /faq >}}

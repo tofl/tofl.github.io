@@ -466,3 +466,64 @@ This is useful when you need to preserve application state across interruptions 
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "EC2 Instance Lifecycle States Explained: Pending, Running, Stopping, Stopped, and Terminated",
+"slug": "ec2-instance-lifecycle-states-explained-pending-running-stopping-stopped-and-terminated"
+},
+{
+"title": "EC2 Instance Profiles vs IAM User Credentials: Securing AWS API Access from EC2",
+"slug": "ec2-instance-profiles-vs-iam-user-credentials-securing-aws-api-access-from-ec2"
+},
+{
+"title": "EBS Volume Types Compared: gp2, gp3, io1, io2, st1, and sc1",
+"slug": "ebs-volume-types-compared-gp2-gp3-io1-io2-st1-and-sc1"
+},
+{
+"title": "EBS Snapshots: Incremental Backups, Cross-Region Copy, and Fast Snapshot Restore",
+"slug": "ebs-snapshots-incremental-backups-cross-region-copy-and-fast-snapshot-restore"
+},
+{
+"title": "EBS Multi-Attach: Sharing a Volume Between Multiple EC2 Instances",
+"slug": "ebs-multi-attach-sharing-a-volume-between-multiple-ec2-instances"
+},
+{
+"title": "EFS vs EBS vs Instance Store: Choosing the Right Storage for EC2",
+"slug": "efs-vs-ebs-vs-instance-store-choosing-the-right-storage-for-ec2"
+},
+{
+"title": "Comparing Reserved Instances and Savings Plans: Standard, Convertible, Compute, and EC2 Instance Plans",
+"slug": "comparing-reserved-instances-and-savings-plans-standard-convertible-compute-and-ec2-instance-plans"
+},
+{
+"title": "EC2 Spot Instances Deep Dive: Spot Requests, Spot Fleets, and Interruption Handling",
+"slug": "ec2-spot-instances-deep-dive-spot-requests-spot-fleets-and-interruption-handling"
+},
+{
+"title": "Building Custom AMIs with EC2 Image Builder vs Packer",
+"slug": "building-custom-amis-with-ec2-image-builder-vs-packer"
+},
+{
+"title": "AWS Systems Manager Session Manager vs SSH: Secure EC2 Access Without Open Ports",
+"slug": "aws-systems-manager-session-manager-vs-ssh-secure-ec2-access-without-open-ports"
+},
+{
+"title": "Understanding the EC2 Shared Responsibility Model and Patching",
+"slug": "understanding-the-ec2-shared-responsibility-model-and-patching"
+},
+{
+"title": "EC2 Auto Recovery vs Auto Scaling Self-Healing: Recovering from Instance Failures",
+"slug": "ec2-auto-recovery-vs-auto-scaling-self-healing-recovering-from-instance-failures"
+},
+{
+"title": "Comparing Cluster, Spread, and Partition Placement Groups for EC2 Workloads",
+"slug": "comparing-cluster-spread-and-partition-placement-groups-for-ec2-workloads"
+},
+{
+"title": "EC2 User Data vs cloud-init vs AWS Systems Manager: Bootstrapping Strategies Compared",
+"slug": "ec2-user-data-vs-cloud-init-vs-aws-systems-manager-bootstrapping-strategies-compared"
+}
+]
+{{< /faq >}}

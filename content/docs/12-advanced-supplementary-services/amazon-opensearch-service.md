@@ -487,3 +487,56 @@ For the exam, remember the VPC-vs-public trade-off, and that fine-grained access
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "OpenSearch vs Elasticsearch: Understanding the AWS Fork",
+"slug": "opensearch-vs-elasticsearch-understanding-the-aws-fork"
+},
+{
+"title": "Streaming DynamoDB Changes to OpenSearch with Lambda",
+"slug": "streaming-dynamodb-changes-to-opensearch-with-lambda"
+},
+{
+"title": "Indexing OpenSearch with Kinesis Data Firehose: Setup and Buffering",
+"slug": "indexing-opensearch-with-kinesis-data-firehose-setup-and-buffering"
+},
+{
+"title": "OpenSearch Domain Sizing: Shards, Replicas, and Instance Types",
+"slug": "opensearch-domain-sizing-shards-replicas-and-instance-types"
+},
+{
+"title": "OpenSearch UltraWarm and Cold Storage Tiers Explained",
+"slug": "opensearch-ultrawarm-and-cold-storage-tiers-explained"
+},
+{
+"title": "Index State Management (ISM) in OpenSearch: Automating Index Lifecycle",
+"slug": "index-state-management-ism-in-opensearch-automating-index-lifecycle"
+},
+{
+"title": "Amazon OpenSearch Serverless vs Managed Domains: Choosing the Right Mode",
+"slug": "amazon-opensearch-serverless-vs-managed-domains-choosing-the-right-mode"
+},
+{
+"title": "Querying Amazon OpenSearch from an Application: REST API and SigV4 Signing",
+"slug": "querying-amazon-opensearch-from-an-application-rest-api-and-sigv4-signing"
+},
+{
+"title": "Fine-Grained Access Control in OpenSearch: Roles, Users, and Backend Roles",
+"slug": "fine-grained-access-control-in-opensearch-roles-users-and-backend-roles"
+},
+{
+"title": "Authenticating OpenSearch Dashboards with Amazon Cognito",
+"slug": "authenticating-opensearch-dashboards-with-amazon-cognito"
+},
+{
+"title": "Migrating from Logstash to AWS-Native Ingestion: Firehose and OpenSearch Ingestion",
+"slug": "migrating-from-logstash-to-aws-native-ingestion-firehose-and-opensearch-ingestion"
+},
+{
+"title": "OpenSearch Snapshots: Backup and Restore Strategies on AWS",
+"slug": "opensearch-snapshots-backup-and-restore-strategies-on-aws"
+}
+]
+{{< /faq >}}

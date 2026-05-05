@@ -446,3 +446,44 @@ For the exam, a common scenario looks like: *instances are being terminated whil
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Target Tracking vs Step Scaling vs Simple Scaling Policies in AWS Auto Scaling",
+"slug": "target-tracking-vs-step-scaling-vs-simple-scaling-policies-in-aws-auto-scaling"
+},
+{
+"title": "Predictive Scaling in AWS Auto Scaling: How Machine Learning Forecasts Capacity",
+"slug": "predictive-scaling-in-aws-auto-scaling-how-machine-learning-forecasts-capacity"
+},
+{
+"title": "ASG Cooldown Periods and Instance Warm-Up: Avoiding Scaling Oscillations",
+"slug": "asg-cooldown-periods-and-instance-warm-up-avoiding-scaling-oscillations"
+},
+{
+"title": "ASG Termination Policies: Controlling Which Instances Get Removed on Scale-In",
+"slug": "asg-termination-policies-controlling-which-instances-get-removed-on-scale-in"
+},
+{
+"title": "Mixed Instances Policy in ASG: Combining On-Demand and Spot Instances",
+"slug": "mixed-instances-policy-in-asg-combining-on-demand-and-spot-instances"
+},
+{
+"title": "ASG Instance Refresh: Rolling Out New AMIs and Launch Template Versions",
+"slug": "asg-instance-refresh-rolling-out-new-amis-and-launch-template-versions"
+},
+{
+"title": "ASG and Spot Instance Interruptions: Handling the 2-Minute Warning Gracefully",
+"slug": "asg-and-spot-instance-interruptions-handling-the-2-minute-warning-gracefully"
+},
+{
+"title": "Connection Draining vs Deregistration Delay: Graceful Scale-In with ALB and NLB",
+"slug": "connection-draining-vs-deregistration-delay-graceful-scale-in-with-alb-and-nlb"
+},
+{
+"title": "Sending Custom CloudWatch Metrics to Drive ASG Scaling",
+"slug": "sending-custom-cloudwatch-metrics-to-drive-asg-scaling"
+}
+]
+{{< /faq >}}

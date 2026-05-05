@@ -459,3 +459,56 @@ Application Load Balancer (ALB) can also integrate directly with Cognito [🔗](
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Cognito User Pool Token Lifecycle: ID Token vs Access Token vs Refresh Token",
+"slug": "cognito-user-pool-token-lifecycle-id-token-vs-access-token-vs-refresh-token"
+},
+{
+"title": "Implementing Multi-Factor Authentication (MFA) in Cognito User Pools",
+"slug": "implementing-multi-factor-authentication-mfa-in-cognito-user-pools"
+},
+{
+"title": "Cognito User Pool Custom Attributes vs Standard Attributes",
+"slug": "cognito-user-pool-custom-attributes-vs-standard-attributes"
+},
+{
+"title": "Cognito Resource Owner Password Credentials Flow: When and How to Use It",
+"slug": "cognito-resource-owner-password-credentials-flow-when-and-how-to-use-it"
+},
+{
+"title": "Cognito User Pool Pre-Token Generation Lambda Trigger: Customizing Token Claims",
+"slug": "cognito-user-pool-pre-token-generation-lambda-trigger-customizing-token-claims"
+},
+{
+"title": "Cognito Custom Domain and Hosted UI Customization",
+"slug": "cognito-custom-domain-and-hosted-ui-customization"
+},
+{
+"title": "Cognito User Pool Backup and Data Export Strategies",
+"slug": "cognito-user-pool-backup-and-data-export-strategies"
+},
+{
+"title": "Cognito Identity Pool Role Mapping: Rules-Based and Token-Based Approaches",
+"slug": "cognito-identity-pool-role-mapping-rules-based-and-token-based-approaches"
+},
+{
+"title": "Cognito Account Linking: Connecting Multiple Identity Providers to One User",
+"slug": "cognito-account-linking-connecting-multiple-identity-providers-to-one-user"
+},
+{
+"title": "Cognito User Pool Search Limiting and Performance at Scale",
+"slug": "cognito-user-pool-search-limiting-and-performance-at-scale"
+},
+{
+"title": "Cognito Advanced Security Features: Risk Configuration and Compromised Credentials",
+"slug": "cognito-advanced-security-features-risk-configuration-and-compromised-credentials"
+},
+{
+"title": "Cognito and Lambda Custom Authorizers in API Gateway: Choosing Between Them",
+"slug": "cognito-and-lambda-custom-authorizers-in-api-gateway-choosing-between-them"
+}
+]
+{{< /faq >}}

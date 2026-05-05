@@ -429,3 +429,28 @@ Note that KMS and CloudHSM are not mutually exclusive — you can configure a KM
 }
 ]
 {{< /qcm >}}
+
+{{< faq >}}
+[
+{
+"title": "Envelope Encryption vs Full Encryption: Understanding Data Key Management",
+"slug": "envelope-encryption-vs-full-encryption-understanding-data-key-management"
+},
+{
+"title": "KMS Key Rotation Deep Dive: Automatic Rotation, Rotation Effects on Existing Data, and Testing",
+"slug": "kms-key-rotation-deep-dive-automatic-rotation-rotation-effects-on-existing-data-and-testing"
+},
+{
+"title": "Debugging KMS Throttling and Request Quotas: Strategies for High-Throughput Applications",
+"slug": "debugging-kms-throttling-and-request-quotas-strategies-for-high-throughput-applications"
+},
+{
+"title": "KMS Encryption Context: Ensuring Data Integrity and Preventing Cross-Tenant Attacks",
+"slug": "kms-encryption-context-ensuring-data-integrity-and-preventing-cross-tenant-attacks"
+},
+{
+"title": "Using AWS Encryption SDK for Client-Side Encryption with KMS Integration",
+"slug": "using-aws-encryption-sdk-for-client-side-encryption-with-kms-integration"
+}
+]
+{{< /faq >}}
