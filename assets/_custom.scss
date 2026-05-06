@@ -822,22 +822,22 @@ body {
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .qcm-wrap {
-    border-color: var(--border-light, #292524);
-    background: var(--bg-main, #0c0a09);
+    border-color: var(--border-light, #44403c);
+    background: var(--bg-main, #1c1917);
   }
   .qcm-answer {
-    border-color: var(--border-light, #292524);
+    border-color: var(--border-light, #44403c);
   }
   .qcm-answer:hover,
   .qcm-answer.selected {
-    border-color: var(--accent, #818cf8);
+    border-color: var(--accent, #a5b4fc);
     background: var(--accent-light, #1e1b4b);
   }
   .qcm-answer.qcm-correct { background: #022c1c !important; border-color: #047857 !important; }
   .qcm-answer.qcm-wrong   { background: #2a0a0a !important; border-color: #b91c1c !important; }
   .qcm-answer.qcm-missed  { background: #2a1500 !important; border-color: #b45309 !important; }
-  .qcm-progress-bar { background: var(--border-light, #292524); }
-  .qcm-score { border-color: var(--border-light, #292524); }
+  .qcm-progress-bar { background: var(--border-light, #44403c); }
+  .qcm-score { border-color: var(--border-light, #44403c); }
 }
 
 // ------------------------------------------------------------
@@ -926,16 +926,16 @@ body {
 
 @media (prefers-color-scheme: dark) {
   .faq-links {
-    border-color: var(--border-light, #2e2c28);
-    background: var(--bg-main, #1a1917);
+    border-color: var(--border-light, #44403c);
+    background: var(--bg-main, #1c1917);
   }
 
   .faq-links-header {
-    border-bottom-color: var(--border-light, #2e2c28);
+    border-bottom-color: var(--border-light, #44403c);
   }
 
   .faq-links-link:hover {
-    background: var(--accent-light, #2a1f14);
+    background: var(--accent-light, #1e1b4b);
   }
 }
 
@@ -993,27 +993,27 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-main:       #0c0a09;
-    --bg-code:       #1c1917;
-    --bg-blockquote: #1c1917;
+    --bg-main:       #1c1917;
+    --bg-code:       #292524;
+    --bg-blockquote: #292524;
 
-    --text-primary:   #fafaf9;
+    --text-primary:   #f5f5f4;
     --text-secondary: #d6d3d1;
     --text-muted:     #78716c;
     --text-sidebar:   #e7e5e4;
 
-    --accent:         #818cf8;
-    --accent-hover:   #a5b4fc;
+    --accent:         #a5b4fc;
+    --accent-hover:   #c7d2fe;
     --accent-light:   #1e1b4b;
     --accent-subtle:  #312e81;
 
-    --border-light:   #292524;
-    --border-medium:  #44403c;
+    --border-light:   #44403c;
+    --border-medium:  #57534e;
   }
 
   .markdown pre {
-    background-color: #000000;
-    border-color: #1c1917;
+    background-color: #0c0a09;
+    border-color: #292524;
   }
 
   .book-hint {
