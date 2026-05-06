@@ -1,0 +1,71 @@
+{{ $section := .Page.Site.GetPage "/faq" }}
+{{ $pages   := $section.Pages.ByTitle }}
+{{ $perPage := 40 }}
+{{ $total   := len $pages }}
+{{ $totalPages := div $total $perPage }}
+{{ if gt (mod $total $perPage) 0 }}{{ $totalPages = add $totalPages 1 }}{{ end }}
+
+<div class="faq-pagination-wrap">
+  <ul class="faq-index-list" id="faq-list">
+    {{ range $i, $p := $pages }}
+    <li data-fp="{{ div $i $perPage }}">
+      <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  <nav class="faq-pager" id="faq-pager" aria-label="Navigation des pages FAQ"></nav>
+</div>
+
+<script>
+(function () {
+  var list   = document.getElementById('faq-list');
+  var pager  = document.getElementById('faq-pager');
+  if (!list || !pager) return;
+
+  var items      = Array.from(list.querySelectorAll('li[data-fp]'));
+  var totalPages = {{ $totalPages }};
+  var cur        = 0;
+
+  list.classList.add('faq-paginated');
+
+  function show(page) {
+    cur = page;
+    items.forEach(function (el) {
+      el.classList.toggle('faq-pg-visible', Number(el.dataset.fp) === page);
+    });
+    buildPager();
+  }
+
+  function buildPager() {
+    var parts = [];
+
+    parts.push(btn('←', cur - 1, cur === 0));
+
+    for (var i = 0; i < totalPages; i++) {
+      parts.push(btn(i + 1, i, false, i === cur));
+    }
+
+    parts.push(btn('→', cur + 1, cur === totalPages - 1));
+
+    pager.innerHTML = parts.join('');
+  }
+
+  function btn(label, page, disabled, active) {
+    var cls = 'faq-pg-btn' + (active ? ' faq-pg-current' : '');
+    return '<button class="' + cls + '" data-pg="' + page + '"'
+      + (disabled ? ' disabled' : '') + '>' + label + '</button>';
+  }
+
+  pager.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-pg]');
+    if (!el || el.disabled) return;
+    var page = Number(el.dataset.pg);
+    if (page >= 0 && page < totalPages) {
+      show(page);
+      list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  show(0);
+}());
+</script>

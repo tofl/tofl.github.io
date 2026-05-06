@@ -923,7 +923,54 @@ body {
 }
 
 // ------------------------------------------------------------
-// 21. DARK MODE
+// 21. PAGINATION FAQ
+// ------------------------------------------------------------
+
+.faq-index-list.faq-paginated li        { display: none; }
+.faq-index-list.faq-paginated li.faq-pg-visible { display: list-item; }
+
+.faq-pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.faq-pg-btn {
+  padding: 0.28rem 0.65rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  background: transparent;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  line-height: 1.5;
+
+  &:hover:not(:disabled) {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: var(--accent-subtle);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  &.faq-pg-current {
+    background: var(--accent);
+    color: #fff;
+    border-color: transparent;
+    font-weight: 500;
+  }
+}
+
+// ------------------------------------------------------------
+// 22. DARK MODE
 // Respects system preference gracefully
 // ------------------------------------------------------------
 
@@ -959,7 +1006,7 @@ body {
 }
 
 // ------------------------------------------------------------
-// 22. RESPONSIVE — tighten spacing on small screens
+// 23. RESPONSIVE — tighten spacing on small screens
 // ------------------------------------------------------------
 
 @media (max-width: 768px) {
