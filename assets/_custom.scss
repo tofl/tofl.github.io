@@ -7,32 +7,34 @@
 // 1. TYPOGRAPHY IMPORTS
 // ------------------------------------------------------------
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 // ------------------------------------------------------------
 // 2. DESIGN TOKENS
 // ------------------------------------------------------------
 
 :root {
-  // Background & surface
-  --bg-main:       #f7f5f2;
-  --bg-code:       #eceae6;
-  --bg-blockquote: #ede9e3;
+  // Background & surface — warm-neutral stone (paper-like, not Claude beige)
+  --bg-main:       #fafaf9;
+  --bg-code:       #f4f4f3;
+  --bg-blockquote: #f5f5f4;
 
-  // Text
-  --text-primary:   #1c1a18;
-  --text-secondary: #5a5650;
-  --text-muted:     #9a9590;
-  --text-sidebar:   #3a3835;
+  // Text — confident near-black, cool-warm balanced
+  --text-primary:   #0c0a09;
+  --text-secondary: #44403c;
+  --text-muted:     #a8a29e;
+  --text-sidebar:   #292524;
 
-  // Accent (a warm, deep amber — understated)
-  --accent:         #b8621a;
-  --accent-light:   #f0dece;
-  --accent-subtle:  #e8d5c0;
+  // Accent — deep indigo: the "focus / study" color
+  // Distinct from Claude amber and AWS orange. Evokes concentration.
+  --accent:         #4338ca;
+  --accent-hover:   #312e81;
+  --accent-light:   #eef2ff;
+  --accent-subtle:  #c7d2fe;
 
   // Borders & dividers
-  --border-light:   #ddd9d3;
-  --border-medium:  #c8c4be;
+  --border-light:   #e7e5e4;
+  --border-medium:  #d6d3d1;
 
   // Spacing baseline
   --line-height-body: 1.78;
@@ -46,11 +48,26 @@
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: 17px;
   line-height: var(--line-height-body);
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+// Enable Inter's contemporary features (true tabular nums kept off for prose)
+[class*="hp-"],
+.book-menu,
+.book-toc,
+.book-header,
+.book-footer,
+.book-nav,
+.qcm-wrap,
+.faq-links,
+.faq-pager {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 // ------------------------------------------------------------
@@ -77,7 +94,7 @@ body {
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text-primary);
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -202,7 +219,7 @@ body {
 
 .markdown ol li::marker {
   color: var(--text-muted);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.85em;
   font-weight: 500;
 }
@@ -237,7 +254,7 @@ body {
     margin-top: 0.6rem;
     font-size: 0.85rem;
     font-style: normal;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--text-muted);
     letter-spacing: 0.03em;
   }
@@ -248,7 +265,7 @@ body {
 // ------------------------------------------------------------
 
 .markdown code {
-  font-family: 'DM Mono', 'Courier New', monospace;
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
   font-size: 0.85em;
   background-color: var(--bg-code);
   color: var(--accent);
@@ -258,18 +275,18 @@ body {
 }
 
 .markdown pre {
-  background-color: #201e1b;
+  background-color: #0c0a09;
   border-radius: 6px;
   padding: 1.2rem 1.4rem;
   overflow-x: auto;
   margin: 1.6rem 0;
-  border: 1px solid #38352f;
+  border: 1px solid #1c1917;
 
   code {
     background: none;
     border: none;
     padding: 0;
-    color: #e0d8cc;
+    color: #e7e5e4;
     font-size: 0.875rem;
     line-height: 1.65;
   }
@@ -295,7 +312,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin: 1.8rem 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
 
   th, td {
@@ -341,7 +358,7 @@ body {
 .book-menu .book-menu-content {
   background-color: var(--bg-main);
   border-right: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
   nav {
     padding: 1.2rem 0;
@@ -355,7 +372,7 @@ body {
   margin-bottom: 0.8rem;
 
   a {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     text-align: center;
     font-weight: 500;
     color: var(--text-primary);
@@ -431,7 +448,7 @@ body {
 // ------------------------------------------------------------
 
 .book-toc {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.8rem;
   border-left: 1px solid var(--border-light);
   padding-left: 1.2rem;
@@ -481,7 +498,7 @@ body {
 .book-header {
   background-color: var(--bg-main);
   border-bottom: 1px solid var(--border-light);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
   label {
     color: var(--text-secondary);
@@ -497,7 +514,7 @@ body {
   border: 1px solid var(--border-medium);
   border-radius: 4px;
   color: var(--text-primary);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.875rem;
   padding: 0.4rem 0.7rem;
   transition: border-color 0.15s;
@@ -522,27 +539,27 @@ body {
   padding: 1rem 1.2rem;
   margin: 1.6rem 0;
   border-left: 3px solid;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.925rem;
 
   p:last-child { margin-bottom: 0; }
 
   &.info {
-    background-color: #eaf0fb;
-    border-left-color: #3b6ccf;
-    color: #1a2f6a;
+    background-color: #eef2ff;
+    border-left-color: #4338ca;
+    color: #1e1b4b;
   }
 
   &.warning {
-    background-color: #fef6e4;
-    border-left-color: #d48a0c;
-    color: #5c3a00;
+    background-color: #fffbeb;
+    border-left-color: #d97706;
+    color: #78350f;
   }
 
   &.danger {
-    background-color: #fdecea;
-    border-left-color: #c0392b;
-    color: #5c1010;
+    background-color: #fef2f2;
+    border-left-color: #dc2626;
+    color: #7f1d1d;
   }
 }
 
@@ -551,7 +568,7 @@ body {
 // ------------------------------------------------------------
 
 .book-footer {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-light);
@@ -567,7 +584,7 @@ body {
   border-top: 1px solid var(--border-light);
 
   a {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--text-secondary);
@@ -587,12 +604,12 @@ body {
 // ------------------------------------------------------------
 
 .qcm-wrap {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 2.5rem 0;
   padding: 1.5rem 1.75rem;
-  border: 1px solid var(--border-light, #ddd9d3);
+  border: 1px solid var(--border-light, #e7e5e4);
   border-radius: 6px;
-  background: var(--bg-main, #f7f5f2);
+  background: var(--bg-main, #fafaf9);
 }
 
 /* Header */
@@ -606,7 +623,7 @@ body {
 .qcm-icon-svg {
   width: 15px;
   height: 15px;
-  color: var(--accent, #b8621a);
+  color: var(--accent, #4338ca);
   flex-shrink: 0;
 }
 
@@ -615,13 +632,13 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--accent, #b8621a);
+  color: var(--accent, #4338ca);
 }
 
 /* Progress bar */
 .qcm-progress-bar {
   height: 2px;
-  background: var(--border-light, #ddd9d3);
+  background: var(--border-light, #e7e5e4);
   border-radius: 2px;
   margin-bottom: 1.5rem;
   overflow: hidden;
@@ -630,7 +647,7 @@ body {
 .qcm-progress-fill {
   height: 100%;
   width: 0%;
-  background: var(--accent, #b8621a);
+  background: var(--accent, #4338ca);
   border-radius: 2px;
   transition: width .35s ease;
 }
@@ -638,18 +655,18 @@ body {
 /* Counter & question */
 .qcm-counter {
   font-size: 0.78rem;
-  color: var(--text-muted, #9a9590);
+  color: var(--text-muted, #a8a29e);
   margin-bottom: .5rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .qcm-question {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.55;
   margin-bottom: 1.1rem;
-  color: var(--text-primary, #1c1a18);
+  color: var(--text-primary, #0c0a09);
 }
 
 /* Answers */
@@ -665,7 +682,7 @@ body {
   align-items: flex-start;
   gap: 10px;
   padding: .6rem .9rem;
-  border: 1px solid var(--border-light, #ddd9d3);
+  border: 1px solid var(--border-light, #e7e5e4);
   border-radius: 4px;
   cursor: pointer;
   transition: border-color .15s, background .15s;
@@ -673,13 +690,13 @@ body {
 }
 
 .qcm-answer:hover {
-  border-color: var(--accent, #b8621a);
-  background: var(--accent-light, #f0dece);
+  border-color: var(--accent, #4338ca);
+  background: var(--accent-light, #eef2ff);
 }
 
 .qcm-answer.selected {
-  border-color: var(--accent, #b8621a);
-  background: var(--accent-light, #f0dece);
+  border-color: var(--accent, #4338ca);
+  background: var(--accent-light, #eef2ff);
 }
 
 /* Checkbox — pointer-events none so clicks go to the label */
@@ -689,7 +706,7 @@ body {
   height: 14px;
   flex-shrink: 0;
   pointer-events: none;
-  accent-color: var(--accent, #b8621a);
+  accent-color: var(--accent, #4338ca);
   cursor: pointer;
 }
 
@@ -698,12 +715,12 @@ body {
 .qcm-answer-text {
   font-size: .9rem;
   line-height: 1.55;
-  color: var(--text-primary, #1c1a18);
+  color: var(--text-primary, #0c0a09);
 }
 
 .qcm-explanation {
   font-size: .82rem;
-  color: var(--text-secondary, #5a5650);
+  color: var(--text-secondary, #44403c);
   margin-top: 5px;
   line-height: 1.55;
   display: none;
@@ -712,16 +729,16 @@ body {
 
 /* Verified states */
 .qcm-answer.qcm-correct {
-  border-color: #7aab5e !important;
-  background: #eef6e9 !important;
+  border-color: #059669 !important;
+  background: #ecfdf5 !important;
 }
 .qcm-answer.qcm-wrong {
-  border-color: #c0392b !important;
-  background: #fdecea !important;
+  border-color: #dc2626 !important;
+  background: #fef2f2 !important;
 }
 .qcm-answer.qcm-missed {
-  border-color: #d48a0c !important;
-  background: #fef6e4 !important;
+  border-color: #d97706 !important;
+  background: #fffbeb !important;
 }
 
 .qcm-result-icon {
@@ -740,34 +757,34 @@ body {
 
 .qcm-btn {
   padding: .4rem 1.1rem;
-  border: 1px solid var(--border-medium, #c8c4be);
+  border: 1px solid var(--border-medium, #d6d3d1);
   border-radius: 4px;
   background: transparent;
   font-size: .875rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 500;
-  color: var(--text-secondary, #5a5650);
+  color: var(--text-secondary, #44403c);
   cursor: pointer;
   transition: background .15s, color .15s, border-color .15s, transform .1s;
 }
 
 .qcm-btn:hover {
-  background: var(--bg-code, #eceae6);
-  border-color: var(--border-medium, #c8c4be);
-  color: var(--text-primary, #1c1a18);
+  background: var(--bg-code, #f4f4f3);
+  border-color: var(--border-medium, #d6d3d1);
+  color: var(--text-primary, #0c0a09);
 }
 
 .qcm-btn:active  { transform: scale(.98); }
 .qcm-btn:disabled { opacity: .35; cursor: default; }
 
 .qcm-btn.qcm-primary {
-  background: var(--accent, #b8621a);
+  background: var(--accent, #4338ca);
   color: #fff;
   border-color: transparent;
 }
 
 .qcm-btn.qcm-primary:hover {
-  background: var(--text-primary, #1c1a18);
+  background: var(--text-primary, #0c0a09);
   color: #fff;
 }
 
@@ -775,52 +792,52 @@ body {
 .qcm-score {
   text-align: center;
   padding: 2rem 1rem;
-  border: 1px solid var(--border-light, #ddd9d3);
+  border: 1px solid var(--border-light, #e7e5e4);
   border-radius: 4px;
 }
 
 .qcm-score-num {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 3rem;
   font-weight: 500;
   line-height: 1;
-  color: var(--accent, #b8621a);
+  color: var(--accent, #4338ca);
 }
 
 .qcm-score-sub {
   font-size: .85rem;
-  color: var(--text-muted, #9a9590);
+  color: var(--text-muted, #a8a29e);
   margin-top: .35rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .qcm-score-msg {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: .95rem;
   font-style: italic;
-  color: var(--text-secondary, #5a5650);
+  color: var(--text-secondary, #44403c);
   margin-top: 1rem;
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .qcm-wrap {
-    border-color: var(--border-light, #2e2c28);
-    background: var(--bg-main, #1a1917);
+    border-color: var(--border-light, #292524);
+    background: var(--bg-main, #0c0a09);
   }
   .qcm-answer {
-    border-color: var(--border-light, #2e2c28);
+    border-color: var(--border-light, #292524);
   }
   .qcm-answer:hover,
   .qcm-answer.selected {
-    border-color: var(--accent, #d4824a);
-    background: var(--accent-light, #2a1f14);
+    border-color: var(--accent, #818cf8);
+    background: var(--accent-light, #1e1b4b);
   }
-  .qcm-answer.qcm-correct { background: #132010 !important; border-color: #4a8a35 !important; }
-  .qcm-answer.qcm-wrong   { background: #1e0a0a !important; border-color: #a03020 !important; }
-  .qcm-answer.qcm-missed  { background: #201500 !important; border-color: #a06a00 !important; }
-  .qcm-progress-bar { background: var(--border-light, #2e2c28); }
-  .qcm-score { border-color: var(--border-light, #2e2c28); }
+  .qcm-answer.qcm-correct { background: #022c1c !important; border-color: #047857 !important; }
+  .qcm-answer.qcm-wrong   { background: #2a0a0a !important; border-color: #b91c1c !important; }
+  .qcm-answer.qcm-missed  { background: #2a1500 !important; border-color: #b45309 !important; }
+  .qcm-progress-bar { background: var(--border-light, #292524); }
+  .qcm-score { border-color: var(--border-light, #292524); }
 }
 
 // ------------------------------------------------------------
@@ -828,12 +845,12 @@ body {
 // ------------------------------------------------------------
 
 .faq-links {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 2.5rem 0;
   padding: 1.25rem 1.5rem;
-  border: 1px solid var(--border-light, #ddd9d3);
+  border: 1px solid var(--border-light, #e7e5e4);
   border-radius: 6px;
-  background: var(--bg-main, #f7f5f2);
+  background: var(--bg-main, #fafaf9);
 }
 
 .faq-links-header {
@@ -842,13 +859,13 @@ body {
   gap: 8px;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-light, #ddd9d3);
+  border-bottom: 1px solid var(--border-light, #e7e5e4);
 }
 
 .faq-links-icon {
   width: 14px;
   height: 14px;
-  color: var(--accent, #b8621a);
+  color: var(--accent, #4338ca);
   flex-shrink: 0;
 }
 
@@ -857,7 +874,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--accent, #b8621a);
+  color: var(--accent, #4338ca);
 }
 
 .faq-links .faq-links-list {
@@ -881,19 +898,19 @@ body {
   padding: 0.45rem 0.6rem;
   border-radius: 4px;
   font-size: 0.9rem;
-  color: var(--text-secondary, #5a5650);
+  color: var(--text-secondary, #44403c);
   text-decoration: none;
   border: none;
   transition: background 0.15s, color 0.15s;
 
   &:hover {
-    background: var(--accent-light, #f0dece);
-    color: var(--accent, #b8621a);
+    background: var(--accent-light, #eef2ff);
+    color: var(--accent, #4338ca);
     text-decoration: none;
     border: none;
 
     .faq-links-arrow {
-      color: var(--accent, #b8621a);
+      color: var(--accent, #4338ca);
       transform: translateX(2px);
     }
   }
@@ -903,7 +920,7 @@ body {
   width: 13px;
   height: 13px;
   flex-shrink: 0;
-  color: var(--text-muted, #9a9590);
+  color: var(--text-muted, #a8a29e);
   transition: transform 0.15s, color 0.15s;
 }
 
@@ -934,7 +951,7 @@ body {
   flex-wrap: wrap;
   gap: 4px;
   margin-top: 1.5rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .faq-pg-btn {
@@ -943,7 +960,7 @@ body {
   border-radius: 4px;
   background: transparent;
   font-size: 0.85rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 400;
   color: var(--text-secondary);
   cursor: pointer;
@@ -976,32 +993,33 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-main:       #1a1917;
-    --bg-code:       #252320;
-    --bg-blockquote: #22201d;
+    --bg-main:       #0c0a09;
+    --bg-code:       #1c1917;
+    --bg-blockquote: #1c1917;
 
-    --text-primary:   #e8e4de;
-    --text-secondary: #a09a92;
-    --text-muted:     #666058;
-    --text-sidebar:   #c8c2ba;
+    --text-primary:   #fafaf9;
+    --text-secondary: #d6d3d1;
+    --text-muted:     #78716c;
+    --text-sidebar:   #e7e5e4;
 
-    --accent:         #d4824a;
-    --accent-light:   #2a1f14;
-    --accent-subtle:  #3a2818;
+    --accent:         #818cf8;
+    --accent-hover:   #a5b4fc;
+    --accent-light:   #1e1b4b;
+    --accent-subtle:  #312e81;
 
-    --border-light:   #2e2c28;
-    --border-medium:  #403c38;
+    --border-light:   #292524;
+    --border-medium:  #44403c;
   }
 
   .markdown pre {
-    background-color: #111009;
-    border-color: #2a2820;
+    background-color: #000000;
+    border-color: #1c1917;
   }
 
   .book-hint {
-    &.info    { background-color: #131c2e; color: #8aaaf0; }
-    &.warning { background-color: #201900; color: #d4a84a; }
-    &.danger  { background-color: #1e0a0a; color: #e07070; }
+    &.info    { background-color: #1e1b4b; color: #c7d2fe; }
+    &.warning { background-color: #1c1207; color: #fcd34d; }
+    &.danger  { background-color: #1c0606; color: #fca5a5; }
   }
 }
 
