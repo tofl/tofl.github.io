@@ -486,6 +486,7 @@ body {
 // 15. HEADER / TOP BAR
 // ------------------------------------------------------------
 
+// Mobile-only header (kept from theme — only shown on small viewports)
 .book-header {
   background-color: var(--bg-main);
   border-bottom: 1px solid var(--border-light);
@@ -494,6 +495,85 @@ body {
   label {
     color: var(--text-secondary);
   }
+}
+
+// Global horizontal site header — full width, sticky at top
+$site-header-height: 56px;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-light);
+  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+}
+
+.site-header-inner {
+  max-width: 90rem;           // matches the theme's $container-max-width
+  margin: 0 auto;
+  height: $site-header-height;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+// Theme sets `a { flex: auto }` globally — neutralize on header links
+.site-header-brand,
+.site-header-link {
+  flex: 0 0 auto;
+}
+
+.site-header-brand {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.015em;
+  transition: color 0.15s ease;
+
+  &:visited { color: var(--text-primary); }
+
+  &:hover {
+    color: var(--accent);
+    border: none;
+  }
+}
+
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-header-link {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: none;
+  transition: color 0.15s ease;
+
+  &:visited { color: var(--text-secondary); }
+
+  &:hover {
+    color: var(--accent);
+    border: none;
+  }
+}
+
+// Push the theme's fixed sidebar + TOC down so they don't overlap the header
+.book-menu .book-menu-content,
+.book-toc .book-toc-content {
+  top: $site-header-height;
+}
+
+@media (max-width: 768px) {
+  .site-header-inner { padding: 0 1rem; }
+  .site-header-brand { font-size: 1rem; }
 }
 
 // ------------------------------------------------------------

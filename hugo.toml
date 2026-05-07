@@ -2,6 +2,7 @@ baseURL = 'https://cloudnugget.dev/'
 locale = 'en-us'
 title = 'CloudNugget'
 theme = 'hugo-book'
+copyright = '© 2026'
 
 [params]
     BookFavicon = "favicon.png"

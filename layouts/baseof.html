@@ -7,6 +7,19 @@
 <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}">
 <input type="checkbox" class="hidden toggle" id="menu-control" />
 <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a class="site-header-brand" href="{{ .Site.Home.RelPermalink }}">
+            <span>{{ .Site.Title }}</span>
+        </a>
+        <nav class="site-header-nav" aria-label="Primary">
+            <a class="site-header-link" href="{{ "/docs/1-cloud-iam-encryption-foundations/iam-identity-access-management/" | relURL }}">Learn for Free</a>
+            <a class="site-header-link" href="{{ "/faq/" | relURL }}">AWS Articles & FAQ</a>
+        </nav>
+    </div>
+</header>
+
 <main class="container flex">
     {{ template "menu-container" . }} <!-- Left menu -->
 
