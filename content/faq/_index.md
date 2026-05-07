@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: "Free AWS resources and FAQ"
 ---
 
 # AWS Certified Developer Associate – Frequently Asked Questions
