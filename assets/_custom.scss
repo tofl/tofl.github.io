@@ -27,12 +27,12 @@
   --text-muted:     #9b9690;
   --text-sidebar:   #292524;
 
-  // Accent — deep indigo: the "focus / study" color
-  // Distinct from Claude amber and AWS orange. Evokes concentration.
-  --accent:         #4338ca;
-  --accent-hover:   #312e81;
-  --accent-light:   #eef2ff;
-  --accent-subtle:  #c7d2fe;
+  // Accent — confident pure blue, classic ink-on-paper pairing
+  // Saturated (not washed out), no violet undertone.
+  --accent:         #1d4ed8;
+  --accent-hover:   #1e3a8a;
+  --accent-light:   #eff6ff;
+  --accent-subtle:  #bfdbfe;
 
   // Borders & dividers
   --border-light:   #d6d2cb;
@@ -536,9 +536,9 @@ body {
   p:last-child { margin-bottom: 0; }
 
   &.info {
-    background-color: #eef2ff;
-    border-left-color: #4338ca;
-    color: #1e1b4b;
+    background-color: #eff6ff;
+    border-left-color: #1d4ed8;
+    color: #1e3a8a;
   }
 
   &.warning {
@@ -614,7 +614,7 @@ body {
 .qcm-icon-svg {
   width: 15px;
   height: 15px;
-  color: var(--accent, #4338ca);
+  color: var(--accent, #1d4ed8);
   flex-shrink: 0;
 }
 
@@ -623,7 +623,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--accent, #4338ca);
+  color: var(--accent, #1d4ed8);
 }
 
 /* Progress bar */
@@ -638,7 +638,7 @@ body {
 .qcm-progress-fill {
   height: 100%;
   width: 0%;
-  background: var(--accent, #4338ca);
+  background: var(--accent, #1d4ed8);
   border-radius: 2px;
   transition: width .35s ease;
 }
@@ -681,13 +681,13 @@ body {
 }
 
 .qcm-answer:hover {
-  border-color: var(--accent, #4338ca);
-  background: var(--accent-light, #eef2ff);
+  border-color: var(--accent, #1d4ed8);
+  background: var(--accent-light, #eff6ff);
 }
 
 .qcm-answer.selected {
-  border-color: var(--accent, #4338ca);
-  background: var(--accent-light, #eef2ff);
+  border-color: var(--accent, #1d4ed8);
+  background: var(--accent-light, #eff6ff);
 }
 
 /* Checkbox — pointer-events none so clicks go to the label */
@@ -697,7 +697,7 @@ body {
   height: 14px;
   flex-shrink: 0;
   pointer-events: none;
-  accent-color: var(--accent, #4338ca);
+  accent-color: var(--accent, #1d4ed8);
   cursor: pointer;
 }
 
@@ -769,7 +769,7 @@ body {
 .qcm-btn:disabled { opacity: .35; cursor: default; }
 
 .qcm-btn.qcm-primary {
-  background: var(--accent, #4338ca);
+  background: var(--accent, #1d4ed8);
   color: #fff;
   border-color: transparent;
 }
@@ -792,7 +792,7 @@ body {
   font-size: 3rem;
   font-weight: 500;
   line-height: 1;
-  color: var(--accent, #4338ca);
+  color: var(--accent, #1d4ed8);
 }
 
 .qcm-score-sub {
@@ -821,8 +821,8 @@ body {
   }
   .qcm-answer:hover,
   .qcm-answer.selected {
-    border-color: var(--accent, #a5b4fc);
-    background: var(--accent-light, #1e1b4b);
+    border-color: var(--accent, #60a5fa);
+    background: var(--accent-light, #1e3a8a);
   }
   .qcm-answer.qcm-correct { background: #022c1c !important; border-color: #047857 !important; }
   .qcm-answer.qcm-wrong   { background: #2a0a0a !important; border-color: #b91c1c !important; }
@@ -856,7 +856,7 @@ body {
 .faq-links-icon {
   width: 14px;
   height: 14px;
-  color: var(--accent, #4338ca);
+  color: var(--accent, #1d4ed8);
   flex-shrink: 0;
 }
 
@@ -865,7 +865,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--accent, #4338ca);
+  color: var(--accent, #1d4ed8);
 }
 
 .faq-links .faq-links-list {
@@ -895,13 +895,13 @@ body {
   transition: background 0.15s, color 0.15s;
 
   &:hover {
-    background: var(--accent-light, #eef2ff);
-    color: var(--accent, #4338ca);
+    background: var(--accent-light, #eff6ff);
+    color: var(--accent, #1d4ed8);
     text-decoration: none;
     border: none;
 
     .faq-links-arrow {
-      color: var(--accent, #4338ca);
+      color: var(--accent, #1d4ed8);
       transform: translateX(2px);
     }
   }
@@ -926,7 +926,7 @@ body {
   }
 
   .faq-links-link:hover {
-    background: var(--accent-light, #1e1b4b);
+    background: var(--accent-light, #1e3a8a);
   }
 }
 
@@ -993,10 +993,10 @@ body {
     --text-muted:     #78716c;
     --text-sidebar:   #e7e5e4;
 
-    --accent:         #a5b4fc;
-    --accent-hover:   #c7d2fe;
-    --accent-light:   #1e1b4b;
-    --accent-subtle:  #312e81;
+    --accent:         #60a5fa;
+    --accent-hover:   #93c5fd;
+    --accent-light:   #1e3a8a;
+    --accent-subtle:  #1e40af;
 
     --border-light:   #44403c;
     --border-medium:  #57534e;
@@ -1008,7 +1008,7 @@ body {
   }
 
   .book-hint {
-    &.info    { background-color: #1e1b4b; color: #c7d2fe; }
+    &.info    { background-color: #1e3a8a; color: #bfdbfe; }
     &.warning { background-color: #1c1207; color: #fcd34d; }
     &.danger  { background-color: #1c0606; color: #fca5a5; }
   }
