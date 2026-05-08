@@ -51,6 +51,9 @@
 </main>
 
 {{ partial "docs/inject/body" . }}
+{{ with resources.Get "js/cookieconsent-config.js" }}
+<script type="module" src="{{ .RelPermalink }}"></script>
+{{ end }}
 </body>
 </html>
 

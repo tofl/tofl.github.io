@@ -1107,3 +1107,51 @@ $site-header-height: 56px;
   .markdown h2 { font-size: 1.25rem; }
   .markdown h3 { font-size: 1.05rem; }
 }
+
+
+// ------------------------------------------------------------
+// 24. COOKIE CONSENT — light + dark adaptive
+// ------------------------------------------------------------
+
+#cc-main {
+  --cc-font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  --cc-font-size: 15px;
+
+  // Light mode (utilise tes tokens)
+  --cc-bg:             #f3f1ec;
+  --cc-primary-color:  #1d4ed8;
+  --cc-btn-primary-bg: #1d4ed8;
+  --cc-btn-primary-color:       #ffffff;
+  --cc-btn-primary-hover-bg:    #1e3a8a;
+  --cc-btn-secondary-bg:        #e9e6df;
+  --cc-btn-secondary-color:     #0c0a09;
+  --cc-btn-secondary-hover-bg:  #d6d2cb;
+  --cc-separator-border-color:  #d6d2cb;
+  --cc-cookie-category-block-bg: #e9e6df;
+  --cc-cookie-category-block-bg-hover: #d6d2cb;
+  --cc-toggle-on-bg:   #1d4ed8;
+  --cc-toggle-off-bg:  #bcb7af;
+  --cc-overlay-bg:     rgba(12, 10, 9, 0.5);
+  --cc-modal-border-radius: 8px;
+  --cc-btn-border-radius:   6px;
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  #cc-main {
+    --cc-bg:             #1c1917;
+    --cc-primary-color:  #60a5fa;
+    --cc-btn-primary-bg: #60a5fa;
+    --cc-btn-primary-color:       #0c0a09;
+    --cc-btn-primary-hover-bg:    #93c5fd;
+    --cc-btn-secondary-bg:        #292524;
+    --cc-btn-secondary-color:     #f5f5f4;
+    --cc-btn-secondary-hover-bg:  #44403c;
+    --cc-separator-border-color:  #44403c;
+    --cc-cookie-category-block-bg: #292524;
+    --cc-cookie-category-block-bg-hover: #44403c;
+    --cc-toggle-on-bg:   #60a5fa;
+    --cc-toggle-off-bg:  #57534e;
+    --cc-overlay-bg:     rgba(0, 0, 0, 0.6);
+  }
+}
