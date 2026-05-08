@@ -52,8 +52,9 @@
                         onclick="
                             var url = this.href;
                             var timeout = setTimeout(function() { window.location.href = url; }, 1000);
-                            gtag('event', 'click_cta', {
-                                'event_callback': function() {
+                            dataLayer.push({
+                                'event': 'click_cta',
+                                'eventCallback': function() {
                                     clearTimeout(timeout);
                                     window.location.href = url;
                                 }
