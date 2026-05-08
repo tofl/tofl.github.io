@@ -46,11 +46,24 @@
 
                 <div class="hp-cta-row">
                     <a
-                        href="{{ relref . "/docs/1-cloud-iam-encryption-foundations/iam-identity-access-management" }}" class="hp-cta hp-cta--primary" aria-label="Start with IAM, the first section"
-                        onclick="gtag('event', 'click_cta');"
+                        href="{{ relref . "/docs/1-cloud-iam-encryption-foundations/iam-identity-access-management" }}"
+                        class="hp-cta hp-cta--primary"
+                        aria-label="Start with IAM, the first section"
+                        onclick="
+                            var url = this.href;
+                            var timeout = setTimeout(function() { window.location.href = url; }, 1000);
+                            gtag('event', 'click_cta', {
+                                'event_callback': function() {
+                                    clearTimeout(timeout);
+                                    window.location.href = url;
+                                }
+                            });
+                            return false;
+                        "
                     >
                         Start now →
                     </a>
+
                     <a href="#modules" class="hp-cta hp-cta--ghost hide-on-desktop" aria-label="Browse the course modules">
                         Browse the course
                         <svg class="hp-cta-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
