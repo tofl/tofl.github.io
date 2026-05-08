@@ -49,18 +49,7 @@
                         href="{{ relref . "/docs/1-cloud-iam-encryption-foundations/iam-identity-access-management" }}"
                         class="hp-cta hp-cta--primary"
                         aria-label="Start with IAM, the first section"
-                        onclick="
-                            var url = this.href;
-                            var timeout = setTimeout(function() { window.location.href = url; }, 1000);
-                            dataLayer.push({
-                                'event': 'click_cta',
-                                'eventCallback': function() {
-                                    clearTimeout(timeout);
-                                    window.location.href = url;
-                                }
-                            });
-                            return false;
-                        "
+                        id="button-cta"
                     >
                         Start now →
                     </a>
